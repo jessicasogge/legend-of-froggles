@@ -8,5 +8,5 @@ app.get("/health", (_req, res) => {
   res.json({ ok: true });
 });
 
-const port = Number(process.env.PORT) || 3001;
+const port = Number(process.env.PORT) || 3003;
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));

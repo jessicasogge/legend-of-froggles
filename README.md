@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3001.
+Then open http://localhost:3003.
 
 To run the tests:
 
