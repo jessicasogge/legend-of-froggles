@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Legend of Mr. Froggles: A Flying Frog Game for Kids</title>
+    <meta name="description" content="A browser game for kids starring Mr. Froggles, the magical frog who can fly and uses purple enchantments to transform the world around him." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./fonts/fredoka-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Enchantments: the purple swirls from the original drawing -->
+    <div class="enchantments" aria-hidden="true">
+      <!-- Stretches to fill any screen shape; the lines keep their thickness
+           (see styles.css), and each dot is a zero-length line with a round
+           end, so it stays round however the picture is stretched. -->
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <path d="M60 120 C20 220 30 330 90 400" />
+        <path d="M150 50 C230 25 300 30 360 70" />
+        <path d="M940 120 C980 220 970 330 910 400" />
+        <path d="M850 50 C770 25 700 30 640 70" />
+        <path d="M60 880 C140 820 220 900 320 850" />
+        <path d="M940 880 C860 820 780 900 680 850" />
+        <path d="M30 600 l25 15" />
+        <path d="M970 600 l-25 15" />
+        <path class="dot" d="M130 220 l0 0" />
+        <path class="dot" d="M870 220 l0 0" />
+        <path class="dot" d="M250 960 l0 0" />
+        <path class="dot" d="M750 960 l0 0" />
+        <path class="dot" d="M500 30 l0 0" />
+      </svg>
+    </div>
+
+    <main class="title-screen">
+      <img class="froggles" src="./mr-froggles.svg" width="200" height="260" alt="Mr. Froggles, a smiling green frog with bowtie wings" />
+
+      <h1 class="logo">The Legend of Mr. Froggles</h1>
+      <p class="tagline">This is the legend of the flying frog that is magical and it can fly.</p>
+      <p class="coming-soon">Coming soon</p>
+    </main>
+
+    <footer class="signature">jsogge 2026</footer>
+  </body>
+</html>
