@@ -2,9 +2,11 @@
 
 > This is the legend of the flying frog that is magical and it can fly.
 
+A game based on an original drawing by Caitlin Sogge.
+
 A browser game for kids starring Mr. Froggles, a magical frog who flies on bowtie wings and uses purple enchantments to transform the world around him. Aimed at young readers, a step up from [Build a Rainbow](https://github.com/jessicasogge/build-a-rainbow).
 
-For now there's just the opening screen: Mr. Froggles, the legend, and a "Coming soon" note.
+For now there's just the opening screen: Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" note.
 
 ## Running it locally
 

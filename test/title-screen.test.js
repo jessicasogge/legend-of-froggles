@@ -29,6 +29,12 @@ describe('title screen', () => {
     );
   });
 
+  it('credits the original drawing the game is based on', () => {
+    expect(document.querySelector('.credit').textContent).toBe(
+      'A game based on an original drawing by Caitlin Sogge',
+    );
+  });
+
   it('says the game is coming soon, with no Play button yet', () => {
     expect(document.querySelector('.coming-soon').textContent).toBe('Coming soon');
     expect(document.querySelector('a.button, button')).toBeNull();
