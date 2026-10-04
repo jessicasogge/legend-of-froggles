@@ -35,9 +35,11 @@ describe('title screen', () => {
     );
   });
 
-  it('says the game is coming soon, with no Play button yet', () => {
-    expect(document.querySelector('.coming-soon').textContent).toBe('Coming soon');
-    expect(document.querySelector('a.button, button')).toBeNull();
+  it('says the game is coming soon, and Coming soon goes to the next screen', () => {
+    const link = document.querySelector('a.coming-soon');
+    expect(link.textContent).toBe('Coming soon');
+    expect(link.getAttribute('href')).toBe('./next.html');
+    expect(existsSync(file('next.html'))).toBe(true);
   });
 
   it('keeps the enchantments out of the way of screen readers', () => {
