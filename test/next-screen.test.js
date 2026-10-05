@@ -63,6 +63,13 @@ describe('pick a kingdom', () => {
     expect(existsSync(join(process.cwd(), 'public', 'moon-cave.html'))).toBe(true);
   });
 
+  it('takes Cloud Kingdom to its own screen', () => {
+    const clouds = kingdoms()[2];
+    expect(clouds.tagName).toBe('A');
+    expect(clouds.getAttribute('href')).toBe('./cloud-kingdom.html');
+    expect(existsSync(join(process.cwd(), 'public', 'cloud-kingdom.html'))).toBe(true);
+  });
+
   it('gives each kingdom its own color, dark enough for white text', () => {
     const colorOf = (cls) => {
       const hex = css.match(new RegExp(`\\.${cls} \\{ background: (#[0-9a-f]{6}|var\\(--enchantment\\)); \\}`))?.[1];

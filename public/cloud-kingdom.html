@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cloud Kingdom: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles flies to the Cloud Kingdom, a little castle sitting on a big fluffy cloud high in the sky." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/cloud-kingdom.html" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="day">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        Back
+      </a>
+
+      <h1>Cloud Kingdom</h1>
+
+      <!-- The Cloud Kingdom, drawn big, with Mr. Froggles flying beside the
+           castle. Same marker style as the kingdom picture on the previous
+           screen. On small or short screens the edges are trimmed (slice),
+           keeping the castle and Mr. Froggles near the middle.
+           Each cloud is drawn twice: once with outlines, then again without,
+           so only its outside edge shows. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom">
+        <rect width="1200" height="700" fill="#BFE6FF" />
+        <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Sun -->
+          <circle cx="1000" cy="100" r="52" fill="#FFD23F" />
+          <path d="M1000 30 V12 M1000 170 V188 M930 100 H912 M1070 100 H1088 M950 50 l-12 -12 M1050 50 l12 -12 M950 150 l-12 12 M1050 150 l12 12" fill="none" stroke-width="7" />
+          <!-- Birds -->
+          <path d="M430 110 q14 -16 28 0 q14 -16 28 0 M500 60 q11 -12 22 0 q11 -12 22 0" fill="none" stroke-width="6" />
+
+          <!-- Small cloud, top left -->
+          <g fill="#FFFFFF">
+            <circle cx="170" cy="150" r="40" /><circle cx="225" cy="128" r="52" /><circle cx="285" cy="155" r="38" />
+            <rect x="150" y="150" width="150" height="40" rx="20" />
+          </g>
+          <g fill="#FFFFFF" stroke="none">
+            <circle cx="170" cy="150" r="36" /><circle cx="225" cy="128" r="48" /><circle cx="285" cy="155" r="34" />
+            <rect x="154" y="154" width="142" height="32" rx="16" />
+          </g>
+
+          <!-- Castle -->
+          <rect x="690" y="200" width="80" height="110" fill="#F4E9FF" />
+          <rect x="620" y="300" width="220" height="240" fill="#F4E9FF" />
+          <rect x="570" y="230" width="80" height="310" fill="#F4E9FF" />
+          <rect x="810" y="230" width="80" height="310" fill="#F4E9FF" />
+          <path d="M558 230 L610 138 L662 230 Z M798 230 L850 138 L902 230 Z M678 200 L730 108 L782 200 Z" fill="#7B4CC2" />
+          <path d="M730 108 V64 l42 15 l-42 15" fill="#FF8FB1" />
+          <circle cx="610" cy="300" r="13" fill="#1F1A24" stroke="none" />
+          <circle cx="850" cy="300" r="13" fill="#1F1A24" stroke="none" />
+          <rect x="716" y="236" width="28" height="40" rx="14" fill="#FFD23F" />
+          <path d="M690 540 V472 a40 40 0 0 1 80 0 V540" fill="#7B4CC2" />
+
+          <!-- Big fluffy cloud the castle sits on -->
+          <g fill="#FFFFFF">
+            <circle cx="470" cy="610" r="90" /><circle cx="600" cy="545" r="105" /><circle cx="760" cy="540" r="115" />
+            <circle cx="910" cy="580" r="100" /><circle cx="1030" cy="635" r="80" />
+          </g>
+          <g fill="#FFFFFF" stroke="none">
+            <circle cx="470" cy="610" r="86" /><circle cx="600" cy="545" r="101" /><circle cx="760" cy="540" r="111" />
+            <circle cx="910" cy="580" r="96" /><circle cx="1030" cy="635" r="76" />
+            <!-- Fills the middle down to the bottom edge -->
+            <rect x="470" y="580" width="560" height="140" />
+          </g>
+
+          <!-- Little cloud, bottom left -->
+          <g fill="#FFFFFF">
+            <circle cx="120" cy="660" r="70" /><circle cx="240" cy="690" r="60" />
+          </g>
+          <g fill="#FFFFFF" stroke="none">
+            <circle cx="120" cy="660" r="66" /><circle cx="240" cy="690" r="56" />
+          </g>
+
+          <!-- Enchantment trail behind Mr. Froggles -->
+          <path d="M40 470 C100 400 150 470 210 410 C250 370 270 350 290 330" fill="none" stroke="#5B2A9E" stroke-width="7" />
+          <path d="M70 560 C130 500 180 550 240 480" fill="none" stroke="#5B2A9E" stroke-width="7" />
+          <circle cx="60" cy="400" r="7" fill="#5B2A9E" stroke="none" />
+          <circle cx="150" cy="560" r="7" fill="#5B2A9E" stroke="none" />
+        </g>
+        <!-- Mr. Froggles, flying -->
+        <image class="froggles-flying" href="./mr-froggles.svg" x="290" y="110" width="250" height="325" />
+      </svg>
+    </main>
+  </body>
+</html>
