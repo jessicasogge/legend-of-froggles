@@ -13,8 +13,9 @@
     <main class="next-screen">
       <h1>Where will Mr. Froggles fly?</h1>
 
-      <!-- The four kingdoms, all open from the start. Moon Cave has its
-           screen; the others don't lead anywhere yet, so they stay buttons. -->
+      <!-- The four kingdoms, all open from the start. Cloud Kingdom and Moon
+           Cave have their screens, so they're links; the others don't lead
+           anywhere yet, so they stay buttons. -->
       <ul class="kingdoms">
         <li>
           <button type="button" class="kingdom kingdom-pond">
@@ -29,10 +30,10 @@
           </button>
         </li>
         <li>
-          <button type="button" class="kingdom kingdom-clouds">
+          <a class="kingdom kingdom-clouds" href="./cloud-kingdom.html">
             <img class="kingdom-art" src="./kingdoms/cloud-kingdom.svg" alt="" width="200" height="140" />
             <span class="kingdom-name">Cloud Kingdom</span>
-          </button>
+          </a>
         </li>
         <li>
           <a class="kingdom kingdom-moon" href="./moon-cave.html">
