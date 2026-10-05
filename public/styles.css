@@ -268,6 +268,102 @@ body.scrolls {
 .kingdom-clouds { background: #2f5fb8; }
 .kingdom-moon { background: var(--enchantment); }
 
+/* A kingdom that has its screen is a link; it looks the same as the rest. */
+a.kingdom {
+  text-decoration: none;
+}
+
+/* ---- Kingdom screens ---- */
+
+body.night {
+  background: #2b1f4a;
+  color: #fff;
+  overflow: auto;
+}
+
+.kingdom-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem 2rem;
+}
+
+.kingdom-screen h1 {
+  margin: 0;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: #fff1a8;
+}
+
+/* Back sits in the top-left corner. */
+.back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  padding: 0 1.25rem 0 0.9rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff1a8;
+  color: var(--ink);
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: 1.25rem;
+  text-decoration: none;
+  box-shadow: 0 5px 0 var(--ink);
+}
+
+.back svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.back:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.back:focus-visible {
+  outline: 4px solid #fff1a8;
+  outline-offset: 4px;
+}
+
+.scene {
+  display: block;
+  width: min(1100px, 100%);
+  height: auto;
+  aspect-ratio: 12 / 7;
+  max-height: calc(100dvh - 190px);
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  background: #2b1f4a;
+}
+
+/* On phones the scene is square, so it's big enough to see. */
+@media (max-width: 600px) {
+  .scene {
+    aspect-ratio: 1;
+  }
+}
+
+/* Mr. Froggles bobs in the air, the same as on the opening screen. */
+.froggles-flying {
+  animation: hover 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .froggles-flying {
+    animation: none;
+  }
+}
+
 .signature {
   position: relative;
   padding: 1rem;

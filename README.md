@@ -6,7 +6,7 @@ A game based on an original drawing by Caitlin Sogge.
 
 A browser game for kids starring Mr. Froggles, a magical frog who flies on bowtie wings and uses purple enchantments to transform the world around him. Aimed at young readers, a step up from [Build a Rainbow](https://github.com/jessicasogge/build-a-rainbow).
 
-For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button) and a next screen where you pick one of four kingdoms.
+For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button), a next screen where you pick one of four kingdoms, and a screen for the Moon Cave.
 
 ## Running it locally
 
@@ -28,7 +28,8 @@ npm test
 ## How the code is organized
 
 - `public/index.html`: the opening screen.
-- `public/next.html`: the screen Coming soon leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). The choices don't lead anywhere yet.
+- `public/next.html`: the screen Coming soon leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). Only Moon Cave leads anywhere so far.
+- `public/moon-cave.html`: the Moon Cave, with Mr. Froggles flying by, and a Back button to the kingdom picker.
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
 - `public/kingdoms/`: a picture of each kingdom, in the same marker-drawing style.
 - `public/styles.css`: one stylesheet.
