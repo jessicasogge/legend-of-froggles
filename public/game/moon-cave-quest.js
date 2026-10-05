@@ -7,16 +7,8 @@ export const LINES = {
   done: 'My light is back on! Thank you, Mr. Froggles!',
 };
 
+export const ENCHANT = 'Enchant the cave';
+
 export const LEGEND_LINE = 'The flying frog enchanted the dark Moon Cave, and it glowed so Flicker could find her way home.';
 
-export const START = 'waiting';
-
-const NEXT = {
-  waiting: { talk: 'asked' },
-  asked: { enchant: 'done' },
-  done: { again: 'waiting' },
-};
-
-export function next(step, action) {
-  return NEXT[step]?.[action] ?? step;
-}
+export { START, next } from './quest.js';
