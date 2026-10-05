@@ -165,17 +165,56 @@ body {
 .next-screen {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   padding: 2rem 1rem;
+  text-align: center;
 }
 
 .next-screen h1 {
   margin: 0;
   font-family: Fredoka, system-ui, sans-serif;
   font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
   color: var(--froggles-dark);
+  text-wrap: balance;
 }
+
+/* The four kingdoms, two by two. */
+.kingdoms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(640px, 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kingdom {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 0;
+  border-radius: 24px;
+  color: #fff;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  cursor: pointer;
+}
+
+.kingdom:focus-visible {
+  outline: 4px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* Dark enough for white text in every one. */
+.kingdom-pond { background: #1f7a4c; }
+.kingdom-woods { background: #4a5d23; }
+.kingdom-clouds { background: #2f5fb8; }
+.kingdom-moon { background: var(--enchantment); }
 
 .signature {
   position: relative;
