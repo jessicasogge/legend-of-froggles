@@ -6,7 +6,7 @@ A game based on an original drawing by Caitlin Sogge.
 
 A browser game for kids starring Mr. Froggles, a magical frog who flies on bowtie wings and uses purple enchantments to transform the world around him. Aimed at young readers, a step up from [Build a Rainbow](https://github.com/jessicasogge/build-a-rainbow).
 
-For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button), a next screen where you pick one of four kingdoms, and a screen for each kingdom.
+For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button), a next screen where you pick one of four kingdoms, and a screen for each kingdom. The Moon Cave has the first quest.
 
 ## Running it locally
 
@@ -32,7 +32,9 @@ npm test
 - `public/home-pond.html`: the Home Pond, lily pads, a water lily, cattails and tadpoles with Mr. Froggles flying over, and a Back button to the kingdom picker.
 - `public/whispering-woods.html`: the Whispering Woods, round trees and spotted mushrooms with Mr. Froggles flying through, and a Back button to the kingdom picker.
 - `public/cloud-kingdom.html`: the Cloud Kingdom, a castle on a cloud with Mr. Froggles flying by, and a Back button to the kingdom picker.
-- `public/moon-cave.html`: the Moon Cave, with Mr. Froggles flying by, and a Back button to the kingdom picker.
+- `public/moon-cave.html`: the Moon Cave, with Mr. Froggles flying by, a Back button to the kingdom picker, and the first quest: Flicker the firefly's light has gone out, so tap her, read what she needs, and enchant the cave to make it glow.
+- `public/game/moon-cave-quest.js`: just the quest's rules (talk, then enchant, then done). It doesn't touch the page, so the tests can play it directly.
+- `public/game/moon-cave-page.js`: draws the quest and handles the taps and keys.
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
 - `public/kingdoms/`: a picture of each kingdom, in the same marker-drawing style.
 - `public/styles.css`: one stylesheet.
