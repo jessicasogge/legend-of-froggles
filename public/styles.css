@@ -289,8 +289,15 @@ body.day {
   --back: #ffd23f;
 }
 
+body.forest {
+  --page: #dcefc4;
+  --title: var(--froggles-dark);
+  --back: #ff8fb1;
+}
+
 body.night,
-body.day {
+body.day,
+body.forest {
   background: var(--page);
   overflow: auto;
 }
