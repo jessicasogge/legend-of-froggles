@@ -6,7 +6,7 @@ A game based on an original drawing by Caitlin Sogge.
 
 A browser game for kids starring Mr. Froggles, a magical frog who flies on bowtie wings and uses purple enchantments to transform the world around him. Aimed at young readers, a step up from [Build a Rainbow](https://github.com/jessicasogge/build-a-rainbow).
 
-For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button), a next screen where you pick one of four kingdoms, and screens for the Cloud Kingdom and the Moon Cave.
+For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a "Coming soon" button), a next screen where you pick one of four kingdoms, and screens for the Whispering Woods, the Cloud Kingdom and the Moon Cave.
 
 ## Running it locally
 
@@ -28,7 +28,8 @@ npm test
 ## How the code is organized
 
 - `public/index.html`: the opening screen.
-- `public/next.html`: the screen Coming soon leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). Cloud Kingdom and Moon Cave have their screens so far.
+- `public/next.html`: the screen Coming soon leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). Whispering Woods, Cloud Kingdom and Moon Cave have their screens so far.
+- `public/whispering-woods.html`: the Whispering Woods, round trees and spotted mushrooms with Mr. Froggles flying through, and a Back button to the kingdom picker.
 - `public/cloud-kingdom.html`: the Cloud Kingdom, a castle on a cloud with Mr. Froggles flying by, and a Back button to the kingdom picker.
 - `public/moon-cave.html`: the Moon Cave, with Mr. Froggles flying by, and a Back button to the kingdom picker.
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
