@@ -16,7 +16,7 @@ function contrastWithWhite(hex) {
   return 1.05 / (0.2126 * r + 0.7152 * g + 0.0722 * b + 0.05);
 }
 
-const kingdoms = () => [...document.querySelectorAll('.kingdoms button.kingdom')];
+const kingdoms = () => [...document.querySelectorAll('.kingdoms .kingdom')];
 
 beforeEach(() => {
   loadPage('next.html');
@@ -46,11 +46,21 @@ describe('pick a kingdom', () => {
   });
 
   it('has every kingdom open, with none locked', () => {
-    for (const b of kingdoms()) expect(b.disabled).toBe(false);
+    for (const b of kingdoms()) expect(b.disabled ?? false).toBe(false);
   });
 
-  it('makes each choice a real button, so it works with a keyboard', () => {
-    for (const b of kingdoms()) expect(b.getAttribute('type')).toBe('button');
+  it('makes each choice a real button or link, so it works with a keyboard', () => {
+    for (const b of kingdoms()) {
+      expect(['BUTTON', 'A']).toContain(b.tagName);
+      if (b.tagName === 'BUTTON') expect(b.getAttribute('type')).toBe('button');
+    }
+  });
+
+  it('takes Moon Cave to its own screen', () => {
+    const moon = kingdoms()[3];
+    expect(moon.tagName).toBe('A');
+    expect(moon.getAttribute('href')).toBe('./moon-cave.html');
+    expect(existsSync(join(process.cwd(), 'public', 'moon-cave.html'))).toBe(true);
   });
 
   it('gives each kingdom its own color, dark enough for white text', () => {

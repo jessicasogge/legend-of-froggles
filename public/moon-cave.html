@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Moon Cave: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles flies to the Moon Cave, a cave under a crescent moon full of glowing mushrooms." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/moon-cave.html" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="night">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        Back
+      </a>
+
+      <h1>Moon Cave</h1>
+
+      <!-- The Moon Cave, drawn big, with Mr. Froggles flying in front of it.
+           Same marker style as the kingdom picture on the previous screen.
+           On small or short screens the edges are trimmed (slice), keeping
+           the cave, Mr. Froggles and the moon near the middle. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying by the Moon Cave under a crescent moon, with glowing mushrooms at the cave mouth">
+        <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Stars -->
+          <path d="M150 90 l12 26 l28 4 l-20 20 l5 28 l-25 -13 l-25 13 l5 -28 l-20 -20 l28 -4 Z" fill="#FFD23F" stroke-width="6" />
+          <path d="M520 60 l8 17 l18 3 l-13 12 l3 18 l-16 -8 l-16 8 l3 -18 l-13 -12 l18 -3 Z" fill="#FFD23F" stroke-width="5" />
+          <circle cx="330" cy="70" r="7" fill="#FFF4DD" stroke="none" />
+          <circle cx="430" cy="150" r="6" fill="#FFF4DD" stroke="none" />
+          <circle cx="680" cy="120" r="7" fill="#FFF4DD" stroke="none" />
+          <circle cx="760" cy="50" r="5" fill="#FFF4DD" stroke="none" />
+          <circle cx="250" cy="190" r="5" fill="#FFF4DD" stroke="none" />
+          <!-- Crescent moon -->
+          <path d="M860 40 a110 110 0 1 0 70 190 a90 90 0 1 1 -70 -190 Z" fill="#FFF1A8" />
+          <!-- Rocky hill with the cave mouth -->
+          <path d="M0 700 V470 Q160 300 380 290 Q560 190 760 300 Q960 340 1200 480 V700 Z" fill="#7A6A9E" />
+          <path d="M260 420 q30 -20 60 0 M840 380 q30 -20 60 0 M1040 500 q25 -16 50 0" fill="none" stroke="#5C4E80" stroke-width="7" />
+          <path d="M440 700 V560 a160 160 0 0 1 320 0 V700" fill="#120C24" />
+          <!-- Glowing mushrooms, with a soft glow behind each -->
+          <circle cx="520" cy="610" r="60" fill="#5EE6D0" opacity="0.25" stroke="none" />
+          <circle cx="650" cy="635" r="46" fill="#B58CFF" opacity="0.25" stroke="none" />
+          <circle cx="920" cy="590" r="56" fill="#5EE6D0" opacity="0.25" stroke="none" />
+          <rect x="505" y="600" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
+          <path d="M466 614 Q520 530 574 614 Z" fill="#5EE6D0" stroke-width="6" />
+          <rect x="638" y="630" width="24" height="44" rx="8" fill="#E6F7FF" stroke-width="6" />
+          <path d="M608 640 Q650 576 692 640 Z" fill="#B58CFF" stroke-width="6" />
+          <rect x="905" y="580" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
+          <path d="M866 594 Q920 510 974 594 Z" fill="#5EE6D0" stroke-width="6" />
+          <!-- Enchantment trail behind Mr. Froggles -->
+          <path d="M60 520 C120 440 160 520 220 450 C260 400 280 380 300 360" fill="none" stroke="#B58CFF" stroke-width="7" />
+          <path d="M90 600 C150 540 200 590 250 520" fill="none" stroke="#B58CFF" stroke-width="7" />
+          <circle cx="70" cy="440" r="7" fill="#B58CFF" stroke="none" />
+          <circle cx="170" cy="610" r="7" fill="#B58CFF" stroke="none" />
+        </g>
+        <!-- Mr. Froggles, flying -->
+        <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="70" width="250" height="325" />
+      </svg>
+    </main>
+  </body>
+</html>
