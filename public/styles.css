@@ -408,13 +408,13 @@ body.pond {
 /* The picture changes with the quest's step, set on the scene as
    data-step="waiting" | "asked" | "done" (game/*-page.js). */
 
-/* Someone who needs help: a "!" that bobs, and a ring when focused. */
-.firefly {
+/* Whoever needs help (.helper): a "!" that bobs, and a ring when focused. */
+.helper {
   cursor: pointer;
   outline: none;
 }
 
-.firefly .alert {
+.helper .alert {
   animation: alert-bob 1.2s ease-in-out infinite;
 }
 
@@ -424,11 +424,11 @@ body.pond {
   }
 }
 
-.scene:not([data-step='waiting']) .firefly .alert {
+.scene:not([data-step='waiting']) .helper .alert {
   display: none;
 }
 
-.firefly:focus-visible .firefly-ring {
+.helper:focus-visible .helper-ring {
   stroke: #fff1a8;
 }
 
@@ -476,8 +476,50 @@ body.pond {
   }
 }
 
+/* A swirl that fades once it's drawn, so it doesn't cover what it made. */
+.scene[data-step='done'] .enchant-swirl.fades {
+  animation: draw-swirl 1.2s ease-out forwards, fade-out 0.6s 1.3s forwards;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Whispering Woods: the little leaf grows into a bridge, then Hazel walks
+   across to her family. */
+.leaf-bridge {
+  opacity: 0;
+  transform: scale(0.15);
+  transform-box: fill-box;
+  transform-origin: 15% 70%;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+.scene[data-step='done'] .leaf-bridge {
+  opacity: 1;
+  transform: none;
+}
+
+.fallen-leaf {
+  transition: opacity 0.4s 0.6s;
+}
+
+.scene[data-step='done'] .fallen-leaf {
+  opacity: 0;
+}
+
+.hazel-walk {
+  transition: transform 1.6s ease-in-out 1.4s;
+}
+
+.scene[data-step='done'] .hazel-walk {
+  transform: translate(330px, 10px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .firefly .alert {
+  .helper .alert {
     animation: none;
   }
 
@@ -486,9 +528,16 @@ body.pond {
     stroke-dashoffset: 0;
   }
 
+  .scene[data-step='done'] .enchant-swirl.fades {
+    opacity: 0;
+  }
+
   .cave-glow,
   .firefly-light,
-  .firefly-glow {
+  .firefly-glow,
+  .leaf-bridge,
+  .fallen-leaf,
+  .hazel-walk {
     transition: none;
   }
 }

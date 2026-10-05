@@ -18,7 +18,7 @@ describe('Whispering Woods screen', () => {
 
   it('shows the woods, described for anyone who cannot see it', () => {
     const scene = document.querySelector('svg.scene');
-    expect(scene.getAttribute('role')).toBe('img');
+    expect(scene.getAttribute('role')).toBe('group');
     expect(scene.getAttribute('aria-label')).toMatch(/Whispering Woods/);
   });
 

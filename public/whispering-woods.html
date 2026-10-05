@@ -21,8 +21,21 @@
       <!-- The Whispering Woods, drawn big, with Mr. Froggles flying between
            the trees. Same marker style as the kingdom picture on the previous
            screen. On small or short screens the edges are trimmed (slice),
-           keeping Mr. Froggles and the middle trees in view. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying through the Whispering Woods, between round trees and spotted mushrooms, with whispers swirling in the air">
+           keeping Mr. Froggles and the middle trees in view.
+           It's a group, not one image, so screen readers can reach Hazel. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying through the Whispering Woods, between round trees and spotted mushrooms, with a stream running through and a little hedgehog on one side">
+        <defs>
+          <g id="hedgehog" stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="-18" cy="24" rx="8" ry="5" fill="#6B4426" />
+            <ellipse cx="10" cy="24" rx="8" ry="5" fill="#6B4426" />
+            <path d="M-44 14 L-48 -4 L-38 -4 L-40 -22 L-28 -16 L-24 -34 L-13 -22 L-4 -38 L4 -24 L14 -34 L16 -18 L26 -22 L22 -4 L30 0 L28 16 Z" fill="#8A5A3B" />
+            <path d="M12 -10 Q44 -6 52 8 Q40 20 12 18 Z" fill="#F4D9B0" />
+            <circle cx="16" cy="-12" r="6" fill="#F4D9B0" />
+            <circle cx="53" cy="8" r="5" fill="#1F1A24" />
+            <circle cx="30" cy="1" r="3.5" fill="#1F1A24" stroke="none" />
+            <circle cx="35" cy="11" r="4" fill="#FF8FB1" stroke="none" />
+          </g>
+        </defs>
         <rect width="1200" height="700" fill="#EAF6D8" />
         <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
           <!-- Far trees, small and pale -->
@@ -31,7 +44,11 @@
 
           <!-- Ground -->
           <path d="M0 700 V470 Q200 420 420 450 T840 440 T1200 460 V700 Z" fill="#7FB653" />
-          <path d="M120 540 q16 -18 32 0 M560 600 q16 -18 32 0 M980 560 q16 -18 32 0" fill="none" stroke="#5E9440" stroke-width="7" />
+          <path d="M120 540 q16 -18 32 0 M980 560 q16 -18 32 0" fill="none" stroke="#5E9440" stroke-width="7" />
+
+          <!-- The stream Hazel can't cross -->
+          <path d="M430 452 C455 540 395 620 420 700 H570 C545 620 600 540 560 450 Z" fill="#4FA3E0" transform="translate(50 0)" />
+          <path d="M470 520 q14 -8 28 0 M450 640 q14 -8 28 0 M500 590 q12 -7 24 0" fill="none" stroke="#FFFFFF" stroke-width="6" transform="translate(50 0)" />
 
           <!-- Big trees: trunk, then a round top -->
           <rect x="90" y="250" width="56" height="280" fill="#8A5A3B" />
@@ -57,13 +74,13 @@
           <circle cx="990" cy="552" r="6" fill="#FFFFFF" stroke="none" />
           <circle cx="1014" cy="545" r="5" fill="#FFFFFF" stroke="none" />
 
-          <rect x="250" y="590" width="22" height="38" rx="7" fill="#FFF4DD" />
-          <path d="M226 596 Q261 546 296 596 Z" fill="#E5383B" />
-          <circle cx="258" cy="580" r="5" fill="#FFFFFF" stroke="none" />
+          <rect x="186" y="590" width="22" height="38" rx="7" fill="#FFF4DD" />
+          <path d="M162 596 Q197 546 232 596 Z" fill="#E5383B" />
+          <circle cx="194" cy="580" r="5" fill="#FFFFFF" stroke="none" />
 
           <!-- Little flowers in the grass -->
-          <circle cx="410" cy="620" r="12" fill="#FFD23F" />
-          <circle cx="820" cy="630" r="12" fill="#FF8FB1" />
+          <circle cx="330" cy="500" r="12" fill="#FFD23F" />
+          <circle cx="1100" cy="650" r="12" fill="#FF8FB1" />
           <circle cx="1120" cy="610" r="12" fill="#FFD23F" />
 
           <!-- Whispers: purple swirls drifting through the air -->
@@ -77,7 +94,54 @@
         </g>
         <!-- Mr. Froggles, flying -->
         <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="90" width="250" height="325" />
+
+        <!-- The little fallen leaf by the stream. Once it's enchanted it's
+             gone, and a big leaf bridge spans the stream instead. -->
+        <g class="fallen-leaf" transform="translate(50 0)" stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M366 668 Q384 650 404 662 Q386 680 366 668 Z" fill="#6FBF4A" />
+          <path d="M370 667 L400 663" fill="none" stroke-width="3" />
+        </g>
+        <g transform="translate(50 0)">
+          <g class="leaf-bridge" stroke="#1F1A24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M340 625 Q500 560 660 622 Q500 680 340 625 Z" fill="#6FBF4A" />
+            <path d="M350 625 L650 622 M420 622 l20 -18 M500 623 l20 -22 M580 622 l20 -18 M440 624 l20 16 M520 624 l20 18" fill="none" stroke="#3E8E41" stroke-width="5" />
+          </g>
+        </g>
+
+        <path class="enchant-swirl fades" transform="translate(50 0)" d="M330 660 C300 560 520 540 640 580 C720 610 690 690 560 690 C440 690 360 680 380 640" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+        <!-- Hazel's family, waiting on the far side -->
+        <use href="#hedgehog" transform="translate(820 640) scale(1.15)" />
+        <use href="#hedgehog" transform="translate(900 655) scale(0.9)" />
+
+        <!-- Hazel the hedgehog, who needs help. Works like a button
+             (quest-page.js). The outer group walks her across at the end. -->
+        <g class="hazel-walk">
+          <g class="helper" role="button" tabindex="0" aria-label="Hazel the hedgehog needs help. Tap to talk." transform="translate(350 625) scale(1.6)">
+            <circle class="helper-ring" r="62" fill="none" stroke="none" stroke-width="4" />
+            <use href="#hedgehog" />
+            <g class="alert">
+              <circle cy="-70" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+              <path d="M0 -80 V-68" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cy="-60" r="2.8" fill="#1F1A24" />
+            </g>
+            <circle r="56" fill="transparent" />
+          </g>
+        </g>
       </svg>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+        <p class="legend-line" hidden></p>
+        <button type="button" class="story-button again" hidden>Play again</button>
+      </section>
     </main>
+
+    <script type="module">
+      import { start } from './game/woods-page.js';
+      start(document);
+    </script>
   </body>
 </html>
