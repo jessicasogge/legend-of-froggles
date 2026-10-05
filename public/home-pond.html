@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Pond: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles flies over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles, where his legend begins." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/home-pond.html" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="pond">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        Back
+      </a>
+
+      <h1>Home Pond</h1>
+
+      <!-- The Home Pond, drawn big, with Mr. Froggles flying over the water.
+           Same marker style as the kingdom picture on the previous screen.
+           On small or short screens the edges are trimmed (slice), keeping
+           Mr. Froggles and the middle of the pond in view. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles">
+        <rect width="1200" height="700" fill="#D9F2FF" />
+        <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Sun -->
+          <circle cx="160" cy="110" r="56" fill="#FFD23F" />
+          <path d="M160 30 V14 M160 190 V206 M80 110 H64 M240 110 H256 M104 54 l-12 -12 M216 54 l12 -12 M104 166 l-12 12 M216 166 l12 12" fill="none" stroke-width="7" />
+          <!-- Little cloud -->
+          <path d="M760 120 a30 30 0 0 1 50 -22 a40 40 0 0 1 72 10 a28 28 0 0 1 8 52 H770 a26 26 0 0 1 -10 -40 Z" fill="#FFFFFF" />
+
+          <!-- Grass -->
+          <path d="M0 700 V400 Q300 370 600 390 T1200 380 V700 Z" fill="#9BD67A" />
+          <path d="M80 470 q14 -16 28 0 M1100 460 q14 -16 28 0 M150 640 q14 -16 28 0 M1060 650 q14 -16 28 0" fill="none" stroke="#6FAE52" stroke-width="7" />
+
+          <!-- The pond -->
+          <ellipse cx="610" cy="560" rx="470" ry="130" fill="#4FA3E0" />
+          <path d="M300 560 q30 -12 60 0 M760 620 q30 -12 60 0 M880 520 q24 -10 48 0 M480 640 q24 -10 48 0" fill="none" stroke="#FFFFFF" stroke-width="7" />
+
+          <!-- Lily pads, each with a notch -->
+          <path d="M420 560 a70 32 0 1 0 22 -32 L420 560 Z" fill="#2E9E5B" />
+          <path d="M720 540 a62 28 0 1 1 -18 -28 L720 540 Z" fill="#2E9E5B" />
+          <path d="M600 630 a44 20 0 1 0 14 -20 L600 630 Z" fill="#3FA06A" />
+
+          <!-- Pink water lily on a pad -->
+          <circle cx="700" cy="500" r="22" fill="#FF8FB1" />
+          <circle cx="740" cy="500" r="22" fill="#FF8FB1" />
+          <circle cx="720" cy="474" r="22" fill="#FF8FB1" />
+          <circle cx="720" cy="498" r="14" fill="#FFD23F" />
+
+          <!-- Tadpoles -->
+          <circle cx="540" cy="600" r="12" fill="#1F1A24" stroke="none" />
+          <path d="M528 604 q-18 10 -36 -2" fill="none" stroke-width="6" />
+          <circle cx="840" cy="580" r="10" fill="#1F1A24" stroke="none" />
+          <path d="M850 584 q16 8 32 -2" fill="none" stroke-width="6" />
+
+          <!-- Cattails -->
+          <path d="M930 460 V250 M970 470 V290 M1010 450 V270" fill="none" stroke="#3B6E2A" />
+          <rect x="914" y="240" width="32" height="80" rx="16" fill="#8A5A3B" />
+          <rect x="954" y="280" width="32" height="74" rx="16" fill="#8A5A3B" />
+          <rect x="994" y="260" width="32" height="78" rx="16" fill="#8A5A3B" />
+
+          <!-- Rock at the water's edge -->
+          <path d="M150 520 Q170 470 230 470 Q290 470 300 520 Z" fill="#B7B0C4" />
+
+          <!-- Enchantment trail behind Mr. Froggles -->
+          <path d="M60 380 C110 320 160 380 210 320 C250 280 270 270 300 260" fill="none" stroke="#5B2A9E" stroke-width="7" />
+          <path d="M90 300 C140 250 180 290 230 230" fill="none" stroke="#5B2A9E" stroke-width="7" />
+          <circle cx="60" cy="300" r="7" fill="#5B2A9E" stroke="none" />
+          <circle cx="270" cy="360" r="7" fill="#5B2A9E" stroke="none" />
+        </g>
+        <!-- Mr. Froggles, flying -->
+        <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="60" width="250" height="325" />
+      </svg>
+    </main>
+  </body>
+</html>

@@ -295,9 +295,16 @@ body.forest {
   --back: #ff8fb1;
 }
 
+body.pond {
+  --page: #d9f2ff;
+  --title: #1d4e7a;
+  --back: #9bd67a;
+}
+
 body.night,
 body.day,
-body.forest {
+body.forest,
+body.pond {
   background: var(--page);
   overflow: auto;
 }

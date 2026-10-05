@@ -63,6 +63,13 @@ describe('pick a kingdom', () => {
     expect(existsSync(join(process.cwd(), 'public', 'moon-cave.html'))).toBe(true);
   });
 
+  it('takes Home Pond to its own screen', () => {
+    const pond = kingdoms()[0];
+    expect(pond.tagName).toBe('A');
+    expect(pond.getAttribute('href')).toBe('./home-pond.html');
+    expect(existsSync(join(process.cwd(), 'public', 'home-pond.html'))).toBe(true);
+  });
+
   it('takes Whispering Woods to its own screen', () => {
     const woods = kingdoms()[1];
     expect(woods.tagName).toBe('A');
