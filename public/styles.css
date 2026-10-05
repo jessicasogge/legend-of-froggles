@@ -162,20 +162,111 @@ body {
 
 /* ---- Next screen ---- */
 
+/* This page can be taller than a short screen, so let it scroll. */
+body.scrolls {
+  overflow: auto;
+}
+
 .next-screen {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2rem;
   padding: 2rem 1rem;
+  text-align: center;
 }
 
 .next-screen h1 {
   margin: 0;
   font-family: Fredoka, system-ui, sans-serif;
   font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
   color: var(--froggles-dark);
+  text-wrap: balance;
 }
+
+/* The four kingdoms, two by two. */
+.kingdoms {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(560px, 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each kingdom fills its grid cell, so a row's cards match in height. */
+.kingdoms li {
+  display: flex;
+}
+
+/* Each kingdom: its picture in a white frame, its name underneath. */
+.kingdom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.75rem 0.75rem 1rem;
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  color: #fff;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  line-height: 1.15;
+  cursor: pointer;
+  box-shadow: 0 6px 0 var(--ink);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.kingdom:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 9px 0 var(--ink);
+}
+
+.kingdom:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.kingdom:focus-visible {
+  outline: 4px solid var(--ink);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kingdom,
+  .kingdom:hover,
+  .kingdom:active {
+    transition: none;
+    transform: none;
+  }
+}
+
+.kingdom-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.kingdom-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: #fff;
+}
+
+/* Dark enough for white text in every one. */
+.kingdom-pond { background: #1f7a4c; }
+.kingdom-woods { background: #4a5d23; }
+.kingdom-clouds { background: #2f5fb8; }
+.kingdom-moon { background: var(--enchantment); }
 
 .signature {
   position: relative;

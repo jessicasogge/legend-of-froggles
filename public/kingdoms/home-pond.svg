@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Home Pond: lily pads, a pink flower, cattails and a tadpole -->
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="#D9F2FF" stroke="none" />
+    <path d="M0 78 Q50 70 100 76 T200 74 V140 H0 Z" fill="#9BD67A" />
+    <ellipse cx="100" cy="104" rx="84" ry="28" fill="#4FA3E0" />
+    <path d="M44 100 q8 -4 16 0 M120 116 q8 -4 16 0 M140 94 q6 -3 12 0" fill="none" stroke="#FFFFFF" stroke-width="3" />
+    <!-- Lily pads, each with a notch -->
+    <path d="M58 106 a18 9 0 1 0 6 -9 L58 106 Z" fill="#2E9E5B" />
+    <path d="M128 98 a16 8 0 1 1 -5 -8 L128 98 Z" fill="#2E9E5B" />
+    <!-- Pink flower on a pad -->
+    <circle cx="124" cy="84" r="7" fill="#FF8FB1" />
+    <circle cx="136" cy="84" r="7" fill="#FF8FB1" />
+    <circle cx="130" cy="76" r="7" fill="#FF8FB1" />
+    <circle cx="130" cy="84" r="4.5" fill="#FFD23F" />
+    <!-- Cattails -->
+    <path d="M176 92 V44 M186 94 V54" fill="none" stroke="#3B6E2A" />
+    <rect x="171" y="40" width="10" height="22" rx="5" fill="#8A5A3B" />
+    <rect x="181" y="50" width="10" height="20" rx="5" fill="#8A5A3B" />
+    <!-- Tadpole -->
+    <circle cx="96" cy="120" r="5" fill="#1F1A24" stroke="none" />
+    <path d="M91 121 q-6 3 -12 -1" fill="none" stroke-width="3" />
+    <!-- Sun -->
+    <circle cx="28" cy="26" r="13" fill="#FFD23F" />
+  </g>
+</svg>
