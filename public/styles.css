@@ -518,6 +518,37 @@ body.pond {
   transform: translate(330px, 10px);
 }
 
+/* Home Pond: the rock becomes a lily pad, then the pad floats Pebble to
+   shore. */
+.pond-rock {
+  transition: opacity 0.4s 0.6s;
+}
+
+.scene[data-step='done'] .pond-rock {
+  opacity: 0;
+}
+
+.new-pad {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+.scene[data-step='done'] .new-pad {
+  opacity: 1;
+  transform: none;
+}
+
+.snail-raft {
+  transition: transform 1.8s ease-in-out 1.5s;
+}
+
+.scene[data-step='done'] .snail-raft {
+  transform: translate(-160px, -150px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .helper .alert {
     animation: none;
@@ -537,7 +568,10 @@ body.pond {
   .firefly-glow,
   .leaf-bridge,
   .fallen-leaf,
-  .hazel-walk {
+  .hazel-walk,
+  .pond-rock,
+  .new-pad,
+  .snail-raft {
     transition: none;
   }
 }
