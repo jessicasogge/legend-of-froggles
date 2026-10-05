@@ -9,16 +9,36 @@
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body class="scrolls">
     <main class="next-screen">
       <h1>Where will Mr. Froggles fly?</h1>
 
       <!-- The four kingdoms. All open from the start; none lead anywhere yet. -->
       <ul class="kingdoms">
-        <li><button type="button" class="kingdom kingdom-pond">Home Pond</button></li>
-        <li><button type="button" class="kingdom kingdom-woods">Whispering Woods</button></li>
-        <li><button type="button" class="kingdom kingdom-clouds">Cloud Kingdom</button></li>
-        <li><button type="button" class="kingdom kingdom-moon">Moon Cave</button></li>
+        <li>
+          <button type="button" class="kingdom kingdom-pond">
+            <img class="kingdom-art" src="./kingdoms/home-pond.svg" alt="" width="200" height="140" />
+            <span class="kingdom-name">Home Pond</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="kingdom kingdom-woods">
+            <img class="kingdom-art" src="./kingdoms/whispering-woods.svg" alt="" width="200" height="140" />
+            <span class="kingdom-name">Whispering Woods</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="kingdom kingdom-clouds">
+            <img class="kingdom-art" src="./kingdoms/cloud-kingdom.svg" alt="" width="200" height="140" />
+            <span class="kingdom-name">Cloud Kingdom</span>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="kingdom kingdom-moon">
+            <img class="kingdom-art" src="./kingdoms/moon-cave.svg" alt="" width="200" height="140" />
+            <span class="kingdom-name">Moon Cave</span>
+          </button>
+        </li>
       </ul>
     </main>
   </body>

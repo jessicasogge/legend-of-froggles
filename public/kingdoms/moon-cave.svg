@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Moon Cave: a cave mouth under a crescent moon, glowing mushrooms -->
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="#2B1F4A" stroke="none" />
+    <!-- Stars -->
+    <path d="M30 22 l3 7 l7 1 l-5 5 l1 7 l-6 -4 l-6 4 l1 -7 l-5 -5 l7 -1 Z" fill="#FFD23F" stroke-width="2.5" />
+    <circle cx="64" cy="14" r="2.5" fill="#FFF4DD" stroke="none" />
+    <circle cx="120" cy="26" r="2.5" fill="#FFF4DD" stroke="none" />
+    <circle cx="96" cy="10" r="2" fill="#FFF4DD" stroke="none" />
+    <!-- Crescent moon -->
+    <path d="M168 12 a22 22 0 1 0 14 38 a18 18 0 1 1 -14 -38 Z" fill="#FFF1A8" />
+    <!-- Rocky hill with the cave mouth -->
+    <path d="M0 140 V96 Q30 62 70 58 Q100 40 136 62 Q170 70 200 98 V140 Z" fill="#7A6A9E" />
+    <path d="M68 140 V112 a32 32 0 0 1 64 0 V140" fill="#120C24" />
+    <!-- Glowing mushrooms, with a soft glow behind each -->
+    <circle cx="89" cy="118" r="14" fill="#5EE6D0" opacity="0.3" stroke="none" />
+    <circle cx="114" cy="122" r="11" fill="#B58CFF" opacity="0.3" stroke="none" />
+    <circle cx="164" cy="114" r="13" fill="#5EE6D0" opacity="0.3" stroke="none" />
+    <rect x="85" y="116" width="8" height="16" rx="3" fill="#E6F7FF" stroke-width="3" />
+    <path d="M76 120 Q89 100 102 120 Z" fill="#5EE6D0" stroke-width="3" />
+    <rect x="111" y="121" width="6" height="12" rx="2" fill="#E6F7FF" stroke-width="3" />
+    <path d="M104 124 Q114 108 124 124 Z" fill="#B58CFF" stroke-width="3" />
+    <rect x="160" y="112" width="8" height="16" rx="3" fill="#E6F7FF" stroke-width="3" />
+    <path d="M151 116 Q164 96 177 116 Z" fill="#5EE6D0" stroke-width="3" />
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 // Checks the screen you reach by pressing Coming soon: pick a kingdom.
 // @vitest-environment jsdom
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { loadPage } from './load-page.js';
@@ -28,7 +28,21 @@ describe('pick a kingdom', () => {
   });
 
   it('offers the four kingdoms, in order', () => {
-    expect(kingdoms().map((b) => b.textContent)).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave']);
+    expect(kingdoms().map((b) => b.textContent.trim())).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave']);
+  });
+
+  it('shows a picture of each kingdom, left out for screen readers since the name says it', () => {
+    const pictures = kingdoms().map((b) => b.querySelector('img.kingdom-art'));
+    expect(pictures.map((img) => img.getAttribute('src'))).toEqual([
+      './kingdoms/home-pond.svg',
+      './kingdoms/whispering-woods.svg',
+      './kingdoms/cloud-kingdom.svg',
+      './kingdoms/moon-cave.svg',
+    ]);
+    for (const img of pictures) {
+      expect(img.getAttribute('alt')).toBe('');
+      expect(existsSync(join(process.cwd(), 'public', img.getAttribute('src')))).toBe(true);
+    }
   });
 
   it('has every kingdom open, with none locked', () => {

@@ -30,6 +30,7 @@ npm test
 - `public/index.html`: the opening screen.
 - `public/next.html`: the screen Coming soon leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). The choices don't lead anywhere yet.
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
+- `public/kingdoms/`: a picture of each kingdom, in the same marker-drawing style.
 - `public/styles.css`: one stylesheet.
 - `public/sitemap.xml`: every page, for search engines. A new page goes here too (a test checks).
 - `src/index.ts`: the local dev server. The published game doesn't use it; GitHub Pages serves `public/` as is.

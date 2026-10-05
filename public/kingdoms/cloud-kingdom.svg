@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Cloud Kingdom: a little castle sitting on a fluffy cloud -->
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="#BFE6FF" stroke="none" />
+    <!-- Sun -->
+    <circle cx="172" cy="26" r="13" fill="#FFD23F" />
+    <!-- Small far clouds -->
+    <path d="M18 36 a8 8 0 0 1 14 -6 a10 10 0 0 1 18 4 a7 7 0 0 1 2 12 H20 a6 6 0 0 1 -2 -10 Z" fill="#FFFFFF" />
+    <!-- Castle -->
+    <rect x="76" y="54" width="48" height="50" fill="#F4E9FF" />
+    <rect x="62" y="40" width="18" height="64" fill="#F4E9FF" />
+    <rect x="120" y="40" width="18" height="64" fill="#F4E9FF" />
+    <path d="M60 40 L71 22 L82 40 Z M118 40 L129 22 L140 40 Z" fill="#7B4CC2" />
+    <path d="M90 104 V86 a10 10 0 0 1 20 0 V104" fill="#7B4CC2" />
+    <path d="M129 22 V12 l10 4 l-10 4" fill="#FF8FB1" />
+    <circle cx="71" cy="58" r="3" fill="#1F1A24" stroke="none" />
+    <circle cx="129" cy="58" r="3" fill="#1F1A24" stroke="none" />
+    <!-- Big fluffy cloud the castle sits on -->
+    <path d="M26 118 a16 16 0 0 1 24 -18 a22 22 0 0 1 40 -4 a22 22 0 0 1 40 2 a18 18 0 0 1 32 10 a12 12 0 0 1 4 22 H32 a12 12 0 0 1 -6 -12 Z" fill="#FFFFFF" />
+  </g>
+</svg>
