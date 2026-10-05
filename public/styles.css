@@ -392,6 +392,170 @@ body.pond {
   }
 }
 
+/* ---- Quests ---- */
+
+/* A scene with a story box under it leaves room for the box by getting
+   narrower, not shorter, so the top of the picture isn't trimmed off. */
+.scene:has(+ .story),
+.scene + .story {
+  width: min(1100px, 100%, max(480px, calc((100dvh - 380px) * 12 / 7)));
+}
+
+.scene:has(+ .story) {
+  max-height: none;
+}
+
+/* The picture changes with the quest's step, set on the scene as
+   data-step="waiting" | "asked" | "done" (game/*-page.js). */
+
+/* Someone who needs help: a "!" that bobs, and a ring when focused. */
+.firefly {
+  cursor: pointer;
+  outline: none;
+}
+
+.firefly .alert {
+  animation: alert-bob 1.2s ease-in-out infinite;
+}
+
+@keyframes alert-bob {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.scene:not([data-step='waiting']) .firefly .alert {
+  display: none;
+}
+
+.firefly:focus-visible .firefly-ring {
+  stroke: #fff1a8;
+}
+
+/* Flicker's light: grey while it's out, glowing once the cave is enchanted. */
+.firefly-light {
+  transition: fill 0.6s;
+}
+
+.firefly-glow {
+  transition: opacity 0.6s;
+}
+
+.scene[data-step='done'] .firefly-light {
+  fill: #ffe66d;
+}
+
+.scene[data-step='done'] .firefly-glow {
+  opacity: 1;
+}
+
+/* The enchantment loops around the cave, then the cave lights up. */
+.cave-glow {
+  opacity: 0;
+  transition: opacity 0.8s 0.6s;
+}
+
+.scene[data-step='done'] .cave-glow {
+  opacity: 1;
+}
+
+.enchant-swirl {
+  opacity: 0;
+  stroke-dasharray: 1700;
+  stroke-dashoffset: 1700;
+}
+
+.scene[data-step='done'] .enchant-swirl {
+  opacity: 1;
+  animation: draw-swirl 1.2s ease-out forwards;
+}
+
+@keyframes draw-swirl {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .firefly .alert {
+    animation: none;
+  }
+
+  .scene[data-step='done'] .enchant-swirl {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .cave-glow,
+  .firefly-light,
+  .firefly-glow {
+    transition: none;
+  }
+}
+
+/* The story box under the picture. */
+.story {
+  width: min(1100px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  line-height: 1.4;
+}
+
+.story p {
+  margin: 0;
+}
+
+.story-speaker {
+  font-family: Fredoka, system-ui, sans-serif;
+  color: var(--enchantment);
+}
+
+.legend-line {
+  padding-left: 1rem;
+  border-left: 5px solid var(--enchantment);
+  font-style: italic;
+  color: var(--froggles-dark);
+}
+
+.story-button {
+  min-height: 52px;
+  padding: 0 1.5rem;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 5px 0 var(--ink);
+}
+
+.story-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.story-button:focus-visible {
+  outline: 4px solid var(--enchantment);
+  outline-offset: 4px;
+}
+
+.enchant {
+  background: var(--enchantment);
+  color: #fff;
+}
+
+.again {
+  background: #fff1a8;
+  color: var(--ink);
+}
+
 .signature {
   position: relative;
   padding: 1rem;
