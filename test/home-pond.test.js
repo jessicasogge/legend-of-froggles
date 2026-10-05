@@ -18,7 +18,7 @@ describe('Home Pond screen', () => {
 
   it('shows the pond, described for anyone who cannot see it', () => {
     const scene = document.querySelector('svg.scene');
-    expect(scene.getAttribute('role')).toBe('img');
+    expect(scene.getAttribute('role')).toBe('group');
     expect(scene.getAttribute('aria-label')).toMatch(/Home Pond/);
   });
 

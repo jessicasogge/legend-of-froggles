@@ -21,8 +21,9 @@
       <!-- The Home Pond, drawn big, with Mr. Froggles flying over the water.
            Same marker style as the kingdom picture on the previous screen.
            On small or short screens the edges are trimmed (slice), keeping
-           Mr. Froggles and the middle of the pond in view. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles">
+           Mr. Froggles and the middle of the pond in view.
+           It's a group, not one image, so screen readers can reach Pebble. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles, and a little snail stuck on a rock in the water">
         <rect width="1200" height="700" fill="#D9F2FF" />
         <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
           <!-- Sun -->
@@ -37,24 +38,23 @@
 
           <!-- The pond -->
           <ellipse cx="610" cy="560" rx="470" ry="130" fill="#4FA3E0" />
-          <path d="M300 560 q30 -12 60 0 M760 620 q30 -12 60 0 M880 520 q24 -10 48 0 M480 640 q24 -10 48 0" fill="none" stroke="#FFFFFF" stroke-width="7" />
+          <path d="M300 560 q30 -12 60 0 M760 620 q30 -12 60 0 M880 520 q24 -10 48 0 M250 620 q24 -10 48 0" fill="none" stroke="#FFFFFF" stroke-width="7" />
 
           <!-- Lily pads, each with a notch -->
-          <path d="M420 560 a70 32 0 1 0 22 -32 L420 560 Z" fill="#2E9E5B" />
-          <path d="M720 540 a62 28 0 1 1 -18 -28 L720 540 Z" fill="#2E9E5B" />
-          <path d="M600 630 a44 20 0 1 0 14 -20 L600 630 Z" fill="#3FA06A" />
+          <path d="M850 630 a70 32 0 1 0 22 -32 L850 630 Z" fill="#2E9E5B" />
+          <path d="M800 540 a62 28 0 1 1 -18 -28 L800 540 Z" fill="#2E9E5B" />
 
           <!-- Pink water lily on a pad -->
-          <circle cx="700" cy="500" r="22" fill="#FF8FB1" />
-          <circle cx="740" cy="500" r="22" fill="#FF8FB1" />
-          <circle cx="720" cy="474" r="22" fill="#FF8FB1" />
-          <circle cx="720" cy="498" r="14" fill="#FFD23F" />
+          <circle cx="780" cy="500" r="22" fill="#FF8FB1" />
+          <circle cx="820" cy="500" r="22" fill="#FF8FB1" />
+          <circle cx="800" cy="474" r="22" fill="#FF8FB1" />
+          <circle cx="800" cy="498" r="14" fill="#FFD23F" />
 
           <!-- Tadpoles -->
-          <circle cx="540" cy="600" r="12" fill="#1F1A24" stroke="none" />
-          <path d="M528 604 q-18 10 -36 -2" fill="none" stroke-width="6" />
-          <circle cx="840" cy="580" r="10" fill="#1F1A24" stroke="none" />
-          <path d="M850 584 q16 8 32 -2" fill="none" stroke-width="6" />
+          <circle cx="400" cy="640" r="12" fill="#1F1A24" stroke="none" />
+          <path d="M388 644 q-18 10 -36 -2" fill="none" stroke-width="6" />
+          <circle cx="950" cy="550" r="10" fill="#1F1A24" stroke="none" />
+          <path d="M960 554 q16 8 32 -2" fill="none" stroke-width="6" />
 
           <!-- Cattails -->
           <path d="M930 460 V250 M970 470 V290 M1010 450 V270" fill="none" stroke="#3B6E2A" />
@@ -73,7 +73,55 @@
         </g>
         <!-- Mr. Froggles, flying -->
         <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="60" width="250" height="325" />
+
+        <!-- Pebble's little rock, out in the water. Once it's enchanted it's
+             gone, and a lily pad is in its place. -->
+        <path class="pond-rock" d="M524 684 Q532 628 600 624 Q668 624 676 684 Z" fill="#B7B0C4" stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" />
+
+        <path class="enchant-swirl fades" d="M600 540 C760 540 770 700 600 700 C440 700 430 560 580 560" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+        <!-- The lily pad and Pebble float to shore together at the end. -->
+        <g class="snail-raft">
+          <g class="new-pad" stroke="#1F1A24" stroke-width="8" stroke-linejoin="round">
+            <path d="M600 654 a100 36 0 1 0 32 -35 L600 654 Z" fill="#2E9E5B" />
+          </g>
+
+          <!-- Pebble the snail, who needs help. Works like a button
+               (quest-page.js). -->
+          <g class="helper" role="button" tabindex="0" aria-label="Pebble the snail needs help. Tap to talk." transform="translate(598 596) scale(1.5)">
+            <circle class="helper-ring" r="62" fill="none" stroke="none" stroke-width="4" />
+            <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M42 -22 L36 -46 M52 -22 L58 -44" fill="none" />
+              <circle cx="36" cy="-48" r="5" fill="#1F1A24" />
+              <circle cx="58" cy="-46" r="5" fill="#1F1A24" />
+              <path d="M-46 20 Q-48 6 -32 6 L28 6 Q36 -6 38 -18 Q48 -30 58 -18 Q62 4 46 20 Z" fill="#F4D9B0" />
+              <circle cx="-8" cy="-14" r="27" fill="#F2A65A" />
+              <path d="M-8 -14 m2 -20 a20 20 0 1 1 -20 22 a12 12 0 1 1 14 -12 a5 5 0 1 1 -4 5" fill="none" />
+            </g>
+            <circle cx="49" cy="-10" r="3" fill="#1F1A24" />
+            <path d="M44 -2 q6 4 11 -1" fill="none" stroke="#1F1A24" stroke-width="2.5" stroke-linecap="round" />
+            <g class="alert">
+              <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+              <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cy="-72" r="2.8" fill="#1F1A24" />
+            </g>
+            <circle r="58" fill="transparent" />
+          </g>
+        </g>
       </svg>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+        <p class="legend-line" hidden></p>
+        <button type="button" class="story-button again" hidden>Play again</button>
+      </section>
     </main>
+
+    <script type="module">
+      import { start } from './game/pond-page.js';
+      start(document);
+    </script>
   </body>
 </html>
