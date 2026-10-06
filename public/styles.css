@@ -406,7 +406,8 @@ body.pond {
 }
 
 /* The picture changes with the quest's step, set on the scene as
-   data-step="waiting" | "asked" | "done" (game/*-page.js). */
+   data-step="waiting" | "asked" | "done" (game/quest-page.js). It's on the
+   scene, or on each quest's own group when a kingdom has more than one. */
 
 /* Whoever needs help (.helper): a "!" that bobs, and a ring when focused. */
 .helper {
@@ -424,7 +425,7 @@ body.pond {
   }
 }
 
-.scene:not([data-step='waiting']) .helper .alert {
+[data-step]:not([data-step='waiting']) .helper .alert {
   display: none;
 }
 
@@ -441,11 +442,11 @@ body.pond {
   transition: opacity 0.6s;
 }
 
-.scene[data-step='done'] .firefly-light {
+[data-step='done'] .firefly-light {
   fill: #ffe66d;
 }
 
-.scene[data-step='done'] .firefly-glow {
+[data-step='done'] .firefly-glow {
   opacity: 1;
 }
 
@@ -455,7 +456,7 @@ body.pond {
   transition: opacity 0.8s 0.6s;
 }
 
-.scene[data-step='done'] .cave-glow {
+[data-step='done'] .cave-glow {
   opacity: 1;
 }
 
@@ -465,7 +466,7 @@ body.pond {
   stroke-dashoffset: 1700;
 }
 
-.scene[data-step='done'] .enchant-swirl {
+[data-step='done'] .enchant-swirl {
   opacity: 1;
   animation: draw-swirl 1.2s ease-out forwards;
 }
@@ -477,7 +478,7 @@ body.pond {
 }
 
 /* A swirl that fades once it's drawn, so it doesn't cover what it made. */
-.scene[data-step='done'] .enchant-swirl.fades {
+[data-step='done'] .enchant-swirl.fades {
   animation: draw-swirl 1.2s ease-out forwards, fade-out 0.6s 1.3s forwards;
 }
 
@@ -497,7 +498,7 @@ body.pond {
   transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
 }
 
-.scene[data-step='done'] .leaf-bridge {
+[data-step='done'] .leaf-bridge {
   opacity: 1;
   transform: none;
 }
@@ -506,7 +507,7 @@ body.pond {
   transition: opacity 0.4s 0.6s;
 }
 
-.scene[data-step='done'] .fallen-leaf {
+[data-step='done'] .fallen-leaf {
   opacity: 0;
 }
 
@@ -514,8 +515,18 @@ body.pond {
   transition: transform 1.6s ease-in-out 1.4s;
 }
 
-.scene[data-step='done'] .hazel-walk {
+[data-step='done'] .hazel-walk {
   transform: translate(330px, 10px);
+}
+
+/* Whispering Woods: the mushroom grows tall and carries Olive up to her
+   nest. */
+.mushroom-lift {
+  transition: transform 1.6s ease-in-out 1.2s;
+}
+
+[data-step='done'] .mushroom-lift {
+  transform: translateY(-190px);
 }
 
 /* Home Pond: the rock becomes a lily pad, then the pad floats Pebble to
@@ -524,7 +535,7 @@ body.pond {
   transition: opacity 0.4s 0.6s;
 }
 
-.scene[data-step='done'] .pond-rock {
+[data-step='done'] .pond-rock {
   opacity: 0;
 }
 
@@ -536,7 +547,7 @@ body.pond {
   transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
 }
 
-.scene[data-step='done'] .new-pad {
+[data-step='done'] .new-pad {
   opacity: 1;
   transform: none;
 }
@@ -545,7 +556,7 @@ body.pond {
   transition: transform 1.8s ease-in-out 1.5s;
 }
 
-.scene[data-step='done'] .snail-raft {
+[data-step='done'] .snail-raft {
   transform: translate(-160px, -150px);
 }
 
@@ -568,7 +579,7 @@ body.pond {
   transition: opacity 0.4s 0.6s;
 }
 
-.scene[data-step='done'] .rain-cloud {
+[data-step='done'] .rain-cloud {
   opacity: 0;
 }
 
@@ -580,7 +591,7 @@ body.pond {
   transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
 }
 
-.scene[data-step='done'] .rainbow {
+[data-step='done'] .rainbow {
   opacity: 1;
   transform: none;
 }
@@ -589,7 +600,7 @@ body.pond {
   transition: transform 1.6s ease-in-out 1.5s;
 }
 
-.scene[data-step='done'] .bird-flight {
+[data-step='done'] .bird-flight {
   transform: translateY(-150px);
 }
 
@@ -599,12 +610,12 @@ body.pond {
     animation: none;
   }
 
-  .scene[data-step='done'] .enchant-swirl {
+  [data-step='done'] .enchant-swirl {
     animation: none;
     stroke-dashoffset: 0;
   }
 
-  .scene[data-step='done'] .enchant-swirl.fades {
+  [data-step='done'] .enchant-swirl.fades {
     opacity: 0;
   }
 
@@ -614,6 +625,7 @@ body.pond {
   .leaf-bridge,
   .fallen-leaf,
   .hazel-walk,
+  .mushroom-lift,
   .pond-rock,
   .new-pad,
   .snail-raft,
