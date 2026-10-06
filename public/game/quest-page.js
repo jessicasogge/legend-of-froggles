@@ -17,7 +17,6 @@ export function startQuests(doc, quests) {
   const speaker = doc.querySelector('.story-speaker');
   const text = doc.querySelector('.story-text');
   const enchant = doc.querySelector('.enchant');
-  const again = doc.querySelector('.again');
   const legend = doc.querySelector('.legend-line');
 
   const roots = quests.map((quest) => (quest.ID ? doc.querySelector(`[data-quest="${quest.ID}"]`) : scene));
@@ -77,7 +76,6 @@ export function startQuests(doc, quests) {
     text.textContent = LINES[step];
     enchant.textContent = ENCHANT;
     enchant.hidden = step !== 'asked';
-    again.hidden = step !== 'done';
     legend.hidden = step !== 'done';
     legend.textContent = LEGEND_LINE;
   }
@@ -90,9 +88,10 @@ export function startQuests(doc, quests) {
     if (steps[i] === was && !switched) return;
     show();
     if (action === 'enchant' && steps[i] === 'done') cast(roots[i]);
-    // Keep keyboard users where the next thing to do is.
+    // Keep keyboard users where the next thing to do is: the Enchant button,
+    // then back in the picture with whoever they just helped.
     if (steps[i] === 'asked') enchant.focus();
-    if (steps[i] === 'done') again.focus();
+    if (action === 'enchant' && steps[i] === 'done') helpers[i].focus();
   }
 
   // Helpers are drawn in the picture, so they're made to work like buttons.
@@ -106,7 +105,6 @@ export function startQuests(doc, quests) {
     });
   });
   enchant.addEventListener('click', () => act('enchant'));
-  again.addEventListener('click', () => act('again'));
 
   show();
   return {

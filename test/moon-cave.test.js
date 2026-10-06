@@ -8,6 +8,7 @@ import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
 const visible = (sel) => !$(sel).hidden;
+const tap = (el) => el.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 const press = (el, key) => el.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
 
 let game;
@@ -68,7 +69,6 @@ describe('Moon Cave quest, on the page', () => {
   it('lets a keyboard talk to Flicker with Enter or Space', () => {
     press($('.firefly'), 'Enter');
     expect(game.step).toBe('asked');
-    game.act('again');
     loadPage('moon-cave.html');
     game = start(document);
     press($('.firefly'), ' ');
@@ -87,13 +87,14 @@ describe('Moon Cave quest, on the page', () => {
     expect($('.enchant-swirl')).not.toBeNull();
   });
 
-  it('can be played again', () => {
-    $('.firefly').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  it('stays helped, and tapping her again shows what she said', () => {
+    tap($('.firefly'));
     $('.enchant').click();
-    $('.again').click();
-    expect($('[data-quest="flicker"]').dataset.step).toBe('waiting');
-    expect($('.story-text').textContent).toBe(LINES.waiting);
-    expect(visible('.again')).toBe(false);
+    expect(document.activeElement).toBe($('.firefly'));
+    tap($('.firefly'));
+    expect(game.stepOf('flicker')).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 
   it('reads each change aloud to screen readers', () => {

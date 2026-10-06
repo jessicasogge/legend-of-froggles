@@ -805,12 +805,6 @@ body.pond {
   color: #fff;
 }
 
-/* Play again sits under the story box, not in it. */
-.again {
-  background: #fff1a8;
-  color: var(--ink);
-}
-
 .signature {
   position: relative;
   padding: 1rem;

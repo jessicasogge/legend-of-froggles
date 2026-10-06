@@ -60,12 +60,14 @@ describe('Whispering Woods squirrel quest', () => {
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a big oak tree/);
   });
 
-  it('can be played again', () => {
+  it('stays helped, and tapping her again shows what she said', () => {
     tap(nutmeg());
     $('.enchant').click();
-    $('.again').click();
-    expect(game.stepOf('nutmeg')).toBe('waiting');
-    expect(visible('.legend-line')).toBe(false);
+    expect(document.activeElement).toBe(nutmeg());
+    tap(nutmeg());
+    expect(game.stepOf('nutmeg')).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 });
 

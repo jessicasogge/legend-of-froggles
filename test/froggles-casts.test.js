@@ -69,14 +69,13 @@ describe('Mr. Froggles casting enchantments', () => {
     expect($$('.sparkle')).toHaveLength(0);
   });
 
-  it('casts again with fresh sparkles when played again', () => {
+  it("doesn't cast again when you tap someone you've already helped", () => {
     loadPage('cloud-kingdom.html');
     startCloud(document);
-    for (let round = 0; round < 2; round += 1) {
-      tap($('.helper'));
-      $('.enchant').click();
-      $('.again').click();
-    }
-    expect($$('.sparkle')).toHaveLength(8);
+    tap($('.helper'));
+    $('.enchant').click();
+    $('.froggles-swoop').classList.remove('casting');
+    tap($('.helper'));
+    expect($('.froggles-swoop').classList.contains('casting')).toBe(false);
   });
 });

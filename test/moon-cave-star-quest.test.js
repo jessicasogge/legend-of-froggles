@@ -61,12 +61,14 @@ describe('Moon Cave star quest', () => {
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted the moonlight/);
   });
 
-  it('can be played again', () => {
+  it('stays helped, and tapping her again shows what she said', () => {
     tap(twinkle());
     $('.enchant').click();
-    $('.again').click();
-    expect(game.stepOf('twinkle')).toBe('waiting');
-    expect(visible('.legend-line')).toBe(false);
+    expect(document.activeElement).toBe(twinkle());
+    tap(twinkle());
+    expect(game.stepOf('twinkle')).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 });
 

@@ -60,11 +60,13 @@ describe('Home Pond quest', () => {
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a little rock, and it became a lily pad/);
   });
 
-  it('can be played again', () => {
+  it('stays helped, and tapping her again shows what she said', () => {
     tap($('.helper'));
     $('.enchant').click();
-    $('.again').click();
-    expect(game.step).toBe('waiting');
-    expect(visible('.legend-line')).toBe(false);
+    expect(document.activeElement).toBe($('.helper'));
+    tap($('.helper'));
+    expect(game.step).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 });
