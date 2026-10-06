@@ -22,87 +22,130 @@
            Same marker style as the kingdom picture on the previous screen.
            On small or short screens the edges are trimmed (slice), keeping
            the cave, Mr. Froggles and the moon near the middle.
-           It's a group, not one image, so screen readers can still reach the
-           firefly inside it. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying by the Moon Cave under a crescent moon, with glowing mushrooms at the cave mouth and a little firefly sitting on the hill">
-        <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Stars -->
-          <path d="M150 90 l12 26 l28 4 l-20 20 l5 28 l-25 -13 l-25 13 l5 -28 l-20 -20 l28 -4 Z" fill="#FFD23F" stroke-width="6" />
-          <path d="M520 60 l8 17 l18 3 l-13 12 l3 18 l-16 -8 l-16 8 l3 -18 l-13 -12 l18 -3 Z" fill="#FFD23F" stroke-width="5" />
-          <circle cx="330" cy="70" r="7" fill="#FFF4DD" stroke="none" />
-          <circle cx="430" cy="150" r="6" fill="#FFF4DD" stroke="none" />
-          <circle cx="680" cy="120" r="7" fill="#FFF4DD" stroke="none" />
-          <circle cx="760" cy="50" r="5" fill="#FFF4DD" stroke="none" />
-          <circle cx="250" cy="190" r="5" fill="#FFF4DD" stroke="none" />
-          <!-- Crescent moon -->
-          <path d="M860 40 a110 110 0 1 0 70 190 a90 90 0 1 1 -70 -190 Z" fill="#FFF1A8" />
-          <!-- Rocky hill with the cave mouth -->
-          <path d="M0 700 V470 Q160 300 380 290 Q560 190 760 300 Q960 340 1200 480 V700 Z" fill="#7A6A9E" />
-          <path d="M260 420 q30 -20 60 0 M840 380 q30 -20 60 0 M1040 500 q25 -16 50 0" fill="none" stroke="#5C4E80" stroke-width="7" />
-          <path d="M440 700 V560 a160 160 0 0 1 320 0 V700" fill="#120C24" />
-          <!-- Inside the cave once it's enchanted: a soft glow and crystals.
-               Hidden until the quest is done (see styles.css). -->
-          <g class="cave-glow">
-            <path d="M448 700 V560 a152 152 0 0 1 304 0 V700" fill="#5A47A0" stroke="none" />
-            <circle cx="600" cy="610" r="120" fill="#8FF5E4" opacity="0.35" stroke="none" />
-            <path d="M500 700 L520 610 L545 700 Z" fill="#5EE6D0" stroke-width="6" />
-            <path d="M560 700 L590 580 L620 700 Z" fill="#B58CFF" stroke-width="6" />
-            <path d="M640 700 L668 620 L696 700 Z" fill="#FF8FB1" stroke-width="6" />
-            <path d="M700 700 L720 640 L740 700 Z" fill="#5EE6D0" stroke-width="6" />
-            <circle cx="540" cy="520" r="6" fill="#FFF1A8" stroke="none" />
-            <circle cx="660" cy="500" r="5" fill="#FFF1A8" stroke="none" />
-            <circle cx="610" cy="470" r="6" fill="#FFF1A8" stroke="none" />
+           It's a group, not one image, so screen readers can still reach
+           Flicker and Twinkle inside it. Each of their quests has its own
+           group (data-quest); Flicker's holds the cave too, since the cave
+           lights up when her quest is done. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying by the Moon Cave under a crescent moon, with glowing mushrooms at the cave mouth, a little firefly sitting on the hill, and a little star that has fallen onto the hilltop">
+        <g data-quest="flicker" data-froggles-to="400 340" data-enchant-at="600 560">
+          <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Stars -->
+            <path d="M150 90 l12 26 l28 4 l-20 20 l5 28 l-25 -13 l-25 13 l5 -28 l-20 -20 l28 -4 Z" fill="#FFD23F" stroke-width="6" />
+            <path d="M520 60 l8 17 l18 3 l-13 12 l3 18 l-16 -8 l-16 8 l3 -18 l-13 -12 l18 -3 Z" fill="#FFD23F" stroke-width="5" />
+            <circle cx="330" cy="70" r="7" fill="#FFF4DD" stroke="none" />
+            <circle cx="430" cy="150" r="6" fill="#FFF4DD" stroke="none" />
+            <circle cx="680" cy="120" r="7" fill="#FFF4DD" stroke="none" />
+            <circle cx="760" cy="50" r="5" fill="#FFF4DD" stroke="none" />
+            <circle cx="250" cy="190" r="5" fill="#FFF4DD" stroke="none" />
+            <!-- Crescent moon -->
+            <path d="M860 40 a110 110 0 1 0 70 190 a90 90 0 1 1 -70 -190 Z" fill="#FFF1A8" />
+            <!-- Rocky hill with the cave mouth -->
+            <path d="M0 700 V470 Q160 300 380 290 Q560 190 760 300 Q960 340 1200 480 V700 Z" fill="#7A6A9E" />
+            <path d="M260 420 q30 -20 60 0 M840 380 q30 -20 60 0 M1040 500 q25 -16 50 0" fill="none" stroke="#5C4E80" stroke-width="7" />
+            <path d="M440 700 V560 a160 160 0 0 1 320 0 V700" fill="#120C24" />
+            <!-- Inside the cave once it's enchanted: a soft glow and crystals.
+                 Hidden until the quest is done (see styles.css). -->
+            <g class="cave-glow">
+              <path d="M448 700 V560 a152 152 0 0 1 304 0 V700" fill="#5A47A0" stroke="none" />
+              <circle cx="600" cy="610" r="120" fill="#8FF5E4" opacity="0.35" stroke="none" />
+              <path d="M500 700 L520 610 L545 700 Z" fill="#5EE6D0" stroke-width="6" />
+              <path d="M560 700 L590 580 L620 700 Z" fill="#B58CFF" stroke-width="6" />
+              <path d="M640 700 L668 620 L696 700 Z" fill="#FF8FB1" stroke-width="6" />
+              <path d="M700 700 L720 640 L740 700 Z" fill="#5EE6D0" stroke-width="6" />
+              <circle cx="540" cy="520" r="6" fill="#FFF1A8" stroke="none" />
+              <circle cx="660" cy="500" r="5" fill="#FFF1A8" stroke="none" />
+              <circle cx="610" cy="470" r="6" fill="#FFF1A8" stroke="none" />
+            </g>
+            <!-- Glowing mushrooms, with a soft glow behind each -->
+            <circle cx="520" cy="610" r="60" fill="#5EE6D0" opacity="0.25" stroke="none" />
+            <circle cx="650" cy="635" r="46" fill="#B58CFF" opacity="0.25" stroke="none" />
+            <circle cx="920" cy="590" r="56" fill="#5EE6D0" opacity="0.25" stroke="none" />
+            <rect x="505" y="600" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
+            <path d="M466 614 Q520 530 574 614 Z" fill="#5EE6D0" stroke-width="6" />
+            <rect x="638" y="630" width="24" height="44" rx="8" fill="#E6F7FF" stroke-width="6" />
+            <path d="M608 640 Q650 576 692 640 Z" fill="#B58CFF" stroke-width="6" />
+            <rect x="905" y="580" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
+            <path d="M866 594 Q920 510 974 594 Z" fill="#5EE6D0" stroke-width="6" />
+            <!-- Enchantment trail behind Mr. Froggles -->
+            <path d="M60 520 C120 440 160 520 220 450 C260 400 280 380 300 360" fill="none" stroke="#B58CFF" stroke-width="7" />
+            <path d="M90 600 C150 540 200 590 250 520" fill="none" stroke="#B58CFF" stroke-width="7" />
+            <circle cx="70" cy="440" r="7" fill="#B58CFF" stroke="none" />
+            <circle cx="170" cy="610" r="7" fill="#B58CFF" stroke="none" />
           </g>
-          <!-- Glowing mushrooms, with a soft glow behind each -->
-          <circle cx="520" cy="610" r="60" fill="#5EE6D0" opacity="0.25" stroke="none" />
-          <circle cx="650" cy="635" r="46" fill="#B58CFF" opacity="0.25" stroke="none" />
-          <circle cx="920" cy="590" r="56" fill="#5EE6D0" opacity="0.25" stroke="none" />
-          <rect x="505" y="600" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
-          <path d="M466 614 Q520 530 574 614 Z" fill="#5EE6D0" stroke-width="6" />
-          <rect x="638" y="630" width="24" height="44" rx="8" fill="#E6F7FF" stroke-width="6" />
-          <path d="M608 640 Q650 576 692 640 Z" fill="#B58CFF" stroke-width="6" />
-          <rect x="905" y="580" width="30" height="60" rx="10" fill="#E6F7FF" stroke-width="6" />
-          <path d="M866 594 Q920 510 974 594 Z" fill="#5EE6D0" stroke-width="6" />
-          <!-- Enchantment trail behind Mr. Froggles -->
-          <path d="M60 520 C120 440 160 520 220 450 C260 400 280 380 300 360" fill="none" stroke="#B58CFF" stroke-width="7" />
-          <path d="M90 600 C150 540 200 590 250 520" fill="none" stroke="#B58CFF" stroke-width="7" />
-          <circle cx="70" cy="440" r="7" fill="#B58CFF" stroke="none" />
-          <circle cx="170" cy="610" r="7" fill="#B58CFF" stroke="none" />
+          <!-- Mr. Froggles, flying -->
+          <!-- The outer group swoops him over to cast each enchantment. -->
+          <g class="froggles-swoop">
+            <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="70" width="250" height="325" />
+          </g>
+
+          <!-- Mr. Froggles' enchantment, looping around the cave. Drawn on when
+               the quest is done. -->
+          <path class="enchant-swirl" d="M600 410 C770 410 830 560 770 660 C710 740 490 740 440 650 C395 560 460 450 590 450" fill="none" stroke="#B58CFF" stroke-width="12" stroke-linecap="round" />
+
+          <!-- Flicker the firefly, who needs help. Drawn in the picture, but it
+               works like a button (moon-cave-page.js). -->
+          <g class="firefly helper" role="button" tabindex="0" aria-label="Flicker the firefly needs help. Tap to talk." transform="translate(850 420) scale(1.6)">
+            <circle class="helper-ring" r="46" fill="none" stroke="none" stroke-width="4" />
+            <g class="firefly-glow" opacity="0">
+              <circle cy="24" r="30" fill="#FFF1A8" opacity="0.35" />
+              <circle cy="24" r="20" fill="#FFF1A8" opacity="0.6" />
+            </g>
+            <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="-15" cy="-6" rx="17" ry="10" fill="#E6F7FF" transform="rotate(-30 -15 -6)" />
+              <ellipse cx="15" cy="-6" rx="17" ry="10" fill="#E6F7FF" transform="rotate(30 15 -6)" />
+              <ellipse cy="6" rx="13" ry="18" fill="#3B2F5C" />
+              <circle class="firefly-light" cy="24" r="11" fill="#9A93A8" />
+              <circle cy="-18" r="12" fill="#3B2F5C" />
+              <path d="M-4 -30 q-6 -12 -12 -14 M4 -30 q6 -12 12 -14" fill="none" stroke-width="3" />
+            </g>
+            <circle cx="-4" cy="-20" r="2.6" fill="#FFFFFF" />
+            <circle cx="4" cy="-20" r="2.6" fill="#FFFFFF" />
+            <path d="M-4 -13 q4 3 8 0" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+            <!-- The "!" that says someone needs help -->
+            <g class="alert">
+              <circle cy="-66" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+              <path d="M0 -76 V-64" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cy="-56" r="2.8" fill="#1F1A24" />
+            </g>
+            <!-- A big invisible circle, so the firefly is easy to tap -->
+            <circle r="46" fill="transparent" />
+          </g>
         </g>
-        <!-- Mr. Froggles, flying -->
-        <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="70" width="250" height="325" />
 
-        <!-- Mr. Froggles' enchantment, looping around the cave. Drawn on when
-             the quest is done. -->
-        <path class="enchant-swirl" d="M600 410 C770 410 830 560 770 660 C710 740 490 740 440 650 C395 560 460 450 590 450" fill="none" stroke="#B58CFF" stroke-width="12" stroke-linecap="round" />
+        <!-- Twinkle's quest: a little star has fallen onto the hilltop. Once
+             the moonlight is enchanted, a moonbeam shines down and carries
+             her back up into the sky. -->
+        <g data-quest="twinkle" data-froggles-to="500 170" data-enchant-at="830 160">
+          <path class="moonbeam" d="M816 118 L872 176 L700 262 L590 262 Z" fill="#FFF1A8" opacity="0.45" />
+          <!-- The moon again, over the moonbeam, so the beam shines out from
+               behind it. -->
+          <path d="M860 40 a110 110 0 1 0 70 190 a90 90 0 1 1 -70 -190 Z" fill="#FFF1A8" stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" />
 
-        <!-- Flicker the firefly, who needs help. Drawn in the picture, but it
-             works like a button (moon-cave-page.js). -->
-        <g class="firefly helper" role="button" tabindex="0" aria-label="Flicker the firefly needs help. Tap to talk." transform="translate(850 420) scale(1.6)">
-          <circle class="helper-ring" r="46" fill="none" stroke="none" stroke-width="4" />
-          <g class="firefly-glow" opacity="0">
-            <circle cy="24" r="30" fill="#FFF1A8" opacity="0.35" />
-            <circle cy="24" r="20" fill="#FFF1A8" opacity="0.6" />
+          <path class="enchant-swirl fades" d="M700 104 C830 104 840 290 700 290 C570 290 560 124 680 120" fill="none" stroke="#B58CFF" stroke-width="12" stroke-linecap="round" />
+
+          <!-- The outer group carries her up the moonbeam at the end, to sit
+               in the curve of the moon. -->
+          <g class="star-lift">
+            <!-- Twinkle the star, who needs help. Works like a button
+                 (quest-page.js). -->
+            <g class="helper" role="button" tabindex="0" aria-label="Twinkle the star needs help. Tap to talk." transform="translate(640 224) scale(1.2)">
+              <circle class="helper-ring" r="50" fill="none" stroke="none" stroke-width="4" />
+              <g class="star-body">
+                <path d="M0 -38 L12 -17 L36 -12 L20 6 L22 31 L0 21 L-22 31 L-20 6 L-36 -12 L-12 -17 Z" fill="#FFD23F" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round" />
+                <circle cx="-7" cy="-2" r="3.2" fill="#1F1A24" />
+                <circle cx="7" cy="-2" r="3.2" fill="#1F1A24" />
+                <path d="M-5 6 q5 4 10 0" fill="none" stroke="#1F1A24" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="-13" cy="5" r="3.5" fill="#FF8FB1" />
+                <circle cx="13" cy="5" r="3.5" fill="#FF8FB1" />
+              </g>
+              <g class="alert">
+                <circle cy="-66" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M0 -76 V-64" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cy="-56" r="2.8" fill="#1F1A24" />
+              </g>
+              <circle r="46" fill="transparent" />
+            </g>
           </g>
-          <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <ellipse cx="-15" cy="-6" rx="17" ry="10" fill="#E6F7FF" transform="rotate(-30 -15 -6)" />
-            <ellipse cx="15" cy="-6" rx="17" ry="10" fill="#E6F7FF" transform="rotate(30 15 -6)" />
-            <ellipse cy="6" rx="13" ry="18" fill="#3B2F5C" />
-            <circle class="firefly-light" cy="24" r="11" fill="#9A93A8" />
-            <circle cy="-18" r="12" fill="#3B2F5C" />
-            <path d="M-4 -30 q-6 -12 -12 -14 M4 -30 q6 -12 12 -14" fill="none" stroke-width="3" />
-          </g>
-          <circle cx="-4" cy="-20" r="2.6" fill="#FFFFFF" />
-          <circle cx="4" cy="-20" r="2.6" fill="#FFFFFF" />
-          <path d="M-4 -13 q4 3 8 0" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-          <!-- The "!" that says someone needs help -->
-          <g class="alert">
-            <circle cy="-66" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
-            <path d="M0 -76 V-64" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
-            <circle cy="-56" r="2.8" fill="#1F1A24" />
-          </g>
-          <!-- A big invisible circle, so the firefly is easy to tap -->
-          <circle r="46" fill="transparent" />
         </g>
       </svg>
 
@@ -113,7 +156,6 @@
         <p class="story-text"></p>
         <button type="button" class="story-button enchant" hidden></button>
         <p class="legend-line" hidden></p>
-        <button type="button" class="story-button again" hidden>Play again</button>
       </section>
     </main>
 

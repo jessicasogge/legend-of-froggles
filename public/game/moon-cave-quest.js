@@ -1,8 +1,10 @@
 
+export const ID = 'flicker';
+
 export const HELPER = 'Flicker the firefly';
 
 export const LINES = {
-  waiting: 'Someone by the cave needs help. Tap the firefly to find out who.',
+  waiting: 'Two friends need help tonight. Tap the firefly or the little star to find out who.',
   asked: 'Help! My light went out, and the Moon Cave is too dark. I can’t find my way home!',
   done: 'My light is back on! Thank you, Mr. Froggles!',
 };

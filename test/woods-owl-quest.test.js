@@ -62,12 +62,14 @@ describe('Whispering Woods owl quest', () => {
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a spotted mushroom/);
   });
 
-  it('can be played again', () => {
+  it('stays helped, and tapping her again shows what she said', () => {
     tap(olive());
     $('.enchant').click();
-    $('.again').click();
-    expect(game.stepOf('olive')).toBe('waiting');
-    expect(visible('.legend-line')).toBe(false);
+    expect(document.activeElement).toBe(olive());
+    tap(olive());
+    expect(game.stepOf('olive')).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 });
 
@@ -103,13 +105,13 @@ describe('Whispering Woods with two quests', () => {
     expect($('.legend-line').textContent).toBe(LEGEND_LINE);
   });
 
-  it('plays again only the quest in the story box', () => {
+  it('shows each friend\'s own words when tapped after both are helped', () => {
     tap(hazelHelper());
     $('.enchant').click();
     tap(olive());
     $('.enchant').click();
-    $('.again').click();
-    expect(game.stepOf('olive')).toBe('waiting');
-    expect(game.stepOf('hazel')).toBe('done');
+    tap(hazelHelper());
+    expect($('.story-text').textContent).toBe(hazel.LINES.done);
+    expect($('.legend-line').textContent).toBe(hazel.LEGEND_LINE);
   });
 });

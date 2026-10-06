@@ -60,11 +60,13 @@ describe('Whispering Woods quest', () => {
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted/);
   });
 
-  it('can be played again', () => {
+  it('stays helped, and tapping her again shows what she said', () => {
     tap($('[data-quest="hazel"] .helper'));
     $('.enchant').click();
-    $('.again').click();
-    expect(game.step).toBe('waiting');
-    expect(visible('.legend-line')).toBe(false);
+    expect(document.activeElement).toBe($('[data-quest="hazel"] .helper'));
+    tap($('[data-quest="hazel"] .helper'));
+    expect(game.step).toBe('done');
+    expect($('.story-text').textContent).toBe(LINES.done);
+    expect(visible('.enchant')).toBe(false);
   });
 });

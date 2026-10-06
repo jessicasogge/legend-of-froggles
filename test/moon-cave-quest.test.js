@@ -23,8 +23,8 @@ describe('Moon Cave quest rules', () => {
     expect(next('asked', 'talk')).toBe('asked');
   });
 
-  it('can be played again from the start', () => {
-    expect(next('done', 'again')).toBe('waiting');
+  it('stays done once Flicker has been helped', () => {
+    for (const action of ['talk', 'enchant', 'again']) expect(next('done', action)).toBe('done');
   });
 
   it('has something to say at every step', () => {
