@@ -18,8 +18,8 @@ beforeEach(() => {
 
 describe('Whispering Woods quest', () => {
   it('starts with Hazel waiting by the stream, with a "!" over her', () => {
-    expect($('svg.scene').dataset.step).toBe('waiting');
-    expect($('.helper .alert')).not.toBeNull();
+    expect($('[data-quest="hazel"]').dataset.step).toBe('waiting');
+    expect($('[data-quest="hazel"] .helper .alert')).not.toBeNull();
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.enchant')).toBe(false);
   });
@@ -32,13 +32,13 @@ describe('Whispering Woods quest', () => {
 
   it('makes Hazel work like a button, and lets screen readers reach her', () => {
     expect($('svg.scene').getAttribute('role')).toBe('group');
-    expect($('.helper').getAttribute('role')).toBe('button');
-    expect($('.helper').getAttribute('tabindex')).toBe('0');
-    expect($('.helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
+    expect($('[data-quest="hazel"] .helper').getAttribute('role')).toBe('button');
+    expect($('[data-quest="hazel"] .helper').getAttribute('tabindex')).toBe('0');
+    expect($('[data-quest="hazel"] .helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
   });
 
   it('has Hazel explain the problem when tapped, and offers to enchant the leaf', () => {
-    tap($('.helper'));
+    tap($('[data-quest="hazel"] .helper'));
     expect($('.story-speaker').textContent).toBe('Hazel the hedgehog');
     expect($('.story-text').textContent).toBe(LINES.asked);
     expect($('.enchant').textContent).toBe(ENCHANT);
@@ -47,21 +47,21 @@ describe('Whispering Woods quest', () => {
   });
 
   it('lets a keyboard talk to Hazel', () => {
-    $('.helper').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    $('[data-quest="hazel"] .helper').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
     expect(game.step).toBe('asked');
   });
 
   it('grows the bridge and adds to the legend once the leaf is enchanted', () => {
-    tap($('.helper'));
+    tap($('[data-quest="hazel"] .helper'));
     $('.enchant').click();
-    expect($('svg.scene').dataset.step).toBe('done');
+    expect($('[data-quest="hazel"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
     expect($('.legend-line').textContent).toBe(LEGEND_LINE);
     expect(LEGEND_LINE).toMatch(/^The flying frog enchanted/);
   });
 
   it('can be played again', () => {
-    tap($('.helper'));
+    tap($('[data-quest="hazel"] .helper'));
     $('.enchant').click();
     $('.again').click();
     expect(game.step).toBe('waiting');
