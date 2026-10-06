@@ -549,8 +549,53 @@ body.pond {
   transform: translate(-160px, -150px);
 }
 
+/* Cloud Kingdom: the rain stops, the rain cloud becomes a rainbow, then
+   Pip flies up to sit on top of it. */
+.rain {
+  animation: rain-fall 0.8s linear infinite;
+}
+
+@keyframes rain-fall {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(8px);
+  }
+}
+
+.rain-cloud {
+  transition: opacity 0.4s 0.6s;
+}
+
+.scene[data-step='done'] .rain-cloud {
+  opacity: 0;
+}
+
+.rainbow {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+.scene[data-step='done'] .rainbow {
+  opacity: 1;
+  transform: none;
+}
+
+.bird-flight {
+  transition: transform 1.6s ease-in-out 1.5s;
+}
+
+.scene[data-step='done'] .bird-flight {
+  transform: translateY(-150px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .helper .alert {
+  .helper .alert,
+  .rain {
     animation: none;
   }
 
@@ -571,7 +616,10 @@ body.pond {
   .hazel-walk,
   .pond-rock,
   .new-pad,
-  .snail-raft {
+  .snail-raft,
+  .rain-cloud,
+  .rainbow,
+  .bird-flight {
     transition: none;
   }
 }

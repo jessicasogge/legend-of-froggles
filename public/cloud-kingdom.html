@@ -23,8 +23,9 @@
            screen. On small or short screens the edges are trimmed (slice),
            keeping the castle and Mr. Froggles near the middle.
            Each cloud is drawn twice: once with outlines, then again without,
-           so only its outside edge shows. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom">
+           so only its outside edge shows.
+           It's a group, not one image, so screen readers can reach Pip. -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, and a little bluebird sitting under a rain cloud">
         <rect width="1200" height="700" fill="#BFE6FF" />
         <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
           <!-- Sun -->
@@ -55,6 +56,18 @@
           <rect x="716" y="236" width="28" height="40" rx="14" fill="#FFD23F" />
           <path d="M690 540 V472 a40 40 0 0 1 80 0 V540" fill="#7B4CC2" />
 
+          <!-- The rainbow the rain cloud becomes, hidden until it's
+               enchanted. It sits behind the big cloud so its ends tuck in. -->
+          <g class="rainbow" fill="none" stroke-linecap="butt">
+            <path d="M790 480 A95 95 0 0 1 980 480" stroke="#1F1A24" stroke-width="100" />
+            <path d="M752 480 A133 133 0 0 1 1018 480" stroke="#F2545B" stroke-width="16" />
+            <path d="M767 480 A118 118 0 0 1 1003 480" stroke="#F2A65A" stroke-width="16" />
+            <path d="M782 480 A103 103 0 0 1 988 480" stroke="#FFD23F" stroke-width="16" />
+            <path d="M797 480 A88 88 0 0 1 973 480" stroke="#9BD67A" stroke-width="16" />
+            <path d="M812 480 A73 73 0 0 1 958 480" stroke="#4FA3E0" stroke-width="16" />
+            <path d="M827 480 A58 58 0 0 1 943 480" stroke="#7B4CC2" stroke-width="16" />
+          </g>
+
           <!-- Big fluffy cloud the castle sits on -->
           <g fill="#FFFFFF">
             <circle cx="470" cy="610" r="90" /><circle cx="600" cy="545" r="105" /><circle cx="760" cy="540" r="115" />
@@ -83,7 +96,61 @@
         </g>
         <!-- Mr. Froggles, flying -->
         <image class="froggles-flying" href="./mr-froggles.svg" x="290" y="110" width="250" height="325" />
+
+        <!-- The little rain cloud over Pip. Once it's enchanted it's gone,
+             and the rainbow is in its place. -->
+        <g class="rain-cloud" stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+          <path class="rain" d="M835 340 l-8 22 M860 350 l-8 22 M920 345 l-8 22 M945 335 l-8 22 M848 390 l-8 22 M934 392 l-8 22" fill="none" stroke="#4FA3E0" stroke-width="7" />
+          <g fill="#B7B0C4">
+            <circle cx="840" cy="285" r="36" /><circle cx="890" cy="265" r="46" /><circle cx="940" cy="290" r="34" />
+            <rect x="810" y="282" width="160" height="42" rx="21" />
+          </g>
+          <g fill="#B7B0C4" stroke="none">
+            <circle cx="840" cy="285" r="32" /><circle cx="890" cy="265" r="42" /><circle cx="940" cy="290" r="30" />
+            <rect x="814" y="286" width="152" height="34" rx="17" />
+          </g>
+        </g>
+
+        <path class="enchant-swirl fades" d="M890 196 C1010 196 1020 352 890 352 C760 352 760 214 870 214" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+        <!-- Pip flies up to sit on top of the rainbow at the end. -->
+        <g class="bird-flight">
+          <!-- Pip the bluebird, who needs help. Works like a button
+               (quest-page.js). -->
+          <g class="helper" role="button" tabindex="0" aria-label="Pip the bluebird needs help. Tap to talk." transform="translate(885 441) scale(1.1)">
+            <circle class="helper-ring" r="64" fill="none" stroke="none" stroke-width="4" />
+            <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M-6 28 v10 M10 28 v10" fill="none" />
+              <path d="M-30 0 L-58 -14 L-54 12 Z" fill="#2E6FB0" />
+              <ellipse cx="-2" cy="4" rx="36" ry="26" fill="#4FA3E0" />
+              <path d="M-8 26 Q16 28 30 8 Q20 -2 6 6 Q-6 14 -8 26 Z" fill="#F2A65A" />
+              <circle cx="24" cy="-20" r="20" fill="#4FA3E0" />
+              <path d="M42 -25 L58 -18 L42 -11 Z" fill="#FFD23F" />
+              <path d="M-26 -2 Q-6 -24 14 -2 Q-4 14 -26 -2 Z" fill="#2E6FB0" />
+            </g>
+            <circle cx="30" cy="-24" r="3.5" fill="#1F1A24" />
+            <g class="alert">
+              <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+              <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cy="-72" r="2.8" fill="#1F1A24" />
+            </g>
+            <circle r="60" fill="transparent" />
+          </g>
+        </g>
       </svg>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+        <p class="legend-line" hidden></p>
+        <button type="button" class="story-button again" hidden>Play again</button>
+      </section>
     </main>
+
+    <script type="module">
+      import { start } from './game/cloud-page.js';
+      start(document);
+    </script>
   </body>
 </html>
