@@ -25,7 +25,7 @@
            Each cloud is drawn twice: once with outlines, then again without,
            so only its outside edge shows.
            It's a group, not one image, so screen readers can reach Pip. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, and a little bluebird sitting under a rain cloud">
+      <svg class="scene" data-froggles-to="640 210" data-enchant-at="890 280" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, and a little bluebird sitting under a rain cloud">
         <rect width="1200" height="700" fill="#BFE6FF" />
         <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
           <!-- Sun -->
@@ -95,7 +95,10 @@
           <circle cx="150" cy="560" r="7" fill="#5B2A9E" stroke="none" />
         </g>
         <!-- Mr. Froggles, flying -->
-        <image class="froggles-flying" href="./mr-froggles.svg" x="290" y="110" width="250" height="325" />
+        <!-- The outer group swoops him over to cast each enchantment. -->
+        <g class="froggles-swoop">
+          <image class="froggles-flying" href="./mr-froggles.svg" x="290" y="110" width="250" height="325" />
+        </g>
 
         <!-- The little rain cloud over Pip. Once it's enchanted it's gone,
              and the rainbow is in its place. -->

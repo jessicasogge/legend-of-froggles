@@ -23,7 +23,7 @@
            On small or short screens the edges are trimmed (slice), keeping
            Mr. Froggles and the middle of the pond in view.
            It's a group, not one image, so screen readers can reach Pebble. -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles, and a little snail stuck on a rock in the water">
+      <svg class="scene" data-froggles-to="700 300" data-enchant-at="600 650" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying over the Home Pond, with lily pads, a pink water lily, cattails and tadpoles, and a little snail stuck on a rock in the water">
         <rect width="1200" height="700" fill="#D9F2FF" />
         <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
           <!-- Sun -->
@@ -72,7 +72,10 @@
           <circle cx="270" cy="360" r="7" fill="#5B2A9E" stroke="none" />
         </g>
         <!-- Mr. Froggles, flying -->
-        <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="60" width="250" height="325" />
+        <!-- The outer group swoops him over to cast each enchantment. -->
+        <g class="froggles-swoop">
+          <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="60" width="250" height="325" />
+        </g>
 
         <!-- Pebble's little rock, out in the water. Once it's enchanted it's
              gone, and a lily pad is in its place. -->

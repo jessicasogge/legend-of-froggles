@@ -93,12 +93,15 @@
           </g>
         </g>
         <!-- Mr. Froggles, flying -->
-        <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="90" width="250" height="325" />
+        <!-- The outer group swoops him over to cast each enchantment. -->
+        <g class="froggles-swoop">
+          <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="90" width="250" height="325" />
+        </g>
 
         <!-- Olive's quest: she sits on the big spotted mushroom, and her nest
              is empty up in the tree. Once the mushroom is enchanted it grows
              tall and carries her up to the nest. -->
-        <g data-quest="olive">
+        <g data-quest="olive" data-froggles-to="510 250" data-enchant-at="707 500">
           <g class="mushroom-lift">
             <!-- The stem is long enough for the mushroom at its tallest; the
                  grass drawn after it hides the rest underground. -->
@@ -151,7 +154,7 @@
         <!-- Nutmeg's quest: she sits under the big oak tree, which has no
              acorns. Once it's enchanted, acorns grow all over it and one
              drops into her paws. -->
-        <g data-quest="nutmeg">
+        <g data-quest="nutmeg" data-froggles-to="620 170" data-enchant-at="870 200">
           <g class="acorns">
             <g class="acorn"><use href="#acorn" x="790" y="150" /></g>
             <g class="acorn"><use href="#acorn" x="862" y="104" /></g>
@@ -196,7 +199,7 @@
         <use href="#hedgehog" transform="translate(900 655) scale(0.9)" />
 
         <!-- Hazel's quest -->
-        <g data-quest="hazel">
+        <g data-quest="hazel" data-froggles-to="560 320" data-enchant-at="435 665">
           <!-- The little fallen leaf by the stream. Once it's enchanted it's
                gone, and a big leaf bridge spans the stream instead. -->
           <g class="fallen-leaf" transform="translate(50 0)" stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">

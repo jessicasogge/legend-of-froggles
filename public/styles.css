@@ -394,6 +394,44 @@ body.pond {
 
 /* ---- Quests ---- */
 
+/* Mr. Froggles swoops over to cast an enchantment, hovers while it works,
+   then flies back. Where to is set per quest (game/quest-page.js). */
+.froggles-swoop.casting {
+  animation: swoop 4.4s ease-in-out;
+}
+
+@keyframes swoop {
+  12%,
+  80% {
+    transform: translate(var(--swoop-x), var(--swoop-y));
+  }
+}
+
+/* Sparkles stream from him to what he enchants. */
+.sparkle {
+  fill: #fff1a8;
+  stroke: #5b2a9e;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: sparkle-fly 0.8s ease-in both;
+}
+
+@keyframes sparkle-fly {
+  from {
+    transform: translate(var(--from-x), var(--from-y)) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--to-x), var(--to-y)) scale(1.2) rotate(90deg);
+    opacity: 0;
+  }
+}
+
 /* A scene with a story box under it leaves room for the box by getting
    narrower, not shorter, so the top of the picture isn't trimmed off. */
 .scene:has(+ .story),
@@ -672,6 +710,8 @@ body.pond {
 
 @media (prefers-reduced-motion: reduce) {
   .helper .alert,
+  .froggles-swoop.casting,
+  .sparkle,
   .rain,
   [data-step='done'] .star-body {
     animation: none;

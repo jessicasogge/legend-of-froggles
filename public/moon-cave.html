@@ -27,7 +27,7 @@
            group (data-quest); Flicker's holds the cave too, since the cave
            lights up when her quest is done. -->
       <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying by the Moon Cave under a crescent moon, with glowing mushrooms at the cave mouth, a little firefly sitting on the hill, and a little star that has fallen onto the hilltop">
-        <g data-quest="flicker">
+        <g data-quest="flicker" data-froggles-to="400 340" data-enchant-at="600 560">
           <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
             <!-- Stars -->
             <path d="M150 90 l12 26 l28 4 l-20 20 l5 28 l-25 -13 l-25 13 l5 -28 l-20 -20 l28 -4 Z" fill="#FFD23F" stroke-width="6" />
@@ -73,7 +73,10 @@
             <circle cx="170" cy="610" r="7" fill="#B58CFF" stroke="none" />
           </g>
           <!-- Mr. Froggles, flying -->
-          <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="70" width="250" height="325" />
+          <!-- The outer group swoops him over to cast each enchantment. -->
+          <g class="froggles-swoop">
+            <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="70" width="250" height="325" />
+          </g>
 
           <!-- Mr. Froggles' enchantment, looping around the cave. Drawn on when
                the quest is done. -->
@@ -112,7 +115,7 @@
         <!-- Twinkle's quest: a little star has fallen onto the hilltop. Once
              the moonlight is enchanted, a moonbeam shines down and carries
              her back up into the sky. -->
-        <g data-quest="twinkle">
+        <g data-quest="twinkle" data-froggles-to="500 170" data-enchant-at="830 160">
           <path class="moonbeam" d="M816 118 L872 176 L700 262 L590 262 Z" fill="#FFF1A8" opacity="0.45" />
           <!-- The moon again, over the moonbeam, so the beam shines out from
                behind it. -->
