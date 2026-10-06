@@ -3,7 +3,7 @@ export const ID = 'hazel';
 export const HELPER = 'Hazel the hedgehog';
 
 export const LINES = {
-  waiting: 'Two friends in the woods need help. Tap the hedgehog or the owl to find out who.',
+  waiting: 'Three friends in the woods need help. Tap the hedgehog, the owl or the squirrel to find out who.',
   asked: 'My family is on the other side of the stream, and it’s too wide for me to cross! If only that little leaf were bigger…',
   done: 'A leaf bridge! I can get across now. Thank you, Mr. Froggles!',
 };
