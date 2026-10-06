@@ -1,10 +1,6 @@
 // Draws a page's quests and handles the taps. Each kingdom's page passes in
 // its quests (who needs help, what they say, the legend line).
-//
-// With one quest, its step is kept on the scene. With more, each quest has an
-// ID and its own group in the picture (data-quest="<ID>") holding its helper
-// and drawings, and its step is kept there, so each quest's picture changes
-// on its own. They share the story box, which shows whoever was tapped last.
+
 import { START, next } from './quest.js';
 
 export function startQuests(doc, quests) {
