@@ -18,7 +18,7 @@ describe('Cloud Kingdom screen', () => {
 
   it('shows the castle on its cloud, described for anyone who cannot see it', () => {
     const scene = document.querySelector('svg.scene');
-    expect(scene.getAttribute('role')).toBe('img');
+    expect(scene.getAttribute('role')).toBe('group');
     expect(scene.getAttribute('aria-label')).toMatch(/castle on a big fluffy cloud/);
   });
 
