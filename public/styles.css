@@ -529,6 +529,38 @@ body.pond {
   transform: translateY(-190px);
 }
 
+/* Whispering Woods: acorns grow all over the oak tree, then one drops into
+   Nutmeg's paws. */
+.acorn,
+.acorn-drop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.acorn {
+  transform: scale(0.2);
+  transition: opacity 0.4s 0.6s, transform 0.6s 0.6s;
+}
+
+.acorn:nth-child(even) {
+  transition-delay: 0.9s;
+}
+
+[data-step='done'] .acorn {
+  opacity: 1;
+  transform: none;
+}
+
+.acorn-drop {
+  transition: opacity 0.4s 1.2s, transform 0.7s ease-in 2s;
+}
+
+[data-step='done'] .acorn-drop {
+  opacity: 1;
+  transform: translateY(128px);
+}
+
 /* Home Pond: the rock becomes a lily pad, then the pad floats Pebble to
    shore. */
 .pond-rock {
@@ -626,6 +658,8 @@ body.pond {
   .fallen-leaf,
   .hazel-walk,
   .mushroom-lift,
+  .acorn,
+  .acorn-drop,
   .pond-rock,
   .new-pad,
   .snail-raft,

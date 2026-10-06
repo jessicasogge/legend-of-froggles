@@ -22,9 +22,10 @@
            the trees. Same marker style as the kingdom picture on the previous
            screen. On small or short screens the edges are trimmed (slice),
            keeping Mr. Froggles and the middle trees in view.
-           It's a group, not one image, so screen readers can reach Hazel and
-           Olive. Each of their quests has its own group (data-quest). -->
-      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying through the Whispering Woods, between round trees and spotted mushrooms, with a stream running through, a little hedgehog on one side, and a little owl sitting on a mushroom under a tree with an empty nest">
+           It's a group, not one image, so screen readers can reach Hazel,
+           Olive and Nutmeg. Each of their quests has its own group
+           (data-quest). -->
+      <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying through the Whispering Woods, between round trees and spotted mushrooms, with a stream running through, a little hedgehog on one side, a little owl sitting on a mushroom under a tree with an empty nest, and a little squirrel under a big oak tree with no acorns">
         <defs>
           <g id="hedgehog" stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
             <ellipse cx="-18" cy="24" rx="8" ry="5" fill="#6B4426" />
@@ -35,6 +36,10 @@
             <circle cx="53" cy="8" r="5" fill="#1F1A24" />
             <circle cx="30" cy="1" r="3.5" fill="#1F1A24" stroke="none" />
             <circle cx="35" cy="11" r="4" fill="#FF8FB1" stroke="none" />
+          </g>
+          <g id="acorn" stroke="#1F1A24" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cy="6" rx="10" ry="12" fill="#D9A066" />
+            <path d="M-13 -1 Q0 -16 13 -1 Z M0 -10 V-16" fill="#8A5A3B" />
           </g>
         </defs>
         <rect width="1200" height="700" fill="#EAF6D8" />
@@ -130,7 +135,8 @@
           </g>
 
           <!-- Grass in front of the stem's underground part -->
-          <rect x="682" y="580" width="50" height="115" fill="#7FB653" />
+          <rect x="682" y="580" width="50" height="120" fill="#7FB653" />
+          <path d="M682 700 H732" stroke="#1F1A24" stroke-width="8" />
 
           <!-- Olive's nest, up in the tree, drawn in front of her so she sits
                in it at the end. -->
@@ -140,6 +146,49 @@
           </g>
 
           <path class="enchant-swirl fades" d="M707 380 C830 380 840 600 707 600 C580 600 580 400 690 398" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+        </g>
+
+        <!-- Nutmeg's quest: she sits under the big oak tree, which has no
+             acorns. Once it's enchanted, acorns grow all over it and one
+             drops into her paws. -->
+        <g data-quest="nutmeg">
+          <g class="acorns">
+            <g class="acorn"><use href="#acorn" x="790" y="150" /></g>
+            <g class="acorn"><use href="#acorn" x="862" y="104" /></g>
+            <g class="acorn"><use href="#acorn" x="940" y="140" /></g>
+            <g class="acorn"><use href="#acorn" x="905" y="196" /></g>
+            <g class="acorn"><use href="#acorn" x="806" y="248" /></g>
+            <g class="acorn"><use href="#acorn" x="930" y="282" /></g>
+            <g class="acorn"><use href="#acorn" x="850" y="170" /></g>
+          </g>
+
+          <!-- Nutmeg the squirrel, who needs help. Works like a button
+               (quest-page.js). -->
+          <g class="helper" role="button" tabindex="0" aria-label="Nutmeg the squirrel needs help. Tap to talk." transform="translate(820 414) scale(1.1)">
+            <circle class="helper-ring" cx="-8" cy="-14" r="62" fill="none" stroke="none" stroke-width="4" />
+            <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M-12 30 C-60 30 -68 -30 -42 -54 C-22 -70 -4 -52 -16 -38 C-30 -22 -34 0 -12 14 Z" fill="#C46A2B" />
+              <ellipse cx="10" cy="36" rx="14" ry="5" fill="#D9823B" />
+              <ellipse cx="6" cy="10" rx="22" ry="28" fill="#D9823B" />
+              <ellipse cx="14" cy="16" rx="11" ry="16" fill="#F4D9B0" />
+              <path d="M10 -38 L12 -56 L24 -42 Z" fill="#D9823B" />
+              <circle cx="20" cy="-26" r="18" fill="#D9823B" />
+              <ellipse cx="24" cy="4" rx="7" ry="5" fill="#D9823B" />
+            </g>
+            <circle cx="26" cy="-29" r="3.5" fill="#1F1A24" />
+            <circle cx="37" cy="-22" r="3" fill="#1F1A24" />
+            <g class="alert">
+              <circle cx="16" cy="-72" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+              <path d="M16 -82 V-70" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cx="16" cy="-62" r="2.8" fill="#1F1A24" />
+            </g>
+            <circle cx="-8" cy="-14" r="56" fill="transparent" />
+          </g>
+
+          <!-- The acorn that drops from the tree into her paws -->
+          <g class="acorn-drop"><use href="#acorn" x="846" y="290" /></g>
+
+          <path class="enchant-swirl fades" d="M870 66 C1030 66 1040 362 870 362 C716 362 700 88 850 82" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
         </g>
 
         <!-- Hazel's family, waiting on the far side -->
