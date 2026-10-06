@@ -40,7 +40,7 @@ describe('Moon Cave screen', () => {
 
 describe('Moon Cave quest, on the page', () => {
   it('starts with Flicker waiting, a "!" over her, and only a hint to read', () => {
-    expect($('svg.scene').dataset.step).toBe('waiting');
+    expect($('[data-quest="flicker"]').dataset.step).toBe('waiting');
     expect($('.firefly .alert')).not.toBeNull();
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.story-speaker')).toBe(false);
@@ -57,7 +57,7 @@ describe('Moon Cave quest, on the page', () => {
 
   it('has Flicker ask for help when tapped, and offers to enchant the cave', () => {
     $('.firefly').dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    expect($('svg.scene').dataset.step).toBe('asked');
+    expect($('[data-quest="flicker"]').dataset.step).toBe('asked');
     expect($('.story-speaker').textContent).toBe('Flicker the firefly');
     expect($('.story-text').textContent).toBe(LINES.asked);
     expect(visible('.enchant')).toBe(true);
@@ -78,7 +78,7 @@ describe('Moon Cave quest, on the page', () => {
   it('lights the cave and adds to the legend once it is enchanted', () => {
     $('.firefly').dispatchEvent(new MouseEvent('click', { bubbles: true }));
     $('.enchant').click();
-    expect($('svg.scene').dataset.step).toBe('done');
+    expect($('[data-quest="flicker"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
     expect(visible('.enchant')).toBe(false);
     expect(visible('.legend-line')).toBe(true);
@@ -91,7 +91,7 @@ describe('Moon Cave quest, on the page', () => {
     $('.firefly').dispatchEvent(new MouseEvent('click', { bubbles: true }));
     $('.enchant').click();
     $('.again').click();
-    expect($('svg.scene').dataset.step).toBe('waiting');
+    expect($('[data-quest="flicker"]').dataset.step).toBe('waiting');
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.again')).toBe(false);
   });
