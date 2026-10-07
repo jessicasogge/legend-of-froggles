@@ -363,6 +363,12 @@ body.pond {
   outline-offset: 4px;
 }
 
+/* The picture, with room for the closing card on top of it. */
+.scene-box {
+  position: relative;
+  width: min(1100px, 100%);
+}
+
 .scene {
   display: block;
   width: min(1100px, 100%);
@@ -434,13 +440,121 @@ body.pond {
 
 /* A scene with a story box under it leaves room for the box by getting
    narrower, not shorter, so the top of the picture isn't trimmed off. */
-.scene:has(+ .story),
-.scene + .story {
+.scene-box:has(+ .story),
+.scene-box + .story {
   width: min(1100px, 100%, max(480px, calc((100dvh - 380px) * 12 / 7)));
 }
 
-.scene:has(+ .story) {
+.scene-box:has(+ .story) .scene {
   max-height: none;
+}
+
+/* Once everyone in a kingdom is helped (data-finale on the scene), Mr.
+   Froggles finishes his last cast, twirls twice, and flies off the top of
+   the screen. Then the closing card covers the picture. */
+.froggles-exit {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scene[data-finale] .froggles-exit {
+  animation: froggles-exit 2.4s ease-in-out 3.8s forwards;
+}
+
+@keyframes froggles-exit {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  40% {
+    transform: translate(0, 0) rotate(720deg) scale(1);
+  }
+  to {
+    transform: translate(800px, -650px) rotate(720deg) scale(0.5);
+  }
+}
+
+.finale {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 24px;
+  background: rgb(31 26 36 / 0.45);
+  animation: fade-in 0.4s ease-out;
+}
+
+.finale[hidden] {
+  display: none;
+}
+
+.finale-card {
+  max-width: 32rem;
+  padding: 1.5rem 1.75rem;
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 8px 0 var(--ink);
+  animation: card-pop 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.finale-card h2 {
+  margin: 0 0 0.5rem;
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--enchantment);
+}
+
+.finale-card p {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height: 1.4;
+}
+
+.finale-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.finale-next {
+  display: inline-flex;
+  align-items: center;
+  background: var(--enchantment);
+  color: #fff;
+  text-decoration: none;
+}
+
+.finale-stay {
+  background: #fff1a8;
+  color: var(--ink);
+}
+
+/* Phones: a smaller card, so it fits over the square picture. */
+@media (max-width: 600px) {
+  .finale-card {
+    padding: 1rem 1.1rem;
+  }
+
+  .finale-card p {
+    margin-bottom: 0.9rem;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes card-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
 }
 
 /* The picture changes with the quest's step, set on the scene as
@@ -742,7 +856,13 @@ body.pond {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .scene[data-finale] .froggles-exit {
+    animation: fade-out 0.6s 3.8s forwards;
+  }
+
   .helper .alert,
+  .finale,
+  .finale-card,
   .froggles-swoop.casting,
   .sparkle,
   .rain,

@@ -4,6 +4,9 @@
 import { START, next } from './quest.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
+// How long after the last enchantment the closing card shows: his last cast
+// (3.8s), then twirling and flying off (2.4s). See styles.css.
+export const FINALE_AFTER = 6400;
 const SPARKLE = 'M0 -22 L6 -6 L22 0 L6 6 L0 22 L-6 6 L-22 0 L-6 -6 Z';
 
 // "x y" in the picture's units, from a data attribute.
@@ -61,6 +64,20 @@ export function startQuests(doc, quests) {
     }
   }
 
+  // Once everyone is helped, Mr. Froggles twirls and flies off (CSS, keyed off
+  // data-finale), then the closing card covers the picture.
+  const finale = doc.querySelector('.finale');
+  let finished = false;
+
+  function finish() {
+    finished = true;
+    scene.dataset.finale = '';
+    setTimeout(() => {
+      finale.hidden = false;
+      finale.querySelector('.finale-next').focus();
+    }, FINALE_AFTER);
+  }
+
   function show() {
     quests.forEach((quest, i) => {
       // The picture changes through CSS, keyed off this one attribute.
@@ -89,6 +106,7 @@ export function startQuests(doc, quests) {
     // then back in the picture with whoever they just helped.
     if (steps[i] === 'asked') enchant.focus();
     if (action === 'enchant' && steps[i] === 'done') helpers[i].focus();
+    if (finale && !finished && steps.every((step) => step === 'done')) finish();
   }
 
   // Helpers are drawn in the picture, so they're made to work like buttons.
@@ -102,6 +120,10 @@ export function startQuests(doc, quests) {
     });
   });
   enchant.addEventListener('click', () => act('enchant'));
+  finale?.querySelector('.finale-stay').addEventListener('click', () => {
+    finale.hidden = true;
+    helpers[current].focus();
+  });
 
   show();
   return {
