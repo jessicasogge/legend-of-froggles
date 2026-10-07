@@ -73,9 +73,9 @@ describe('Moon Cave star quest', () => {
 });
 
 describe('Moon Cave with two quests', () => {
-  it('says there are two friends to help', () => {
+  it('says there are three friends to help', () => {
     expect($('.story-text').textContent).toBe(flicker.LINES.waiting);
-    expect(flicker.LINES.waiting).toMatch(/^Two friends need help tonight/);
+    expect(flicker.LINES.waiting).toMatch(/^Three friends need help tonight/);
   });
 
   it('keeps the cave dark while Twinkle is helped', () => {
