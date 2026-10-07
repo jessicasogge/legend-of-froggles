@@ -6,7 +6,10 @@ import { describe, expect, it } from 'vitest';
 
 const SITE = 'https://jessicasogge.github.io/legend-of-froggles/';
 const publicDir = join(process.cwd(), 'public');
-const pages = readdirSync(publicDir).filter((f) => f.endsWith('.html')).sort();
+// Google Search Console's file proving the site is ours. It's not a page of
+// the game, so it isn't checked like one or listed in the sitemap.
+const VERIFICATION = 'google32efa8321a61b455.html';
+const pages = readdirSync(publicDir).filter((f) => f.endsWith('.html') && f !== VERIFICATION).sort();
 const read = (name) => readFileSync(join(publicDir, name), 'utf8');
 const addressOf = (page) => (page === 'index.html' ? SITE : SITE + page);
 
@@ -31,5 +34,13 @@ describe('sitemap', () => {
   it('lists every page, and nothing else', () => {
     const listed = [...read('sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
     expect([...listed].sort()).toEqual(pages.map(addressOf).sort());
+  });
+});
+
+describe('Google Search Console', () => {
+  // Google checks this file from time to time, so changing or deleting it
+  // would undo the verification.
+  it('keeps the verification file, exactly as Google gave it', () => {
+    expect(read(VERIFICATION)).toBe(`google-site-verification: ${VERIFICATION}`);
   });
 });
