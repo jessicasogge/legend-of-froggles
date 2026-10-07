@@ -18,7 +18,7 @@ const KINGDOMS = [
   { page: 'cloud-kingdom.html', start: startCloud, roots: ['svg.scene'] },
   { page: 'home-pond.html', start: startPond, roots: ['svg.scene'] },
   { page: 'whispering-woods.html', start: startWoods, roots: ['[data-quest="hazel"]', '[data-quest="olive"]', '[data-quest="nutmeg"]'] },
-  { page: 'moon-cave.html', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]'] },
+  { page: 'moon-cave.html', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
 ];
 
 const POINT = /^\d+ \d+$/;

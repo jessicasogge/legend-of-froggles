@@ -1,5 +1,5 @@
 // Draws a page's quests and handles the taps. Each kingdom's page passes in
-// its quests (who needs help, what they say, the legend line).
+// its quests (who needs help and what they say).
 
 import { START, next } from './quest.js';
 
@@ -17,7 +17,6 @@ export function startQuests(doc, quests) {
   const speaker = doc.querySelector('.story-speaker');
   const text = doc.querySelector('.story-text');
   const enchant = doc.querySelector('.enchant');
-  const legend = doc.querySelector('.legend-line');
 
   const roots = quests.map((quest) => (quest.ID ? doc.querySelector(`[data-quest="${quest.ID}"]`) : scene));
   const helpers = roots.map((root) => root.querySelector('.helper'));
@@ -69,15 +68,13 @@ export function startQuests(doc, quests) {
       helpers[i].setAttribute('aria-label', steps[i] === 'waiting' ? `${quest.HELPER} needs help. Tap to talk.` : quest.HELPER);
     });
 
-    const { HELPER, LINES, LEGEND_LINE, ENCHANT } = quests[current];
+    const { HELPER, LINES, ENCHANT } = quests[current];
     const step = steps[current];
     speaker.hidden = step === 'waiting';
     speaker.textContent = HELPER;
     text.textContent = LINES[step];
     enchant.textContent = ENCHANT;
     enchant.hidden = step !== 'asked';
-    legend.hidden = step !== 'done';
-    legend.textContent = LEGEND_LINE;
   }
 
   function act(action, i = current) {

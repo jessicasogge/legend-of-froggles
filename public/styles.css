@@ -522,6 +522,39 @@ body.pond {
   }
 }
 
+/* Moon Cave: the tiny twig grows into a twisty tree, then Dot flies up and
+   hangs upside down from its branch. */
+.tiny-twig {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .tiny-twig {
+  opacity: 0;
+}
+
+.bat-tree {
+  opacity: 0;
+  transform: scale(0.1);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.6s, transform 0.9s 0.6s;
+}
+
+[data-step='done'] .bat-tree {
+  opacity: 1;
+  transform: none;
+}
+
+.bat-flight {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 1.6s ease-in-out 1.6s;
+}
+
+[data-step='done'] .bat-flight {
+  transform: translate(103px, -100px) rotate(180deg);
+}
+
 /* The enchantment loops around the cave, then the cave lights up. */
 .cave-glow {
   opacity: 0;
@@ -729,6 +762,9 @@ body.pond {
   .cave-glow,
   .moonbeam,
   .star-lift,
+  .tiny-twig,
+  .bat-tree,
+  .bat-flight,
   .firefly-light,
   .firefly-glow,
   .leaf-bridge,
@@ -770,13 +806,6 @@ body.pond {
 .story-speaker {
   font-family: Fredoka, system-ui, sans-serif;
   color: var(--enchantment);
-}
-
-.legend-line {
-  padding-left: 1rem;
-  border-left: 5px solid var(--enchantment);
-  font-style: italic;
-  color: var(--froggles-dark);
 }
 
 .story-button {

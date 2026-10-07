@@ -4,7 +4,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/woods-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/woods-squirrel-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/woods-squirrel-quest.js';
 import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -51,13 +51,11 @@ describe('Whispering Woods squirrel quest', () => {
     expect(game.stepOf('nutmeg')).toBe('asked');
   });
 
-  it('grows the acorns and adds to the legend once the tree is enchanted', () => {
+  it('grows the acorns once the tree is enchanted', () => {
     tap(nutmeg());
     $('.enchant').click();
     expect($('[data-quest="nutmeg"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a big oak tree/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {

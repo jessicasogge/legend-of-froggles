@@ -3,7 +3,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/moon-cave-page.js';
-import { LEGEND_LINE, LINES } from '../public/game/moon-cave-quest.js';
+import { LINES } from '../public/game/moon-cave-quest.js';
 import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -46,7 +46,6 @@ describe('Moon Cave quest, on the page', () => {
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.story-speaker')).toBe(false);
     expect(visible('.enchant')).toBe(false);
-    expect(visible('.legend-line')).toBe(false);
   });
 
   it('makes Flicker work like a button, for taps and keyboards', () => {
@@ -75,14 +74,12 @@ describe('Moon Cave quest, on the page', () => {
     expect(game.step).toBe('asked');
   });
 
-  it('lights the cave and adds to the legend once it is enchanted', () => {
+  it('lights the cave once it is enchanted', () => {
     $('.firefly').dispatchEvent(new MouseEvent('click', { bubbles: true }));
     $('.enchant').click();
     expect($('[data-quest="flicker"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
     expect(visible('.enchant')).toBe(false);
-    expect(visible('.legend-line')).toBe(true);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
     expect($('.cave-glow')).not.toBeNull();
     expect($('.enchant-swirl')).not.toBeNull();
   });

@@ -5,7 +5,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/woods-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/woods-owl-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/woods-owl-quest.js';
 import * as hazel from '../public/game/woods-quest.js';
 import { loadPage } from './load-page.js';
 
@@ -53,13 +53,11 @@ describe('Whispering Woods owl quest', () => {
     expect(game.stepOf('olive')).toBe('asked');
   });
 
-  it('grows the mushroom and adds to the legend once it is enchanted', () => {
+  it('grows the mushroom once it is enchanted', () => {
     tap(olive());
     $('.enchant').click();
     expect($('[data-quest="olive"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a spotted mushroom/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {
@@ -102,7 +100,6 @@ describe('Whispering Woods with two quests', () => {
     $('.enchant').click();
     expect($('[data-quest="hazel"]').dataset.step).toBe('done');
     expect($('[data-quest="olive"]').dataset.step).toBe('done');
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
   });
 
   it('shows each friend\'s own words when tapped after both are helped', () => {
@@ -112,6 +109,5 @@ describe('Whispering Woods with two quests', () => {
     $('.enchant').click();
     tap(hazelHelper());
     expect($('.story-text').textContent).toBe(hazel.LINES.done);
-    expect($('.legend-line').textContent).toBe(hazel.LEGEND_LINE);
   });
 });

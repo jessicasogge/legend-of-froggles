@@ -3,7 +3,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/woods-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/woods-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/woods-quest.js';
 import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -51,13 +51,11 @@ describe('Whispering Woods quest', () => {
     expect(game.step).toBe('asked');
   });
 
-  it('grows the bridge and adds to the legend once the leaf is enchanted', () => {
+  it('grows the bridge once the leaf is enchanted', () => {
     tap($('[data-quest="hazel"] .helper'));
     $('.enchant').click();
     expect($('[data-quest="hazel"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {

@@ -1,6 +1,6 @@
 // Plays the Moon Cave quest's rules directly, without a page.
 import { describe, expect, it } from 'vitest';
-import { LEGEND_LINE, LINES, START, next } from '../public/game/moon-cave-quest.js';
+import { LINES, START, next } from '../public/game/moon-cave-quest.js';
 
 describe('Moon Cave quest rules', () => {
   it('starts with someone waiting for help', () => {
@@ -29,9 +29,5 @@ describe('Moon Cave quest rules', () => {
 
   it('has something to say at every step', () => {
     for (const step of ['waiting', 'asked', 'done']) expect(LINES[step].length).toBeGreaterThan(10);
-  });
-
-  it('adds a line to the legend about what the flying frog did', () => {
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted/);
   });
 });

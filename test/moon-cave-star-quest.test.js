@@ -4,7 +4,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/moon-cave-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/moon-cave-star-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/moon-cave-star-quest.js';
 import * as flicker from '../public/game/moon-cave-quest.js';
 import { loadPage } from './load-page.js';
 
@@ -52,13 +52,11 @@ describe('Moon Cave star quest', () => {
     expect(game.stepOf('twinkle')).toBe('asked');
   });
 
-  it('carries her up and adds to the legend once the moonlight is enchanted', () => {
+  it('carries her up once the moonlight is enchanted', () => {
     tap(twinkle());
     $('.enchant').click();
     expect($('[data-quest="twinkle"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted the moonlight/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {
@@ -73,9 +71,9 @@ describe('Moon Cave star quest', () => {
 });
 
 describe('Moon Cave with two quests', () => {
-  it('says there are two friends to help', () => {
+  it('says there are three friends to help', () => {
     expect($('.story-text').textContent).toBe(flicker.LINES.waiting);
-    expect(flicker.LINES.waiting).toMatch(/^Two friends need help tonight/);
+    expect(flicker.LINES.waiting).toMatch(/^Three friends need help tonight/);
   });
 
   it('keeps the cave dark while Twinkle is helped', () => {
