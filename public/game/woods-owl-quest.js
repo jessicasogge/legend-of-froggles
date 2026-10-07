@@ -10,6 +10,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the mushroom';
 
-export const LEGEND_LINE = 'The flying frog enchanted a spotted mushroom, and it grew so tall that it carried Olive the owl back up to her nest.';
-
 export { START, next } from './quest.js';

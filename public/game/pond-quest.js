@@ -8,6 +8,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the rock';
 
-export const LEGEND_LINE = 'The flying frog enchanted a little rock, and it became a lily pad that carried Pebble the snail back to shore.';
-
 export { START, next } from './quest.js';

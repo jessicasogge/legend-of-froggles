@@ -10,6 +10,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the leaf';
 
-export const LEGEND_LINE = 'The flying frog enchanted a little leaf, and it grew into a bridge so Hazel could cross the stream to her family.';
-
 export { START, next } from './quest.js';

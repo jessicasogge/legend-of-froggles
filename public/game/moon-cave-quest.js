@@ -11,6 +11,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the cave';
 
-export const LEGEND_LINE = 'The flying frog enchanted the dark Moon Cave, and it glowed so Flicker could find her way home.';
-
 export { START, next } from './quest.js';

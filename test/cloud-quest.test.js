@@ -3,7 +3,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/cloud-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/cloud-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/cloud-quest.js';
 import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -51,13 +51,11 @@ describe('Cloud Kingdom quest', () => {
     expect(game.step).toBe('asked');
   });
 
-  it('turns the rain cloud into a rainbow and adds to the legend once it is enchanted', () => {
+  it('turns the rain cloud into a rainbow once it is enchanted', () => {
     tap($('.helper'));
     $('.enchant').click();
     expect($('svg.scene').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a little rain cloud, and it became a rainbow/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {

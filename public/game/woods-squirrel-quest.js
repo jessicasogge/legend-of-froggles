@@ -10,6 +10,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the oak tree';
 
-export const LEGEND_LINE = 'The flying frog enchanted a big oak tree, and it grew so many acorns that Nutmeg the squirrel had plenty for winter.';
-
 export { START, next } from './quest.js';

@@ -10,6 +10,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the moonlight';
 
-export const LEGEND_LINE = 'The flying frog enchanted the moonlight, and it carried Twinkle the little star back up into the night sky.';
-
 export { START, next } from './quest.js';

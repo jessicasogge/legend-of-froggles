@@ -808,13 +808,6 @@ body.pond {
   color: var(--enchantment);
 }
 
-.legend-line {
-  padding-left: 1rem;
-  border-left: 5px solid var(--enchantment);
-  font-style: italic;
-  color: var(--froggles-dark);
-}
-
 .story-button {
   min-height: 52px;
   padding: 0 1.5rem;

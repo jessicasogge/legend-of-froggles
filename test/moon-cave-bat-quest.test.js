@@ -4,7 +4,7 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
 import { start } from '../public/game/moon-cave-page.js';
-import { ENCHANT, HELPER, LEGEND_LINE, LINES } from '../public/game/moon-cave-bat-quest.js';
+import { ENCHANT, HELPER, LINES } from '../public/game/moon-cave-bat-quest.js';
 import { loadPage } from './load-page.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -52,13 +52,11 @@ describe('Moon Cave bat quest', () => {
     expect(game.stepOf('dot')).toBe('asked');
   });
 
-  it('grows the tree and adds to the legend once the twig is enchanted', () => {
+  it('grows the tree once the twig is enchanted', () => {
     tap(dot());
     $('.enchant').click();
     expect($('[data-quest="dot"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
-    expect($('.legend-line').textContent).toBe(LEGEND_LINE);
-    expect(LEGEND_LINE).toMatch(/^The flying frog enchanted a tiny twig/);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {

@@ -8,6 +8,4 @@ export const LINES = {
 
 export const ENCHANT = 'Enchant the rain cloud';
 
-export const LEGEND_LINE = 'The flying frog enchanted a little rain cloud, and it became a rainbow, so Pip the bluebird could dry her feathers and fly again.';
-
 export { START, next } from './quest.js';
