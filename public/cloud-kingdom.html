@@ -27,9 +27,9 @@
              keeping the castle and Mr. Froggles near the middle.
              Each cloud is drawn twice: once with outlines, then again without,
              so only its outside edge shows.
-             It's a group, not one image, so screen readers can reach Pip and
-             Ginger. Each of their quests has its own group (data-quest). -->
-        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, a little bluebird sitting under a rain cloud, and a little fox with a kite that won't fly">
+             It's a group, not one image, so screen readers can reach Pip,
+             Ginger and Lulu. Each of their quests has its own group (data-quest). -->
+        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, a little bluebird sitting under a rain cloud, a little fox with a kite that won't fly, and a little unicorn with no wings">
           <rect width="1200" height="700" fill="#BFE6FF" />
           <!-- Pip's quest. It holds the picture behind everyone too, since the
                rainbow is drawn behind the big cloud. -->
@@ -195,6 +195,56 @@
             </g>
 
             <path class="enchant-swirl fades" d="M440 530 C570 530 580 712 440 712 C310 712 300 550 420 546" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+          </g>
+
+          <!-- Lulu's quest: a little unicorn sits in the big cloud with no wings,
+               only a little feather beside her. Once the feather is enchanted,
+               it becomes wings on her back, and she flies up over the castle. -->
+          <g data-quest="lulu" data-froggles-to="620 250" data-enchant-at="836 646">
+            <g class="lone-feather" stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M808 658 C820 638 848 632 866 640 C852 652 828 662 808 658 Z" fill="#E6F7FF" />
+              <path d="M802 662 Q834 650 860 642" fill="none" stroke-width="3" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M836 560 C950 560 960 732 836 732 C722 732 712 576 816 572" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- The outer group flies her up over the castle at the end. -->
+            <g class="unicorn-flight">
+              <!-- Lulu the unicorn, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Lulu the unicorn needs help. Tap to talk." transform="translate(690 610) scale(1.5)">
+                <circle class="helper-ring" cx="0" cy="-20" r="66" fill="none" stroke="none" stroke-width="4" />
+                <!-- Her wings, hidden until the feather is enchanted -->
+                <g class="unicorn-wings">
+                  <g class="wing-flap" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                    <path d="M0 -14 C-6 -52 24 -64 38 -48 C26 -46 22 -38 26 -30 C14 -32 8 -24 0 -14 Z" fill="#E6F7FF" />
+                    <path d="M8 -22 C14 -36 22 -44 30 -46" fill="none" stroke-width="2.5" />
+                  </g>
+                </g>
+                <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M34 -6 C60 -12 66 18 50 32 C56 12 46 2 34 4 Z" fill="#B58CFF" />
+                  <rect x="-28" y="8" width="10" height="30" rx="4" fill="#F4E9FF" />
+                  <rect x="-12" y="10" width="10" height="28" rx="4" fill="#F4E9FF" />
+                  <rect x="10" y="10" width="10" height="28" rx="4" fill="#F4E9FF" />
+                  <rect x="24" y="8" width="10" height="30" rx="4" fill="#F4E9FF" />
+                  <ellipse cx="2" rx="38" ry="22" fill="#F4E9FF" />
+                  <path d="M-22 -6 L-36 -38 L-18 -46 L-6 -12 Z" fill="#F4E9FF" />
+                  <ellipse cx="-40" cy="-44" rx="19" ry="14" fill="#F4E9FF" />
+                  <ellipse cx="-55" cy="-40" rx="9" ry="8" fill="#FFE3EC" />
+                  <path d="M-36 -56 L-33 -86 L-26 -55 Z" fill="#FFD23F" />
+                  <path d="M-24 -54 L-20 -68 L-16 -52 Z" fill="#F4E9FF" />
+                  <path d="M-22 -56 C-6 -50 -8 -28 -2 -12 C-12 -22 -16 -34 -24 -44 Z" fill="#FF8FB1" />
+                </g>
+                <path d="M-34 -79 l6 -2 M-35 -70 l8 -2 M-36 -61 l9 -2" stroke="#1F1A24" stroke-width="2" stroke-linecap="round" />
+                <circle cx="-42" cy="-46" r="3.2" fill="#1F1A24" />
+                <g class="alert">
+                  <circle cx="-30" cy="-110" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M-30 -120 V-108" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cx="-30" cy="-100" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle cy="-20" r="62" fill="transparent" />
+              </g>
+            </g>
           </g>
 
           <!-- Mr. Froggles, flying -->

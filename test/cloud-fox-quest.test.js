@@ -72,9 +72,9 @@ describe('Cloud Kingdom fox quest', () => {
 });
 
 describe('Cloud Kingdom with two quests', () => {
-  it('says there are two friends to help', () => {
+  it('says there are three friends to help', () => {
     expect($('.story-text').textContent).toBe(pip.LINES.waiting);
-    expect(pip.LINES.waiting).toMatch(/^Two friends in the Cloud Kingdom need help/);
+    expect(pip.LINES.waiting).toMatch(/^Three friends in the Cloud Kingdom need help/);
   });
 
   it('leaves Pip waiting while Ginger is helped', () => {

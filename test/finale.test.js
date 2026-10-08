@@ -18,7 +18,7 @@ const help = (root) => {
 };
 
 const KINGDOMS = [
-  { page: 'cloud-kingdom.html', name: 'the Cloud Kingdom', start: startCloud, roots: ['[data-quest="pip"]', '[data-quest="ginger"]'] },
+  { page: 'cloud-kingdom.html', name: 'the Cloud Kingdom', start: startCloud, roots: ['[data-quest="pip"]', '[data-quest="ginger"]', '[data-quest="lulu"]'] },
   { page: 'home-pond.html', name: 'the Home Pond', start: startPond, roots: ['svg.scene'] },
   { page: 'whispering-woods.html', name: 'the Whispering Woods', start: startWoods, roots: ['[data-quest="hazel"]', '[data-quest="olive"]', '[data-quest="nutmeg"]'] },
   { page: 'moon-cave.html', name: 'the Moon Cave', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
