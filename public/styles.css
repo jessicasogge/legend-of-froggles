@@ -315,7 +315,21 @@ body.pond {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1rem 2rem;
+  padding: 1rem;
+}
+
+/* On wider screens, Back sits in the corner beside the title rather than on
+   a row of its own, so the picture and story box fit the window. */
+@media (min-width: 700px) {
+  .kingdom-screen {
+    position: relative;
+  }
+
+  .kingdom-screen > .back {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
 }
 
 .kingdom-screen h1 {
@@ -445,11 +459,18 @@ body.pond {
   }
 }
 
-/* A scene with a story box under it leaves room for the box by getting
-   narrower, not shorter, so the top of the picture isn't trimmed off. */
-.scene-box:has(+ .story),
+/* A scene with a story box under it leaves room for the title and the box
+   by getting narrower, not shorter, so the top of the picture isn't trimmed
+   off and the box's button fits in the window without scrolling. The room
+   kept is for the tallest the box gets: someone talking, plus the Enchant
+   button. The box doesn't get as narrow as the picture, so its words don't
+   wrap onto more lines than they need. */
+.scene-box:has(+ .story) {
+  width: min(1100px, 100%, max(480px, calc((100dvh - 390px) * 12 / 7)));
+}
+
 .scene-box + .story {
-  width: min(1100px, 100%, max(480px, calc((100dvh - 380px) * 12 / 7)));
+  width: min(1100px, 100%, max(760px, calc((100dvh - 390px) * 12 / 7)));
 }
 
 .scene-box:has(+ .story) .scene {
@@ -538,6 +559,30 @@ body.pond {
 .finale-stay {
   background: #fff1a8;
   color: var(--ink);
+}
+
+/* Shorter laptop windows make the picture short too: a more compact card,
+   with the buttons side by side, so it still fits over the picture. */
+@media (min-width: 601px) and (max-height: 820px) {
+  .finale-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .finale-card h2 {
+    margin-bottom: 0.25rem;
+    font-size: 2rem;
+  }
+
+  .finale-card p {
+    margin-bottom: 0.9rem;
+    font-size: 1.05rem;
+  }
+
+  .finale-buttons .story-button {
+    min-height: 46px;
+    padding: 0 1.1rem;
+    font-size: 1.1rem;
+  }
 }
 
 /* Phones: a smaller card, so it fits over the square picture. */
