@@ -27,123 +27,182 @@
              keeping the castle and Mr. Froggles near the middle.
              Each cloud is drawn twice: once with outlines, then again without,
              so only its outside edge shows.
-             It's a group, not one image, so screen readers can reach Pip. -->
-        <svg class="scene" data-froggles-to="640 210" data-enchant-at="890 280" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, and a little bluebird sitting under a rain cloud">
+             It's a group, not one image, so screen readers can reach Pip and
+             Ginger. Each of their quests has its own group (data-quest). -->
+        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying beside a little castle on a big fluffy cloud in the Cloud Kingdom, a little bluebird sitting under a rain cloud, and a little fox with a kite that won't fly">
           <rect width="1200" height="700" fill="#BFE6FF" />
-          <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Sun -->
-            <circle cx="1000" cy="100" r="52" fill="#FFD23F" />
-            <path d="M1000 30 V12 M1000 170 V188 M930 100 H912 M1070 100 H1088 M950 50 l-12 -12 M1050 50 l12 -12 M950 150 l-12 12 M1050 150 l12 12" fill="none" stroke-width="7" />
-            <!-- Birds -->
-            <path d="M430 110 q14 -16 28 0 q14 -16 28 0 M500 60 q11 -12 22 0 q11 -12 22 0" fill="none" stroke-width="6" />
+          <!-- Pip's quest. It holds the picture behind everyone too, since the
+               rainbow is drawn behind the big cloud. -->
+          <g data-quest="pip" data-froggles-to="640 210" data-enchant-at="890 280">
+            <g stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Sun -->
+              <circle cx="1000" cy="100" r="52" fill="#FFD23F" />
+              <path d="M1000 30 V12 M1000 170 V188 M930 100 H912 M1070 100 H1088 M950 50 l-12 -12 M1050 50 l12 -12 M950 150 l-12 12 M1050 150 l12 12" fill="none" stroke-width="7" />
+              <!-- Birds -->
+              <path d="M430 110 q14 -16 28 0 q14 -16 28 0 M500 60 q11 -12 22 0 q11 -12 22 0" fill="none" stroke-width="6" />
 
-            <!-- Small cloud, top left -->
-            <g fill="#FFFFFF">
-              <circle cx="170" cy="150" r="40" /><circle cx="225" cy="128" r="52" /><circle cx="285" cy="155" r="38" />
-              <rect x="150" y="150" width="150" height="40" rx="20" />
-            </g>
-            <g fill="#FFFFFF" stroke="none">
-              <circle cx="170" cy="150" r="36" /><circle cx="225" cy="128" r="48" /><circle cx="285" cy="155" r="34" />
-              <rect x="154" y="154" width="142" height="32" rx="16" />
+              <!-- Small cloud, top left -->
+              <g fill="#FFFFFF">
+                <circle cx="170" cy="150" r="40" /><circle cx="225" cy="128" r="52" /><circle cx="285" cy="155" r="38" />
+                <rect x="150" y="150" width="150" height="40" rx="20" />
+              </g>
+              <g fill="#FFFFFF" stroke="none">
+                <circle cx="170" cy="150" r="36" /><circle cx="225" cy="128" r="48" /><circle cx="285" cy="155" r="34" />
+                <rect x="154" y="154" width="142" height="32" rx="16" />
+              </g>
+
+              <!-- Castle -->
+              <rect x="690" y="200" width="80" height="110" fill="#F4E9FF" />
+              <rect x="620" y="300" width="220" height="240" fill="#F4E9FF" />
+              <rect x="570" y="230" width="80" height="310" fill="#F4E9FF" />
+              <rect x="810" y="230" width="80" height="310" fill="#F4E9FF" />
+              <path d="M558 230 L610 138 L662 230 Z M798 230 L850 138 L902 230 Z M678 200 L730 108 L782 200 Z" fill="#7B4CC2" />
+              <path d="M730 108 V64 l42 15 l-42 15" fill="#FF8FB1" />
+              <circle cx="610" cy="300" r="13" fill="#1F1A24" stroke="none" />
+              <circle cx="850" cy="300" r="13" fill="#1F1A24" stroke="none" />
+              <rect x="716" y="236" width="28" height="40" rx="14" fill="#FFD23F" />
+              <path d="M690 540 V472 a40 40 0 0 1 80 0 V540" fill="#7B4CC2" />
+
+              <!-- The rainbow the rain cloud becomes, hidden until it's
+                   enchanted. It sits behind the big cloud so its ends tuck in. -->
+              <g class="rainbow" fill="none" stroke-linecap="butt">
+                <path d="M790 480 A95 95 0 0 1 980 480" stroke="#1F1A24" stroke-width="100" />
+                <path d="M752 480 A133 133 0 0 1 1018 480" stroke="#F2545B" stroke-width="16" />
+                <path d="M767 480 A118 118 0 0 1 1003 480" stroke="#F2A65A" stroke-width="16" />
+                <path d="M782 480 A103 103 0 0 1 988 480" stroke="#FFD23F" stroke-width="16" />
+                <path d="M797 480 A88 88 0 0 1 973 480" stroke="#9BD67A" stroke-width="16" />
+                <path d="M812 480 A73 73 0 0 1 958 480" stroke="#4FA3E0" stroke-width="16" />
+                <path d="M827 480 A58 58 0 0 1 943 480" stroke="#7B4CC2" stroke-width="16" />
+              </g>
+
+              <!-- Big fluffy cloud the castle sits on -->
+              <g fill="#FFFFFF">
+                <circle cx="470" cy="610" r="90" /><circle cx="600" cy="545" r="105" /><circle cx="760" cy="540" r="115" />
+                <circle cx="910" cy="580" r="100" /><circle cx="1030" cy="635" r="80" />
+              </g>
+              <g fill="#FFFFFF" stroke="none">
+                <circle cx="470" cy="610" r="86" /><circle cx="600" cy="545" r="101" /><circle cx="760" cy="540" r="111" />
+                <circle cx="910" cy="580" r="96" /><circle cx="1030" cy="635" r="76" />
+                <!-- Fills the middle down to the bottom edge -->
+                <rect x="470" y="580" width="560" height="140" />
+              </g>
+
+              <!-- Little cloud, bottom left -->
+              <g fill="#FFFFFF">
+                <circle cx="120" cy="660" r="70" /><circle cx="240" cy="690" r="60" />
+              </g>
+              <g fill="#FFFFFF" stroke="none">
+                <circle cx="120" cy="660" r="66" /><circle cx="240" cy="690" r="56" />
+              </g>
+
+              <!-- Enchantment trail behind Mr. Froggles -->
+              <path d="M40 470 C100 400 150 470 210 410 C250 370 270 350 290 330" fill="none" stroke="#5B2A9E" stroke-width="7" />
+              <path d="M70 560 C130 500 180 550 240 480" fill="none" stroke="#5B2A9E" stroke-width="7" />
+              <circle cx="60" cy="400" r="7" fill="#5B2A9E" stroke="none" />
+              <circle cx="150" cy="560" r="7" fill="#5B2A9E" stroke="none" />
             </g>
 
-            <!-- Castle -->
-            <rect x="690" y="200" width="80" height="110" fill="#F4E9FF" />
-            <rect x="620" y="300" width="220" height="240" fill="#F4E9FF" />
-            <rect x="570" y="230" width="80" height="310" fill="#F4E9FF" />
-            <rect x="810" y="230" width="80" height="310" fill="#F4E9FF" />
-            <path d="M558 230 L610 138 L662 230 Z M798 230 L850 138 L902 230 Z M678 200 L730 108 L782 200 Z" fill="#7B4CC2" />
-            <path d="M730 108 V64 l42 15 l-42 15" fill="#FF8FB1" />
-            <circle cx="610" cy="300" r="13" fill="#1F1A24" stroke="none" />
-            <circle cx="850" cy="300" r="13" fill="#1F1A24" stroke="none" />
-            <rect x="716" y="236" width="28" height="40" rx="14" fill="#FFD23F" />
-            <path d="M690 540 V472 a40 40 0 0 1 80 0 V540" fill="#7B4CC2" />
-
-            <!-- The rainbow the rain cloud becomes, hidden until it's
-                 enchanted. It sits behind the big cloud so its ends tuck in. -->
-            <g class="rainbow" fill="none" stroke-linecap="butt">
-              <path d="M790 480 A95 95 0 0 1 980 480" stroke="#1F1A24" stroke-width="100" />
-              <path d="M752 480 A133 133 0 0 1 1018 480" stroke="#F2545B" stroke-width="16" />
-              <path d="M767 480 A118 118 0 0 1 1003 480" stroke="#F2A65A" stroke-width="16" />
-              <path d="M782 480 A103 103 0 0 1 988 480" stroke="#FFD23F" stroke-width="16" />
-              <path d="M797 480 A88 88 0 0 1 973 480" stroke="#9BD67A" stroke-width="16" />
-              <path d="M812 480 A73 73 0 0 1 958 480" stroke="#4FA3E0" stroke-width="16" />
-              <path d="M827 480 A58 58 0 0 1 943 480" stroke="#7B4CC2" stroke-width="16" />
+            <!-- The little rain cloud over Pip. Once it's enchanted it's gone,
+                 and the rainbow is in its place. -->
+            <g class="rain-cloud" stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+              <path class="rain" d="M835 340 l-8 22 M860 350 l-8 22 M920 345 l-8 22 M945 335 l-8 22 M848 390 l-8 22 M934 392 l-8 22" fill="none" stroke="#4FA3E0" stroke-width="7" />
+              <g fill="#B7B0C4">
+                <circle cx="840" cy="285" r="36" /><circle cx="890" cy="265" r="46" /><circle cx="940" cy="290" r="34" />
+                <rect x="810" y="282" width="160" height="42" rx="21" />
+              </g>
+              <g fill="#B7B0C4" stroke="none">
+                <circle cx="840" cy="285" r="32" /><circle cx="890" cy="265" r="42" /><circle cx="940" cy="290" r="30" />
+                <rect x="814" y="286" width="152" height="34" rx="17" />
+              </g>
             </g>
 
-            <!-- Big fluffy cloud the castle sits on -->
-            <g fill="#FFFFFF">
-              <circle cx="470" cy="610" r="90" /><circle cx="600" cy="545" r="105" /><circle cx="760" cy="540" r="115" />
-              <circle cx="910" cy="580" r="100" /><circle cx="1030" cy="635" r="80" />
-            </g>
-            <g fill="#FFFFFF" stroke="none">
-              <circle cx="470" cy="610" r="86" /><circle cx="600" cy="545" r="101" /><circle cx="760" cy="540" r="111" />
-              <circle cx="910" cy="580" r="96" /><circle cx="1030" cy="635" r="76" />
-              <!-- Fills the middle down to the bottom edge -->
-              <rect x="470" y="580" width="560" height="140" />
-            </g>
+            <path class="enchant-swirl fades" d="M890 196 C1010 196 1020 352 890 352 C760 352 760 214 870 214" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
 
-            <!-- Little cloud, bottom left -->
-            <g fill="#FFFFFF">
-              <circle cx="120" cy="660" r="70" /><circle cx="240" cy="690" r="60" />
+            <!-- Pip flies up to sit on top of the rainbow at the end. -->
+            <g class="bird-flight">
+              <!-- Pip the bluebird, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Pip the bluebird needs help. Tap to talk." transform="translate(885 441) scale(1.1)">
+                <circle class="helper-ring" r="64" fill="none" stroke="none" stroke-width="4" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M-6 28 v10 M10 28 v10" fill="none" />
+                  <path d="M-30 0 L-58 -14 L-54 12 Z" fill="#2E6FB0" />
+                  <ellipse cx="-2" cy="4" rx="36" ry="26" fill="#4FA3E0" />
+                  <path d="M-8 26 Q16 28 30 8 Q20 -2 6 6 Q-6 14 -8 26 Z" fill="#F2A65A" />
+                  <circle cx="24" cy="-20" r="20" fill="#4FA3E0" />
+                  <path d="M42 -25 L58 -18 L42 -11 Z" fill="#FFD23F" />
+                  <path d="M-26 -2 Q-6 -24 14 -2 Q-4 14 -26 -2 Z" fill="#2E6FB0" />
+                </g>
+                <circle cx="30" cy="-24" r="3.5" fill="#1F1A24" />
+                <g class="alert">
+                  <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cy="-72" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle r="60" fill="transparent" />
+              </g>
             </g>
-            <g fill="#FFFFFF" stroke="none">
-              <circle cx="120" cy="660" r="66" /><circle cx="240" cy="690" r="56" />
-            </g>
-
-            <!-- Enchantment trail behind Mr. Froggles -->
-            <path d="M40 470 C100 400 150 470 210 410 C250 370 270 350 290 330" fill="none" stroke="#5B2A9E" stroke-width="7" />
-            <path d="M70 560 C130 500 180 550 240 480" fill="none" stroke="#5B2A9E" stroke-width="7" />
-            <circle cx="60" cy="400" r="7" fill="#5B2A9E" stroke="none" />
-            <circle cx="150" cy="560" r="7" fill="#5B2A9E" stroke="none" />
           </g>
+
+          <!-- Ginger's quest: a little fox sits on the big cloud with a kite that
+               won't fly, since there's no wind. Once it's enchanted, a breeze
+               swirls up and the kite soars into the sky on its string. -->
+          <g data-quest="ginger" data-froggles-to="660 290" data-enchant-at="440 625">
+            <!-- The string, once the kite is up (drawn behind Mr. Froggles) -->
+            <path class="kite-string" d="M464 534 Q372 400 330 112" fill="none" stroke="#1F1A24" stroke-width="3" stroke-linecap="round" />
+
+            <g class="breeze" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round">
+              <path d="M180 300 q40 -30 80 0 q40 30 80 0" />
+              <path d="M230 200 q30 -22 60 0 q30 22 60 0" />
+              <path d="M150 420 q34 -26 68 0 q34 26 68 0" />
+            </g>
+
+            <!-- The kite, lying on the cloud. The outer group flies it up at
+                 the end. -->
+            <g class="kite-flight">
+              <g transform="translate(440 625) rotate(-90)" stroke="#1F1A24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0 40 q12 20 -4 40 q-16 20 2 40" fill="none" stroke-width="3" />
+                <path d="M-2 62 l-10 -6 l0 12 Z M4 62 l10 -6 l0 12 Z M-4 102 l-10 -6 l0 12 Z M2 102 l10 -6 l0 12 Z" fill="#FFD23F" stroke-width="2.5" />
+                <path d="M0 -40 L28 0 L0 40 L-28 0 Z" fill="#FF8FB1" stroke-width="5" />
+                <path d="M0 -40 L0 40 M-28 0 L28 0" fill="none" stroke-width="3" />
+                <path d="M0 -40 L28 0 L0 0 Z M0 0 L-28 0 L0 40 Z" fill="#7B4CC2" stroke="none" opacity="0.55" />
+              </g>
+            </g>
+
+            <!-- Ginger the fox, who needs help. Works like a button
+                 (quest-page.js). -->
+            <g class="helper" role="button" tabindex="0" aria-label="Ginger the fox needs help. Tap to talk." transform="translate(486 528) scale(1.4)">
+              <circle class="helper-ring" cx="4" cy="-8" r="62" fill="none" stroke="none" stroke-width="4" />
+              <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 24 C52 30 70 0 54 -20 C48 2 32 10 12 8 Z" fill="#E8743B" />
+                <path d="M54 -20 C50 -6 44 0 36 3 C46 -1 52 -9 54 -20 Z" fill="#FFFFFF" />
+                <ellipse cx="-10" cy="32" rx="8" ry="4" fill="#E8743B" />
+                <ellipse cx="8" cy="32" rx="8" ry="4" fill="#E8743B" />
+                <ellipse cy="8" rx="20" ry="24" fill="#E8743B" />
+                <ellipse cx="-6" cy="12" rx="10" ry="14" fill="#FFF4DD" />
+                <path d="M-22 -38 L-24 -58 L-10 -42 Z M-2 -40 L2 -60 L8 -40 Z" fill="#E8743B" />
+                <circle cx="-8" cy="-26" r="18" fill="#E8743B" />
+                <path d="M-18 -32 Q-46 -22 -18 -14 Z" fill="#FFF4DD" />
+              </g>
+              <circle cx="-42" cy="-23" r="3.6" fill="#1F1A24" />
+              <circle cx="-12" cy="-30" r="3.2" fill="#1F1A24" />
+              <g class="alert">
+                <circle cx="-8" cy="-80" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M-8 -90 V-78" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cx="-8" cy="-70" r="2.8" fill="#1F1A24" />
+              </g>
+              <circle cx="4" cy="-8" r="56" fill="transparent" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M440 530 C570 530 580 712 440 712 C310 712 300 550 420 546" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+          </g>
+
           <!-- Mr. Froggles, flying -->
           <!-- Once everyone is helped, he twirls and flies off. -->
           <g class="froggles-exit">
             <!-- The outer group swoops him over to cast each enchantment. -->
             <g class="froggles-swoop">
               <image class="froggles-flying" href="./mr-froggles.svg" x="290" y="110" width="250" height="325" />
-            </g>
-          </g>
-
-          <!-- The little rain cloud over Pip. Once it's enchanted it's gone,
-               and the rainbow is in its place. -->
-          <g class="rain-cloud" stroke="#1F1A24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-            <path class="rain" d="M835 340 l-8 22 M860 350 l-8 22 M920 345 l-8 22 M945 335 l-8 22 M848 390 l-8 22 M934 392 l-8 22" fill="none" stroke="#4FA3E0" stroke-width="7" />
-            <g fill="#B7B0C4">
-              <circle cx="840" cy="285" r="36" /><circle cx="890" cy="265" r="46" /><circle cx="940" cy="290" r="34" />
-              <rect x="810" y="282" width="160" height="42" rx="21" />
-            </g>
-            <g fill="#B7B0C4" stroke="none">
-              <circle cx="840" cy="285" r="32" /><circle cx="890" cy="265" r="42" /><circle cx="940" cy="290" r="30" />
-              <rect x="814" y="286" width="152" height="34" rx="17" />
-            </g>
-          </g>
-
-          <path class="enchant-swirl fades" d="M890 196 C1010 196 1020 352 890 352 C760 352 760 214 870 214" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
-
-          <!-- Pip flies up to sit on top of the rainbow at the end. -->
-          <g class="bird-flight">
-            <!-- Pip the bluebird, who needs help. Works like a button
-                 (quest-page.js). -->
-            <g class="helper" role="button" tabindex="0" aria-label="Pip the bluebird needs help. Tap to talk." transform="translate(885 441) scale(1.1)">
-              <circle class="helper-ring" r="64" fill="none" stroke="none" stroke-width="4" />
-              <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M-6 28 v10 M10 28 v10" fill="none" />
-                <path d="M-30 0 L-58 -14 L-54 12 Z" fill="#2E6FB0" />
-                <ellipse cx="-2" cy="4" rx="36" ry="26" fill="#4FA3E0" />
-                <path d="M-8 26 Q16 28 30 8 Q20 -2 6 6 Q-6 14 -8 26 Z" fill="#F2A65A" />
-                <circle cx="24" cy="-20" r="20" fill="#4FA3E0" />
-                <path d="M42 -25 L58 -18 L42 -11 Z" fill="#FFD23F" />
-                <path d="M-26 -2 Q-6 -24 14 -2 Q-4 14 -26 -2 Z" fill="#2E6FB0" />
-              </g>
-              <circle cx="30" cy="-24" r="3.5" fill="#1F1A24" />
-              <g class="alert">
-                <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
-                <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
-                <circle cy="-72" r="2.8" fill="#1F1A24" />
-              </g>
-              <circle r="60" fill="transparent" />
             </g>
           </g>
         </svg>

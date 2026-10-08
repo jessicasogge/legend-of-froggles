@@ -738,6 +738,33 @@ body.pond {
   transform: translate(330px, 10px);
 }
 
+/* Cloud Kingdom: a breeze swirls up, the kite soars into the sky, and its
+   string shows once it's up. */
+.breeze,
+.kite-string {
+  opacity: 0;
+  transition: opacity 0.6s 0.8s;
+}
+
+.kite-string {
+  transition-delay: 2.6s;
+}
+
+[data-step='done'] .breeze,
+[data-step='done'] .kite-string {
+  opacity: 1;
+}
+
+.kite-flight {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 1.6s ease-in-out 1.2s;
+}
+
+[data-step='done'] .kite-flight {
+  transform: translate(-110px, -555px) rotate(90deg);
+}
+
 /* Whispering Woods: the mushroom grows tall and carries Olive up to her
    nest. */
 .mushroom-lift {
@@ -898,6 +925,9 @@ body.pond {
   .snail-raft,
   .rain-cloud,
   .rainbow,
+  .breeze,
+  .kite-string,
+  .kite-flight,
   .bird-flight {
     transition: none;
   }
