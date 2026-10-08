@@ -18,8 +18,8 @@ beforeEach(() => {
 
 describe('Cloud Kingdom quest', () => {
   it('starts with Pip under the rain cloud, with a "!" over her', () => {
-    expect($('svg.scene').dataset.step).toBe('waiting');
-    expect($('.helper .alert')).not.toBeNull();
+    expect($('[data-quest="pip"]').dataset.step).toBe('waiting');
+    expect($('[data-quest="pip"] .helper .alert')).not.toBeNull();
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.enchant')).toBe(false);
   });
@@ -32,13 +32,13 @@ describe('Cloud Kingdom quest', () => {
 
   it('makes Pip work like a button, and lets screen readers reach her', () => {
     expect($('svg.scene').getAttribute('role')).toBe('group');
-    expect($('.helper').getAttribute('role')).toBe('button');
-    expect($('.helper').getAttribute('tabindex')).toBe('0');
-    expect($('.helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
+    expect($('[data-quest="pip"] .helper').getAttribute('role')).toBe('button');
+    expect($('[data-quest="pip"] .helper').getAttribute('tabindex')).toBe('0');
+    expect($('[data-quest="pip"] .helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
   });
 
   it('has Pip explain the problem when tapped, and offers to enchant the rain cloud', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pip"] .helper'));
     expect($('.story-speaker').textContent).toBe('Pip the bluebird');
     expect($('.story-text').textContent).toBe(LINES.asked);
     expect($('.enchant').textContent).toBe(ENCHANT);
@@ -47,22 +47,22 @@ describe('Cloud Kingdom quest', () => {
   });
 
   it('lets a keyboard talk to Pip', () => {
-    $('.helper').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+    $('[data-quest="pip"] .helper').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
     expect(game.step).toBe('asked');
   });
 
   it('turns the rain cloud into a rainbow once it is enchanted', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pip"] .helper'));
     $('.enchant').click();
-    expect($('svg.scene').dataset.step).toBe('done');
+    expect($('[data-quest="pip"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pip"] .helper'));
     $('.enchant').click();
-    expect(document.activeElement).toBe($('.helper'));
-    tap($('.helper'));
+    expect(document.activeElement).toBe($('[data-quest="pip"] .helper'));
+    tap($('[data-quest="pip"] .helper'));
     expect(game.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
     expect(visible('.enchant')).toBe(false);
