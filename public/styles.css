@@ -817,6 +817,54 @@ body.pond {
   transform: translate(-110px, -555px) rotate(90deg);
 }
 
+/* Cloud Kingdom: the feather becomes wings on Lulu's back, then she flies
+   up over the castle, flapping. */
+.lone-feather {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .lone-feather {
+  opacity: 0;
+}
+
+.unicorn-wings {
+  opacity: 0;
+  transform: scale(0.1);
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+  transition: opacity 0.4s 0.8s, transform 0.7s 0.8s;
+}
+
+[data-step='done'] .unicorn-wings {
+  opacity: 1;
+  transform: none;
+}
+
+.wing-flap {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+}
+
+[data-step='done'] .wing-flap {
+  animation: wing-flap 0.5s ease-in-out 1.6s infinite alternate;
+}
+
+@keyframes wing-flap {
+  to {
+    transform: rotate(-18deg) scaleY(0.85);
+  }
+}
+
+.unicorn-flight {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 1.8s ease-in-out 1.8s;
+}
+
+[data-step='done'] .unicorn-flight {
+  transform: translate(-60px, -490px) scale(0.8);
+}
+
 /* Whispering Woods: the mushroom grows tall and carries Olive up to her
    nest. */
 .mushroom-lift {
@@ -940,6 +988,7 @@ body.pond {
   }
 
   .helper .alert,
+  [data-step='done'] .wing-flap,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -980,6 +1029,9 @@ body.pond {
   .breeze,
   .kite-string,
   .kite-flight,
+  .lone-feather,
+  .unicorn-wings,
+  .unicorn-flight,
   .bird-flight {
     transition: none;
   }
