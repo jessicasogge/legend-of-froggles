@@ -387,6 +387,13 @@ body.pond {
   }
 }
 
+/* Mr. Froggles is never tapped, so taps go through him (and his sparkles)
+   to whoever is behind, even when he flies over them. */
+.scene .froggles-flying,
+.scene .sparkles {
+  pointer-events: none;
+}
+
 /* Mr. Froggles bobs in the air, the same as on the opening screen. */
 .froggles-flying {
   animation: hover 3s ease-in-out infinite;

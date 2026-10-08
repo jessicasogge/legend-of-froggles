@@ -2,6 +2,7 @@
 // swoops over to hover near it, and sparkles fly from him to what he
 // enchants.
 // @vitest-environment jsdom
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { start as startCloud } from '../public/game/cloud-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
@@ -77,5 +78,10 @@ describe('Mr. Froggles casting enchantments', () => {
     $('.froggles-swoop').classList.remove('casting');
     tap($('.helper'));
     expect($('.froggles-swoop').classList.contains('casting')).toBe(false);
+  });
+
+  it('lets taps go through him and his sparkles, so he never covers a "!"', () => {
+    const css = readFileSync('public/styles.css', 'utf8');
+    expect(css).toMatch(/\.scene \.froggles-flying,\s*\.scene \.sparkles \{\s*pointer-events: none;/);
   });
 });
