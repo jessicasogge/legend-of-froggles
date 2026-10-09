@@ -18,8 +18,8 @@ beforeEach(() => {
 
 describe('Home Pond quest', () => {
   it('starts with Pebble on the rock, with a "!" over her', () => {
-    expect($('svg.scene').dataset.step).toBe('waiting');
-    expect($('.helper .alert')).not.toBeNull();
+    expect($('[data-quest="pebble"]').dataset.step).toBe('waiting');
+    expect($('[data-quest="pebble"] .helper .alert')).not.toBeNull();
     expect($('.story-text').textContent).toBe(LINES.waiting);
     expect(visible('.enchant')).toBe(false);
   });
@@ -32,13 +32,13 @@ describe('Home Pond quest', () => {
 
   it('makes Pebble work like a button, and lets screen readers reach her', () => {
     expect($('svg.scene').getAttribute('role')).toBe('group');
-    expect($('.helper').getAttribute('role')).toBe('button');
-    expect($('.helper').getAttribute('tabindex')).toBe('0');
-    expect($('.helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
+    expect($('[data-quest="pebble"] .helper').getAttribute('role')).toBe('button');
+    expect($('[data-quest="pebble"] .helper').getAttribute('tabindex')).toBe('0');
+    expect($('[data-quest="pebble"] .helper').getAttribute('aria-label')).toBe(`${HELPER} needs help. Tap to talk.`);
   });
 
   it('has Pebble explain the problem when tapped, and offers to enchant the rock', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pebble"] .helper'));
     expect($('.story-speaker').textContent).toBe('Pebble the snail');
     expect($('.story-text').textContent).toBe(LINES.asked);
     expect($('.enchant').textContent).toBe(ENCHANT);
@@ -47,22 +47,22 @@ describe('Home Pond quest', () => {
   });
 
   it('lets a keyboard talk to Pebble', () => {
-    $('.helper').dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true }));
+    $('[data-quest="pebble"] .helper').dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true }));
     expect(game.step).toBe('asked');
   });
 
   it('turns the rock into a lily pad once it is enchanted', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pebble"] .helper'));
     $('.enchant').click();
-    expect($('svg.scene').dataset.step).toBe('done');
+    expect($('[data-quest="pebble"]').dataset.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
   });
 
   it('stays helped, and tapping her again shows what she said', () => {
-    tap($('.helper'));
+    tap($('[data-quest="pebble"] .helper'));
     $('.enchant').click();
-    expect(document.activeElement).toBe($('.helper'));
-    tap($('.helper'));
+    expect(document.activeElement).toBe($('[data-quest="pebble"] .helper'));
+    tap($('[data-quest="pebble"] .helper'));
     expect(game.step).toBe('done');
     expect($('.story-text').textContent).toBe(LINES.done);
     expect(visible('.enchant')).toBe(false);

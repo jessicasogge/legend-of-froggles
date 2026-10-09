@@ -907,6 +907,88 @@ body.pond {
   transform: translateY(128px);
 }
 
+/* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
+   enchanted, the tadpole fades and a little frog hops up onto the pad. */
+.tadpole-tail {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: wiggle 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes wiggle {
+  to {
+    transform: rotate(14deg);
+  }
+}
+
+.tadpole {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .tadpole {
+  opacity: 0;
+}
+
+.froglet {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+[data-step='done'] .froglet {
+  animation: froglet-hop 1.4s ease-out 0.9s both;
+}
+
+@keyframes froglet-hop {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  30% {
+    opacity: 1;
+    transform: none;
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-34px);
+  }
+  80%,
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Home Pond: the water lily blooms, then Bumble flies down into it. */
+.lily-bud {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .lily-bud {
+  opacity: 0;
+}
+
+.lily-bloom {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+[data-step='done'] .lily-bloom {
+  opacity: 1;
+  transform: none;
+}
+
+.bee-flight {
+  transition: transform 1.4s ease-in-out 1.6s;
+}
+
+[data-step='done'] .bee-flight {
+  transform: translate(88px, 62px);
+}
+
 /* Home Pond: the rock becomes a lily pad, then the pad floats Pebble to
    shore. */
 .pond-rock {
@@ -983,12 +1065,18 @@ body.pond {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-step='done'] .froglet {
+    animation: none;
+    opacity: 1;
+  }
+
   .scene[data-finale] .froggles-exit {
     animation: fade-out 0.6s 3.8s forwards;
   }
 
   .helper .alert,
   [data-step='done'] .wing-flap,
+  .tadpole-tail,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1024,6 +1112,10 @@ body.pond {
   .pond-rock,
   .new-pad,
   .snail-raft,
+  .tadpole,
+  .lily-bud,
+  .lily-bloom,
+  .bee-flight,
   .rain-cloud,
   .rainbow,
   .breeze,
