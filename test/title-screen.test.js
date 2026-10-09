@@ -42,6 +42,13 @@ describe('title screen', () => {
     expect(existsSync(file('next.html'))).toBe(true);
   });
 
+  it('has a Read the legend button that opens the story', () => {
+    const link = document.querySelector('a.read-legend');
+    expect(link.textContent).toBe('Read the legend');
+    expect(link.getAttribute('href')).toBe('./story.html');
+    expect(existsSync(file('story.html'))).toBe(true);
+  });
+
   it('keeps the enchantments out of the way of screen readers', () => {
     expect(document.querySelector('.enchantments').getAttribute('aria-hidden')).toBe('true');
   });
