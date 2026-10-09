@@ -135,8 +135,8 @@ body {
   white-space: nowrap;
 }
 
-/* Coming soon is a link to the next screen. */
-.coming-soon {
+/* Start is a link to the next screen. */
+.start {
   margin: 0.5rem 0 0;
   padding: 0.5rem 1.5rem;
   min-height: 44px;
@@ -150,12 +150,12 @@ body {
   text-decoration: none;
 }
 
-.coming-soon:hover {
+.start:hover {
   background: var(--enchantment);
   color: var(--paper);
 }
 
-.coming-soon:focus-visible {
+.start:focus-visible {
   outline: 4px solid var(--ink);
   outline-offset: 4px;
 }
