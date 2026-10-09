@@ -86,8 +86,33 @@ body {
   text-align: center;
 }
 
+/* Short screens (most phones): less space between things, so the buttons
+   and the signature still fit without scrolling. */
+@media (max-height: 720px) {
+  .title-screen {
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .title-screen .credit {
+    margin-top: -0.4rem;
+  }
+}
+
+/* The smallest phones: a smaller Mr. Froggles too. */
+@media (max-height: 600px) {
+  .title-screen .froggles {
+    width: min(260px, 55vw, 18dvh);
+  }
+
+  .signature {
+    padding: 0.4rem;
+  }
+}
+
+/* Shrinks on short screens, so the buttons below still fit. */
 .froggles {
-  width: min(260px, 55vw);
+  width: min(260px, 55vw, 28dvh);
   height: auto;
   animation: hover 3s ease-in-out infinite;
 }
@@ -135,37 +160,54 @@ body {
   white-space: nowrap;
 }
 
-/* Start, and Read the legend beside it, are links to the next screen and
-   the story. */
+/* Start, the main thing to press, in solid purple, with Read the legend
+   below it in white. They're links to the next screen and the story. */
 .title-buttons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
   margin: 0.5rem 0 0;
 }
 
-.start {
+.start,
+.read-legend {
   padding: 0.5rem 1.5rem;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   border: 3px solid var(--enchantment);
   border-radius: 999px;
-  /* Solid, so the swirls behind don't show through. */
-  background: var(--paper);
-  color: var(--enchantment);
   font-family: Fredoka, system-ui, sans-serif;
   font-size: 1.25rem;
   text-decoration: none;
 }
 
+.start {
+  min-height: 56px;
+  padding: 0.5rem 2.75rem;
+  background: var(--enchantment);
+  color: var(--paper);
+  font-size: 1.6rem;
+}
+
 .start:hover {
+  border-color: var(--ink);
+}
+
+/* Solid, so the swirls behind don't show through. */
+.read-legend {
+  background: var(--paper);
+  color: var(--enchantment);
+}
+
+.read-legend:hover {
   background: var(--enchantment);
   color: var(--paper);
 }
 
-.start:focus-visible {
+.start:focus-visible,
+.read-legend:focus-visible {
   outline: 4px solid var(--ink);
   outline-offset: 4px;
 }
