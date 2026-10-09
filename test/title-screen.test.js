@@ -35,9 +35,9 @@ describe('title screen', () => {
     );
   });
 
-  it('says the game is coming soon, and Coming soon goes to the next screen', () => {
-    const link = document.querySelector('a.coming-soon');
-    expect(link.textContent).toBe('Coming soon');
+  it('has a Start button that goes to the next screen', () => {
+    const link = document.querySelector('a.start');
+    expect(link.textContent).toBe('Start');
     expect(link.getAttribute('href')).toBe('./next.html');
     expect(existsSync(file('next.html'))).toBe(true);
   });

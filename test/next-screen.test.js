@@ -1,4 +1,4 @@
-// Checks the screen you reach by pressing Coming soon: pick a kingdom.
+// Checks the screen you reach by pressing Start: pick a kingdom.
 // @vitest-environment jsdom
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

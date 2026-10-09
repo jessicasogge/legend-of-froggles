@@ -135,8 +135,8 @@ body {
   white-space: nowrap;
 }
 
-/* Coming soon is a link to the next screen. */
-.coming-soon {
+/* Start is a link to the next screen. */
+.start {
   margin: 0.5rem 0 0;
   padding: 0.5rem 1.5rem;
   min-height: 44px;
@@ -150,12 +150,12 @@ body {
   text-decoration: none;
 }
 
-.coming-soon:hover {
+.start:hover {
   background: var(--enchantment);
   color: var(--paper);
 }
 
-.coming-soon:focus-visible {
+.start:focus-visible {
   outline: 4px solid var(--ink);
   outline-offset: 4px;
 }
@@ -394,13 +394,6 @@ body.pond {
   background: var(--page);
 }
 
-/* On phones the scene is square, so it's big enough to see. */
-@media (max-width: 600px) {
-  .scene {
-    aspect-ratio: 1;
-  }
-}
-
 /* Mr. Froggles is never tapped, so taps go through him (and his sparkles)
    to whoever is behind, even when he flies over them. */
 .scene .froggles-flying,
@@ -475,6 +468,70 @@ body.pond {
 
 .scene-box:has(+ .story) .scene {
   max-height: none;
+}
+
+/* Phones: the whole kingdom fits on the screen without scrolling. Back is a
+   round button beside the title, and the picture takes whatever room is
+   left above the story box. It's never so short that the top of the
+   picture is trimmed off (12:7 shows all of it), and never taller than it
+   is wide, so the friends near the sides stay in view. */
+@media (max-width: 600px) {
+  .kingdom-screen {
+    position: relative;
+    height: 100dvh;
+    padding: 0.5rem 0.75rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .kingdom-screen > .back {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  /* Still read out by screen readers, just not shown. */
+  .back-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .kingdom-screen h1 {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 3.5rem;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    text-align: center;
+  }
+
+  .scene-box:has(+ .story) {
+    flex: 1 1 0;
+    width: 100%;
+    min-height: calc((100vw - 1.5rem) * 7 / 12);
+    max-height: calc(100vw - 1.5rem);
+  }
+
+  .scene-box:has(+ .story) .scene {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .scene-box + .story {
+    flex: none;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 1.1rem;
+  }
 }
 
 /* Once everyone in a kingdom is helped (data-finale on the scene), Mr.
@@ -585,8 +642,15 @@ body.pond {
   }
 }
 
-/* Phones: a smaller card, so it fits over the square picture. */
+/* Phones: the picture can be short, so the closing card covers the whole
+   screen instead, and is a little smaller. */
 @media (max-width: 600px) {
+  .finale {
+    position: fixed;
+    z-index: 10;
+    border-radius: 0;
+  }
+
   .finale-card {
     padding: 1rem 1.1rem;
   }
@@ -814,7 +878,7 @@ body.pond {
 }
 
 [data-step='done'] .kite-flight {
-  transform: translate(-110px, -555px) rotate(90deg);
+  transform: translate(-150px, -495px) rotate(90deg);
 }
 
 /* Cloud Kingdom: the feather becomes wings on Lulu's back, then she flies
@@ -907,6 +971,88 @@ body.pond {
   transform: translateY(128px);
 }
 
+/* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
+   enchanted, the tadpole fades and a little frog hops up onto the pad. */
+.tadpole-tail {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: wiggle 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes wiggle {
+  to {
+    transform: rotate(14deg);
+  }
+}
+
+.tadpole {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .tadpole {
+  opacity: 0;
+}
+
+.froglet {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+[data-step='done'] .froglet {
+  animation: froglet-hop 1.4s ease-out 0.9s both;
+}
+
+@keyframes froglet-hop {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  30% {
+    opacity: 1;
+    transform: none;
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-34px);
+  }
+  80%,
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Home Pond: the water lily blooms, then Bumble flies down into it. */
+.lily-bud {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .lily-bud {
+  opacity: 0;
+}
+
+.lily-bloom {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+[data-step='done'] .lily-bloom {
+  opacity: 1;
+  transform: none;
+}
+
+.bee-flight {
+  transition: transform 1.4s ease-in-out 1.6s;
+}
+
+[data-step='done'] .bee-flight {
+  transform: translate(88px, 62px);
+}
+
 /* Home Pond: the rock becomes a lily pad, then the pad floats Pebble to
    shore. */
 .pond-rock {
@@ -983,12 +1129,18 @@ body.pond {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-step='done'] .froglet {
+    animation: none;
+    opacity: 1;
+  }
+
   .scene[data-finale] .froggles-exit {
     animation: fade-out 0.6s 3.8s forwards;
   }
 
   .helper .alert,
   [data-step='done'] .wing-flap,
+  .tadpole-tail,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1024,6 +1176,10 @@ body.pond {
   .pond-rock,
   .new-pad,
   .snail-raft,
+  .tadpole,
+  .lily-bud,
+  .lily-bloom,
+  .bee-flight,
   .rain-cloud,
   .rainbow,
   .breeze,
