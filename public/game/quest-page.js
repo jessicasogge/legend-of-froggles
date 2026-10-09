@@ -26,10 +26,8 @@ export function startQuests(doc, quests) {
   const steps = quests.map(() => START);
   let current = 0;
 
-  // Mr. Froggles swoops over to cast each enchantment, and sparkles fly from
-  // him to what he enchants. Each quest's root says where, in the picture's
-  // units: data-froggles-to (where he hovers) and data-enchant-at (where the
-  // sparkles land). The swoop and sparkles are CSS animations (styles.css).
+  // Mr. Froggles swoops to data-froggles-to; sparkles land at data-enchant-at.
+  // Quest-root coordinates use picture units; styles.css animates both.
   const swoop = scene.querySelector('.froggles-swoop');
   const froggles = swoop?.querySelector('.froggles-flying');
   const sparkles = doc.createElementNS(SVG, 'g');
