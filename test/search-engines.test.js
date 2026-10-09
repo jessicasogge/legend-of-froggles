@@ -28,6 +28,25 @@ describe.each(pages)('%s', (page) => {
   it('gives its one official address', () => {
     expect(html).toContain(`<link rel="canonical" href="${addressOf(page)}" />`);
   });
+
+  it('shows the preview picture, its title and description when its link is shared', () => {
+    const meta = (attr, name) => html.match(new RegExp(`<meta ${attr}="${name}" content="([^"]*)"`))?.[1];
+    expect(meta('property', 'og:url')).toBe(addressOf(page));
+    expect(meta('property', 'og:title')).toBe(html.match(/<title>([^<]+)<\/title>/)[1]);
+    expect(meta('property', 'og:description')).toBe(meta('name', 'description'));
+    // Apps need the picture's full address, not one relative to the page.
+    expect(meta('property', 'og:image')).toBe(`${SITE}social-preview.png`);
+    expect(meta('property', 'og:image:alt')).toMatch(/Mr\. Froggles/);
+    expect(meta('name', 'twitter:card')).toBe('summary_large_image');
+  });
+});
+
+describe('the picture shown when a link is shared', () => {
+  it('is a 1200 by 630 PNG, the size link previews use', () => {
+    const png = readFileSync(join(publicDir, 'social-preview.png'));
+    expect(png.subarray(1, 4).toString()).toBe('PNG');
+    expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630]);
+  });
 });
 
 describe('sitemap', () => {
