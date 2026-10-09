@@ -394,13 +394,6 @@ body.pond {
   background: var(--page);
 }
 
-/* On phones the scene is square, so it's big enough to see. */
-@media (max-width: 600px) {
-  .scene {
-    aspect-ratio: 1;
-  }
-}
-
 /* Mr. Froggles is never tapped, so taps go through him (and his sparkles)
    to whoever is behind, even when he flies over them. */
 .scene .froggles-flying,
@@ -475,6 +468,70 @@ body.pond {
 
 .scene-box:has(+ .story) .scene {
   max-height: none;
+}
+
+/* Phones: the whole kingdom fits on the screen without scrolling. Back is a
+   round button beside the title, and the picture takes whatever room is
+   left above the story box. It's never so short that the top of the
+   picture is trimmed off (12:7 shows all of it), and never taller than it
+   is wide, so the friends near the sides stay in view. */
+@media (max-width: 600px) {
+  .kingdom-screen {
+    position: relative;
+    height: 100dvh;
+    padding: 0.5rem 0.75rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .kingdom-screen > .back {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  /* Still read out by screen readers, just not shown. */
+  .back-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .kingdom-screen h1 {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 3.5rem;
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    text-align: center;
+  }
+
+  .scene-box:has(+ .story) {
+    flex: 1 1 0;
+    width: 100%;
+    min-height: calc((100vw - 1.5rem) * 7 / 12);
+    max-height: calc(100vw - 1.5rem);
+  }
+
+  .scene-box:has(+ .story) .scene {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .scene-box + .story {
+    flex: none;
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 1.1rem;
+  }
 }
 
 /* Once everyone in a kingdom is helped (data-finale on the scene), Mr.
@@ -585,8 +642,15 @@ body.pond {
   }
 }
 
-/* Phones: a smaller card, so it fits over the square picture. */
+/* Phones: the picture can be short, so the closing card covers the whole
+   screen instead, and is a little smaller. */
 @media (max-width: 600px) {
+  .finale {
+    position: fixed;
+    z-index: 10;
+    border-radius: 0;
+  }
+
   .finale-card {
     padding: 1rem 1.1rem;
   }
