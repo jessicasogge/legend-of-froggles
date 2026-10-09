@@ -40,6 +40,7 @@ npm test
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
 - `public/kingdoms/`: a picture of each kingdom, in the same marker-drawing style.
 - `public/styles.css`: one stylesheet.
+- `public/social-preview.png`: the picture shown when a link to the game is shared (in a message or on social media). Every page points to it.
 - `public/sitemap.xml`: every page, for search engines. A new page goes here too (a test checks).
 - `public/google32efa8321a61b455.html`: proves to Google Search Console that the site is ours. Keep it exactly as it is (a test checks), or the verification is lost.
 - `src/index.ts`: the local dev server. The published game doesn't use it; GitHub Pages serves `public/` as is.
