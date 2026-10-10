@@ -6,7 +6,7 @@ A game based on an original drawing by Caitlin Sogge.
 
 A browser game for kids starring Mr. Froggles, a magical frog who flies on bowtie wings and uses purple enchantments to transform the world around him. Aimed at young readers, a step up from [Build a Rainbow](https://github.com/jessicasogge/build-a-rainbow).
 
-For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, and a Start button), a next screen where you pick one of four kingdoms, and a screen for each kingdom. Every kingdom has three friends to help.
+For now there's the opening screen (Mr. Froggles, the legend, the credit for the original drawing, a Start button, and a Read the legend button), a next screen where you pick one of four kingdoms, and a screen for each kingdom. Every kingdom has three friends to help.
 
 ## Running it locally
 
@@ -28,6 +28,7 @@ npm test
 ## How the code is organized
 
 - `public/index.html`: the opening screen.
+- `public/story.html`: the whole legend as a storybook, one page at a time: Mr. Froggles, then a page for each kingdom telling how he helped all three friends there, and The End. `public/game/story-page.js` turns the pages. A new friend in the game goes in the story too (a test checks).
 - `public/next.html`: the screen Start leads to: pick one of the four kingdoms (Home Pond, Whispering Woods, Cloud Kingdom, Moon Cave). Each kingdom opens its own screen.
 - `public/home-pond.html`: the Home Pond, lily pads, a water lily, cattails and tadpoles with Mr. Froggles flying over, a Back button to the kingdom picker, and three quests: Pebble the snail is stuck on a rock in the water, so tap her, read what she needs, and enchant the rock into a lily pad that floats her to shore; Wiggles the tadpole wants to hop, so enchant him into a little frog; and Bumble the bee is hungry but the water lily is shut tight, so enchant it to bloom.
 - `public/whispering-woods.html`: the Whispering Woods, round trees and spotted mushrooms with Mr. Froggles flying through, a Back button to the kingdom picker, and three quests: Hazel the hedgehog can't cross the stream to her family, so tap her, read what she needs, and enchant the little leaf into a bridge; Olive the owl has tumbled out of her nest, so enchant the mushroom she's sitting on to grow tall and carry her back up; and Nutmeg the squirrel has no acorns for winter, so enchant the big oak tree to fill it with acorns.
