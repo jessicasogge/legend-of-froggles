@@ -4,6 +4,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { start as startCloud } from '../public/game/cloud-page.js';
+import { start as startFrosty } from '../public/game/frosty-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
 import { start as startPond } from '../public/game/pond-page.js';
 import { FINALE_AFTER } from '../public/game/quest-page.js';
@@ -18,10 +19,11 @@ const help = (root) => {
 };
 
 const KINGDOMS = [
-  { page: 'cloud-kingdom.html', name: 'the Cloud Kingdom', start: startCloud, roots: ['[data-quest="pip"]', '[data-quest="ginger"]', '[data-quest="lulu"]'] },
-  { page: 'home-pond.html', name: 'the Home Pond', start: startPond, roots: ['[data-quest="pebble"]', '[data-quest="wiggles"]', '[data-quest="bumble"]'] },
-  { page: 'whispering-woods.html', name: 'the Whispering Woods', start: startWoods, roots: ['[data-quest="hazel"]', '[data-quest="olive"]', '[data-quest="nutmeg"]'] },
-  { page: 'moon-cave.html', name: 'the Moon Cave', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
+  { page: 'cloud-kingdom.html', name: 'in the Cloud Kingdom', start: startCloud, roots: ['[data-quest="pip"]', '[data-quest="ginger"]', '[data-quest="lulu"]'] },
+  { page: 'home-pond.html', name: 'in the Home Pond', start: startPond, roots: ['[data-quest="pebble"]', '[data-quest="wiggles"]', '[data-quest="bumble"]'] },
+  { page: 'whispering-woods.html', name: 'in the Whispering Woods', start: startWoods, roots: ['[data-quest="hazel"]', '[data-quest="olive"]', '[data-quest="nutmeg"]'] },
+  { page: 'moon-cave.html', name: 'in the Moon Cave', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
+  { page: 'frosty-peak.html', name: 'on Frosty Peak', start: startFrosty, roots: ['[data-quest="pom"]', '[data-quest="bo"]', '[data-quest="mitten"]'] },
 ];
 
 beforeEach(() => vi.useFakeTimers());
@@ -56,7 +58,8 @@ describe.each(KINGDOMS)('$page', ({ page, name, start, roots }) => {
     expect($('.finale').hidden).toBe(false);
     expect($('.finale').getAttribute('role')).toBe('dialog');
     expect($('#finale-title').textContent).toBe('You did it!');
-    expect($('.finale-card p').textContent).toContain(`Everyone in ${name} is happy again.`);
+    expect($('.finale-card p').textContent).toContain(`${name} is happy again.`);
+    expect($('.finale-card p').textContent).toMatch(/^Everyone (in|on) /);
     expect($('.finale-next').getAttribute('href')).toBe('./next.html');
     expect(document.activeElement).toBe($('.finale-next'));
   });

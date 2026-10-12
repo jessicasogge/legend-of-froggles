@@ -426,6 +426,13 @@ body.scrolls {
   display: flex;
 }
 
+/* An odd one out at the end sits in the middle of its row. */
+.kingdoms li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 0.5rem);
+}
+
 /* Each kingdom: its picture in a white frame, its name underneath. */
 .kingdom {
   width: 100%;
@@ -490,6 +497,7 @@ body.scrolls {
 .kingdom-woods { background: #4a5d23; }
 .kingdom-clouds { background: #2f5fb8; }
 .kingdom-moon { background: var(--enchantment); }
+.kingdom-snow { background: #1b5e80; }
 
 /* A kingdom that has its screen is a link; it looks the same as the rest. */
 a.kingdom {
@@ -524,10 +532,17 @@ body.pond {
   --back: #9bd67a;
 }
 
+body.snow {
+  --page: #e3f1ff;
+  --title: #23486f;
+  --back: #9fd3f5;
+}
+
 body.night,
 body.day,
 body.forest,
-body.pond {
+body.pond,
+body.snow {
   background: var(--page);
   overflow: auto;
 }
@@ -1194,6 +1209,118 @@ body.pond {
   transform: translateY(128px);
 }
 
+/* Frosty Peak: the rocks give way to an ice slide, and Pom slides down
+   it. */
+.frost-rocks {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .frost-rocks {
+  opacity: 0;
+}
+
+.ice-slide path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 0.9s ease-out 0.6s;
+}
+
+[data-step='done'] .ice-slide path {
+  stroke-dashoffset: 0;
+}
+
+.pom-ride {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 1.2s ease-in 1.6s;
+}
+
+[data-step='done'] .pom-ride {
+  transform: translate(68px, 194px) rotate(-20deg);
+}
+
+/* Frosty Peak: Bo shivers until the snowball becomes an igloo, then goes
+   over to its door. */
+[data-step='waiting'] .shiver,
+[data-step='asked'] .shiver {
+  animation: shiver 0.16s linear infinite alternate;
+}
+
+@keyframes shiver {
+  to {
+    transform: translateX(1.5px);
+  }
+}
+
+.shiver-lines,
+.snowball {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .shiver-lines,
+[data-step='done'] .snowball {
+  opacity: 0;
+}
+
+.igloo {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.6s, transform 0.8s 0.6s;
+}
+
+[data-step='done'] .igloo {
+  opacity: 1;
+  transform: none;
+}
+
+.bo-walk {
+  transition: transform 1.2s ease-in-out 1.6s;
+}
+
+[data-step='done'] .bo-walk {
+  transform: translate(126px, 2px);
+}
+
+/* Frosty Peak: the big snowflake becomes a red scarf on Mitten, and she
+   hops for joy. */
+.big-snowflake {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .big-snowflake {
+  opacity: 0;
+}
+
+.scarf {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  transition: opacity 0.4s 0.9s, transform 0.6s 0.9s;
+}
+
+[data-step='done'] .scarf {
+  opacity: 1;
+  transform: none;
+}
+
+.hare-hop {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+[data-step='done'] .hare-hop {
+  animation: hare-hop 0.9s ease-out 1.6s 2;
+}
+
+@keyframes hare-hop {
+  45% {
+    transform: translateY(-26px);
+  }
+}
+
 /* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
    enchanted, the tadpole fades and a little frog hops up onto the pad. */
 .tadpole-tail {
@@ -1364,6 +1491,9 @@ body.pond {
   .helper .alert,
   [data-step='done'] .wing-flap,
   .tadpole-tail,
+  [data-step='waiting'] .shiver,
+  [data-step='asked'] .shiver,
+  [data-step='done'] .hare-hop,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1399,6 +1529,15 @@ body.pond {
   .pond-rock,
   .new-pad,
   .snail-raft,
+  .frost-rocks,
+  .ice-slide path,
+  .pom-ride,
+  .shiver-lines,
+  .snowball,
+  .igloo,
+  .bo-walk,
+  .big-snowflake,
+  .scarf,
   .tadpole,
   .lily-bud,
   .lily-bloom,

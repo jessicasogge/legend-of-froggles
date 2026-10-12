@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Frosty Peak: snowy mountains under a glowing sky, a pine and an igloo -->
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="#D6ECFF" stroke="none" />
+    <!-- The glowing sky (an aurora) -->
+    <path d="M8 26 C48 10 80 36 120 20 S176 12 194 24" fill="none" stroke="#7BE0B5" stroke-width="7" opacity="0.8" />
+    <path d="M14 38 C54 24 86 46 126 32 S180 26 196 36" fill="none" stroke="#B58CFF" stroke-width="5" opacity="0.8" />
+    <!-- Mountains, with snowy tops -->
+    <path d="M0 104 L54 46 L108 104 Z" fill="#B9C9E2" />
+    <path d="M54 46 L66 59 Q60 64 54 60 Q48 64 42 59 Z" fill="#FFFFFF" stroke-width="3" />
+    <path d="M80 104 L140 34 L200 104 Z" fill="#A8BBD9" />
+    <path d="M140 34 L154 50 Q147 55 140 51 Q133 55 126 50 Z" fill="#FFFFFF" stroke-width="3" />
+    <!-- Snowy ground -->
+    <path d="M0 140 V104 Q60 94 110 100 T200 98 V140 Z" fill="#FFFFFF" />
+    <!-- A pine with snow on top -->
+    <rect x="25" y="112" width="6" height="12" fill="#8A5A3B" stroke-width="3" />
+    <path d="M28 82 L44 114 H12 Z" fill="#2E7A3A" stroke-width="3" />
+    <path d="M28 82 L34 95 Q28 98 22 95 Z" fill="#FFFFFF" stroke-width="2.5" />
+    <!-- An igloo -->
+    <path d="M118 128 a26 22 0 0 1 52 0 Z" fill="#FFFFFF" />
+    <path d="M136 128 a8 9 0 0 1 16 0 Z" fill="#5A7FA8" stroke-width="3" />
+    <path d="M122 116 h44 M130 107 h28" fill="none" stroke="#9FB6D6" stroke-width="2.5" />
+    <!-- Snowflakes -->
+    <circle cx="96" cy="58" r="2.5" fill="#FFFFFF" stroke="#9FB6D6" stroke-width="1.5" />
+    <circle cx="180" cy="70" r="2.5" fill="#FFFFFF" stroke="#9FB6D6" stroke-width="1.5" />
+    <circle cx="70" cy="80" r="2" fill="#FFFFFF" stroke="#9FB6D6" stroke-width="1.5" />
+  </g>
+</svg>
