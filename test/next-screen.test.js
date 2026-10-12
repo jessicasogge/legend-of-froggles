@@ -46,6 +46,11 @@ describe('pick a kingdom', () => {
     }
   });
 
+  it('names every kingdom in its description, for search results and shared links', () => {
+    const description = document.querySelector('meta[name="description"]').getAttribute('content');
+    for (const b of kingdoms()) expect(description).toContain(b.textContent.trim());
+  });
+
   it('has every kingdom open, with none locked', () => {
     for (const b of kingdoms()) expect(b.disabled ?? false).toBe(false);
   });
