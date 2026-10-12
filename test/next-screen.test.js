@@ -27,8 +27,8 @@ describe('pick a kingdom', () => {
     expect(document.querySelector('main.next-screen h1').textContent).toBe('Where will Mr. Froggles fly?');
   });
 
-  it('offers the four kingdoms, in order', () => {
-    expect(kingdoms().map((b) => b.textContent.trim())).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave']);
+  it('offers the five kingdoms, in order', () => {
+    expect(kingdoms().map((b) => b.textContent.trim())).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave', 'Frosty Peak']);
   });
 
   it('shows a picture of each kingdom, left out for screen readers since the name says it', () => {
@@ -38,11 +38,17 @@ describe('pick a kingdom', () => {
       './kingdoms/whispering-woods.svg',
       './kingdoms/cloud-kingdom.svg',
       './kingdoms/moon-cave.svg',
+      './kingdoms/frosty-peak.svg',
     ]);
     for (const img of pictures) {
       expect(img.getAttribute('alt')).toBe('');
       expect(existsSync(join(process.cwd(), 'public', img.getAttribute('src')))).toBe(true);
     }
+  });
+
+  it('names every kingdom in its description, for search results and shared links', () => {
+    const description = document.querySelector('meta[name="description"]').getAttribute('content');
+    for (const b of kingdoms()) expect(description).toContain(b.textContent.trim());
   });
 
   it('has every kingdom open, with none locked', () => {
@@ -84,13 +90,20 @@ describe('pick a kingdom', () => {
     expect(existsSync(join(process.cwd(), 'public', 'cloud-kingdom.html'))).toBe(true);
   });
 
+  it('takes Frosty Peak to its own screen', () => {
+    const snow = kingdoms()[4];
+    expect(snow.tagName).toBe('A');
+    expect(snow.getAttribute('href')).toBe('./frosty-peak.html');
+    expect(existsSync(join(process.cwd(), 'public', 'frosty-peak.html'))).toBe(true);
+  });
+
   it('gives each kingdom its own color, dark enough for white text', () => {
     const colorOf = (cls) => {
       const hex = css.match(new RegExp(`\\.${cls} \\{ background: (#[0-9a-f]{6}|var\\(--enchantment\\)); \\}`))?.[1];
       return hex === 'var(--enchantment)' ? css.match(/--enchantment: (#[0-9a-f]{6})/)[1] : hex;
     };
     const colors = kingdoms().map((b) => colorOf([...b.classList].find((c) => c !== 'kingdom')));
-    expect(new Set(colors).size).toBe(4);
+    expect(new Set(colors).size).toBe(5);
     for (const c of colors) expect(contrastWithWhite(c)).toBeGreaterThanOrEqual(4.5);
   });
 });

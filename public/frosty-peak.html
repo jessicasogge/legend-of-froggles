@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frosty Peak: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles flies to Frosty Peak, a snowy mountain under a glowing green and purple sky, to help a penguin, a polar bear cub and a snow hare." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/frosty-peak.html" />
+    <!-- How the link looks when it's shared (iMessage, Slack, Discord, social media) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Legend of Mr. Froggles" />
+    <meta property="og:title" content="Frosty Peak: The Legend of Mr. Froggles" />
+    <meta property="og:description" content="Mr. Froggles flies to Frosty Peak, a snowy mountain under a glowing green and purple sky, to help a penguin, a polar bear cub and a snow hare." />
+    <meta property="og:url" content="https://jessicasogge.github.io/legend-of-froggles/frosty-peak.html" />
+    <meta property="og:image" content="https://jessicasogge.github.io/legend-of-froggles/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mr. Froggles, a smiling green frog with bowtie wings, beside the words The Legend of Mr. Froggles and a picture of each of the four kingdoms." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="snow">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        <span class="back-label">Back</span>
+      </a>
+
+      <h1>Frosty Peak</h1>
+
+      <!-- The picture, and the card that covers it once everyone in the
+           kingdom has been helped (game/quest-page.js). -->
+      <div class="scene-box">
+        <!-- Frosty Peak, drawn big: two snowy mountains under a green and
+             purple glowing sky, pine trees and a frozen pond, with Mr.
+             Froggles flying over. Same marker style as the other kingdoms.
+             It's a group, not one image, so screen readers can reach Pom, Bo
+             and Mitten. Each of their quests has its own group (data-quest).
+             Bo and Mitten are white animals on white snow, so they're a pale
+             blue-gray with a soft shadow under them, to stand out. -->
+        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying over Frosty Peak, two snowy mountains under a glowing green and purple sky, with pine trees and a frozen pond, a little penguin on a rocky hill, a shivering polar bear cub by a snowball, and a white snow hare by a big snowflake">
+          <defs>
+            <linearGradient id="frosty-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#C9E6FF" />
+              <stop offset="1" stop-color="#EAF6FF" />
+            </linearGradient>
+            <g id="pine" stroke="#1F1A24" stroke-width="7" stroke-linejoin="round">
+              <rect x="-10" y="40" width="20" height="40" fill="#8A5A3B" />
+              <path d="M0 -90 L55 45 H-55 Z" fill="#2E7A3A" />
+              <path d="M0 -90 L22 -36 Q0 -26 -22 -36 Z" fill="#FFFFFF" />
+            </g>
+          </defs>
+          <rect width="1200" height="700" fill="url(#frosty-sky)" />
+
+          <!-- Pom's quest. It holds the picture behind everyone too. -->
+          <g data-quest="pom" data-froggles-to="640 260" data-enchant-at="830 480">
+            <!-- The glowing sky (an aurora) -->
+            <g fill="none" stroke-linecap="round" opacity="0.75">
+              <path d="M60 120 C260 40 420 170 640 90 S980 40 1160 110" stroke="#7BE0B5" stroke-width="22" />
+              <path d="M120 165 C320 95 470 205 690 130 S1010 95 1180 160" stroke="#B58CFF" stroke-width="14" />
+            </g>
+            <g stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+              <!-- Sun -->
+              <circle cx="1080" cy="80" r="40" fill="#FFE27A" />
+              <!-- Mountains, with snowy tops -->
+              <path d="M40 520 L330 210 L620 520 Z" fill="#B9C9E2" />
+              <path d="M330 210 L392 277 Q360 300 330 282 Q300 300 268 277 Z" fill="#FFFFFF" />
+              <path d="M520 520 L860 140 L1200 520 Z" fill="#A8BBD9" />
+              <path d="M860 140 L932 221 Q896 248 860 226 Q824 248 788 221 Z" fill="#FFFFFF" />
+              <!-- Snowy ground -->
+              <path d="M0 700 V500 Q250 450 520 480 T1200 470 V700 Z" fill="#FFFFFF" />
+              <!-- Frozen pond -->
+              <ellipse cx="340" cy="620" rx="170" ry="46" fill="#BFE3F7" />
+              <path d="M260 612 l40 -8 M380 636 l46 -6" stroke="#FFFFFF" stroke-width="6" fill="none" />
+              <!-- Pom's hill -->
+              <path d="M690 520 Q760 380 860 400 Q930 420 960 520 Z" fill="#E8EEF7" />
+            </g>
+            <use href="#pine" transform="translate(130 470) scale(0.9)" />
+            <use href="#pine" transform="translate(1040 470)" />
+            <use href="#pine" transform="translate(1110 500) scale(0.7)" />
+            <!-- Little snowflakes in the air -->
+            <g fill="#FFFFFF" stroke="#9FB6D6" stroke-width="2">
+              <circle cx="560" cy="250" r="6" /><circle cx="700" cy="330" r="5" /><circle cx="250" cy="330" r="6" />
+              <circle cx="980" cy="300" r="5" /><circle cx="1150" cy="260" r="6" />
+            </g>
+
+            <!-- The rocks on Pom's hill. Once they're enchanted they're gone,
+                 and a smooth ice slide runs down the hill instead. -->
+            <g class="frost-rocks" fill="#9A93A8" stroke="#1F1A24" stroke-width="6">
+              <circle cx="760" cy="470" r="16" /><circle cx="800" cy="500" r="13" /><circle cx="850" cy="455" r="15" /><circle cx="900" cy="490" r="12" />
+            </g>
+            <g class="ice-slide" fill="none" stroke-linecap="round">
+              <path d="M830 430 C875 475 862 540 880 588 C888 610 893 626 900 646" stroke="#1F1A24" stroke-width="40" />
+              <path d="M830 430 C875 475 862 540 880 588 C888 610 893 626 900 646" stroke="#9FD8F5" stroke-width="28" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M830 380 C960 380 970 560 830 560 C700 560 690 396 810 392" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Pom slides down the ice at the end. -->
+            <g class="pom-ride">
+              <!-- Pom the penguin, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Pom the penguin needs help. Tap to talk." transform="translate(820 410) scale(1.4)">
+                <circle class="helper-ring" cy="-10" r="48" fill="none" stroke="none" stroke-width="4" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <path d="M-10 27 l-7 6 h11 Z M10 27 l7 6 h-11 Z" fill="#F2A65A" stroke-width="2.5" />
+                  <path d="M-21 -2 q-10 12 -4 22 M21 -2 q10 12 4 22" fill="none" stroke-width="6" stroke-linecap="round" />
+                  <ellipse rx="22" ry="28" fill="#2B2F45" />
+                  <ellipse cy="6" rx="14" ry="19" fill="#FFFFFF" />
+                  <path d="M-5 -6 L0 2 L5 -6 Z" fill="#F2A65A" stroke-width="2.5" />
+                </g>
+                <circle cx="-6" cy="-13" r="3.2" fill="#FFFFFF" />
+                <circle cx="6" cy="-13" r="3.2" fill="#FFFFFF" />
+                <g class="alert">
+                <circle cx="0" cy="-62" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M0 -72 V-60" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cx="0" cy="-52" r="2.8" fill="#1F1A24" />
+              </g>
+                <circle cy="-10" r="44" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Bo's quest: a polar bear cub shivering by a snowball. Once it's
+               enchanted, it becomes a cozy igloo, and Bo goes over to its
+               door, warm at last. -->
+          <g data-quest="bo" data-froggles-to="520 330" data-enchant-at="640 628">
+            <g class="igloo" stroke="#1F1A24" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M590 650 a110 98 0 0 1 220 0 Z" fill="#FFFFFF" stroke-width="8" />
+              <path d="M607 608 h186 M630 568 h140 M665 538 h70" fill="none" stroke="#9FB6D6" stroke-width="5" />
+              <path d="M670 650 a30 33 0 0 1 60 0 Z" fill="#5A7FA8" stroke-width="6" />
+            </g>
+            <circle class="snowball" cx="642" cy="630" r="20" fill="#FFFFFF" stroke="#1F1A24" stroke-width="6" />
+
+            <path class="enchant-swirl fades" d="M640 548 C740 548 750 704 640 704 C540 704 530 562 622 558" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Bo goes over to the igloo's door at the end. -->
+            <g class="bo-walk">
+              <!-- Bo the polar bear cub, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Bo the polar bear cub needs help. Tap to talk." transform="translate(556 612) scale(1.4)">
+                <circle class="helper-ring" cx="-4" cy="-6" r="50" fill="none" stroke="none" stroke-width="4" />
+                <ellipse cy="30" rx="34" ry="7" fill="#C9D9EC" />
+                <g class="shiver" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <ellipse cy="8" rx="30" ry="24" fill="#EEF3FA" />
+                  <ellipse cx="-14" cy="28" rx="9" ry="5" fill="#EEF3FA" />
+                  <ellipse cx="14" cy="28" rx="9" ry="5" fill="#EEF3FA" />
+                  <circle cx="-30" cy="-34" r="6" fill="#EEF3FA" />
+                  <circle cx="-6" cy="-36" r="6" fill="#EEF3FA" />
+                  <circle cx="-18" cy="-20" r="18" fill="#EEF3FA" />
+                  <circle cx="-24" cy="-22" r="2.6" fill="#1F1A24" stroke="none" />
+                  <circle cx="-12" cy="-22" r="2.6" fill="#1F1A24" stroke="none" />
+                  <circle cx="-18" cy="-13" r="3.5" fill="#1F1A24" stroke="none" />
+                </g>
+                <path class="shiver-lines" d="M26 -16 l9 -4 M30 -4 l10 -2 M-46 -10 l-9 -3" fill="none" stroke="#5A7FA8" stroke-width="3" stroke-linecap="round" />
+                <g class="alert">
+                <circle cx="-18" cy="-70" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M-18 -80 V-68" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cx="-18" cy="-60" r="2.8" fill="#1F1A24" />
+              </g>
+                <circle cx="-4" cy="-6" r="46" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Mitten's quest: a white snow hare, so white her friends can't
+               find her in the snow, by a big snowflake. Once it's enchanted, it
+               becomes a bright red scarf around her neck. -->
+          <g data-quest="mitten" data-froggles-to="560 300" data-enchant-at="420 470">
+            <g class="big-snowflake" stroke="#5A7FA8" stroke-width="5" stroke-linecap="round" transform="translate(420 470)">
+              <path d="M0 -22 V22 M-19 -11 L19 11 M-19 11 L19 -11 M-6 -16 L0 -10 L6 -16 M-6 16 L0 10 L6 16" fill="none" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M330 418 C430 418 440 590 330 590 C230 590 220 432 312 428" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Mitten the snow hare, who needs help. Works like a button
+                 (quest-page.js). -->
+            <g class="helper" role="button" tabindex="0" aria-label="Mitten the snow hare needs help. Tap to talk." transform="translate(330 530) scale(1.4)">
+              <circle class="helper-ring" cy="-18" r="52" fill="none" stroke="none" stroke-width="4" />
+              <ellipse cy="26" rx="28" ry="6" fill="#C9D9EC" />
+              <g class="hare-hop">
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <path d="M-8 -34 Q-14 -66 -4 -68 Q4 -62 0 -34 Z M6 -34 Q8 -66 18 -64 Q22 -56 12 -32 Z" fill="#F4F7FB" />
+                  <path d="M-4 -40 Q-6 -56 -3 -60 M10 -38 Q12 -54 16 -58" fill="none" stroke="#FFB3C8" stroke-width="3" />
+                  <circle cx="-24" cy="10" r="8" fill="#F4F7FB" />
+                  <ellipse cy="6" rx="24" ry="20" fill="#F4F7FB" />
+                  <circle cx="4" cy="-22" r="15" fill="#F4F7FB" />
+                </g>
+                <circle cx="10" cy="-24" r="2.8" fill="#1F1A24" />
+                <circle cx="18" cy="-18" r="2.6" fill="#FF8FB1" />
+                <g class="scarf" stroke="#1F1A24" stroke-width="3.5" stroke-linejoin="round">
+                  <path d="M-12 -10 Q4 -2 18 -10 L16 -3 Q2 5 -12 -3 Z" fill="#E5383B" />
+                  <path d="M-8 -6 L-15 18 L-5 16 Z" fill="#E5383B" />
+                  <path d="M-12 12 l8 -1" fill="none" stroke="#FFFFFF" stroke-width="2" />
+                </g>
+              </g>
+              <g class="alert">
+                <circle cx="4" cy="-86" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M4 -96 V-84" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cx="4" cy="-76" r="2.8" fill="#1F1A24" />
+              </g>
+              <circle cy="-18" r="48" fill="transparent" />
+            </g>
+          </g>
+
+          <!-- Mr. Froggles, flying -->
+          <!-- Once everyone is helped, he twirls and flies off. -->
+          <g class="froggles-exit">
+            <!-- The outer group swoops him over to cast each enchantment. -->
+            <g class="froggles-swoop">
+              <image class="froggles-flying" href="./mr-froggles.svg" x="300" y="80" width="250" height="325" />
+            </g>
+          </g>
+        </svg>
+
+        <section class="finale" role="dialog" aria-labelledby="finale-title" hidden>
+          <div class="finale-card">
+            <h2 id="finale-title">You did it!</h2>
+            <p>Everyone on Frosty Peak is happy again. Mr. Froggles has flown off to find more friends who need help.</p>
+            <div class="finale-buttons">
+              <a class="story-button finale-next" href="./next.html">Pick another kingdom</a>
+              <button type="button" class="story-button finale-stay">Stay and look</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+      </section>
+    </main>
+
+    <script type="module">
+      import { start } from './game/frosty-page.js';
+      start(document);
+    </script>
+  </body>
+</html>
