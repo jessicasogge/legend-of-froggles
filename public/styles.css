@@ -410,7 +410,8 @@ body.scrolls {
   text-wrap: balance;
 }
 
-/* The four kingdoms, two by two. */
+/* The six kingdoms: two by two on a phone, three in a row on anything
+   wider. */
 .kingdoms {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -421,16 +422,16 @@ body.scrolls {
   list-style: none;
 }
 
+@media (min-width: 700px) {
+  .kingdoms {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(820px, 100%);
+  }
+}
+
 /* Each kingdom fills its grid cell, so a row's cards match in height. */
 .kingdoms li {
   display: flex;
-}
-
-/* An odd one out at the end sits in the middle of its row. */
-.kingdoms li:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc(50% - 0.5rem);
 }
 
 /* Each kingdom: its picture in a white frame, its name underneath. */
@@ -498,6 +499,7 @@ body.scrolls {
 .kingdom-clouds { background: #2f5fb8; }
 .kingdom-moon { background: var(--enchantment); }
 .kingdom-snow { background: #1b5e80; }
+.kingdom-beach { background: #b8561b; }
 
 /* A kingdom that has its screen is a link; it looks the same as the rest. */
 a.kingdom {
@@ -538,11 +540,18 @@ body.snow {
   --back: #9fd3f5;
 }
 
+body.beach {
+  --page: #fff1d6;
+  --title: #8a4b14;
+  --back: #ffd23f;
+}
+
 body.night,
 body.day,
 body.forest,
 body.pond,
-body.snow {
+body.snow,
+body.beach {
   background: var(--page);
   overflow: auto;
 }
@@ -1321,6 +1330,140 @@ body.snow {
   }
 }
 
+/* Seashell Beach: a big wave rolls up the sand to Tilly and back out, and
+   she rides it into the sea. */
+.big-wave {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}
+
+[data-step='done'] .big-wave {
+  animation: wave-roll 2.6s ease-in-out 0.6s;
+}
+
+@keyframes wave-roll {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.2);
+  }
+
+  30%,
+  65% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleY(0.2);
+  }
+}
+
+.tilly-swim {
+  transition: transform 1.4s ease-in-out 1.5s;
+}
+
+[data-step='done'] .tilly-swim {
+  transform: translate(-60px, -210px);
+}
+
+.tilly-ripples {
+  opacity: 0;
+  transition: opacity 0.6s 2.9s;
+}
+
+[data-step='done'] .tilly-ripples {
+  opacity: 1;
+}
+
+/* Seashell Beach: the palm tree swings and tosses the beach ball over to
+   Splash. The ball goes sideways steadily and up then down (an arc), and
+   she jumps for joy with it on her nose. */
+.palm-toss {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+[data-step='done'] .palm-toss {
+  animation: palm-toss 1s ease-in-out 0.6s;
+}
+
+@keyframes palm-toss {
+  40% {
+    transform: rotate(-6deg);
+  }
+
+  70% {
+    transform: rotate(7deg);
+  }
+}
+
+.ball-across {
+  transition: transform 1.1s linear 1.2s;
+}
+
+[data-step='done'] .ball-across {
+  transform: translateX(226px);
+}
+
+.ball-arc {
+  transition: transform 1.1s cubic-bezier(0.3, -1.4, 0.7, 1) 1.2s;
+}
+
+[data-step='done'] .ball-arc {
+  transform: translateY(112px);
+}
+
+[data-step='done'] .splash-jump {
+  animation: splash-jump 0.9s ease-out 2.5s 2;
+}
+
+@keyframes splash-jump {
+  45% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Seashell Beach: the tiny pink shell grows into a big swirly shell on
+   Shelly's back, her old one disappears, and she dances side to side. */
+.little-shell,
+.tiny-shell {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .little-shell,
+[data-step='done'] .tiny-shell {
+  opacity: 0;
+}
+
+.big-shell {
+  opacity: 0;
+  transform: scale(0.2);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.4s 0.9s, transform 0.7s 0.9s;
+}
+
+[data-step='done'] .big-shell {
+  opacity: 1;
+  transform: none;
+}
+
+[data-step='done'] .shelly-dance {
+  animation: shelly-dance 0.5s ease-in-out 1.8s 4 alternate;
+}
+
+@keyframes shelly-dance {
+  from {
+    transform: translateX(-10px);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
 /* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
    enchanted, the tadpole fades and a little frog hops up onto the pad. */
 .tadpole-tail {
@@ -1494,6 +1637,10 @@ body.snow {
   [data-step='waiting'] .shiver,
   [data-step='asked'] .shiver,
   [data-step='done'] .hare-hop,
+  [data-step='done'] .big-wave,
+  [data-step='done'] .palm-toss,
+  [data-step='done'] .splash-jump,
+  [data-step='done'] .shelly-dance,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1538,6 +1685,13 @@ body.snow {
   .bo-walk,
   .big-snowflake,
   .scarf,
+  .tilly-swim,
+  .tilly-ripples,
+  .ball-across,
+  .ball-arc,
+  .little-shell,
+  .tiny-shell,
+  .big-shell,
   .tadpole,
   .lily-bud,
   .lily-bloom,

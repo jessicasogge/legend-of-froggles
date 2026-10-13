@@ -5,6 +5,9 @@ import { describe, expect, it } from 'vitest';
 import * as cloudFox from '../public/game/cloud-fox-quest.js';
 import * as cloud from '../public/game/cloud-quest.js';
 import * as cloudUnicorn from '../public/game/cloud-unicorn-quest.js';
+import * as beachCrab from '../public/game/beach-crab-quest.js';
+import * as beachDolphin from '../public/game/beach-dolphin-quest.js';
+import * as beach from '../public/game/beach-quest.js';
 import * as frostyBear from '../public/game/frosty-bear-quest.js';
 import * as frostyHare from '../public/game/frosty-hare-quest.js';
 import * as frosty from '../public/game/frosty-quest.js';
@@ -18,7 +21,7 @@ import * as woodsOwl from '../public/game/woods-owl-quest.js';
 import * as woods from '../public/game/woods-quest.js';
 import * as woodsSquirrel from '../public/game/woods-squirrel-quest.js';
 
-const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
+const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
 
 describe.each(Object.entries(QUESTS))('%s quest', (_, quest) => {
   it('says to tap the exclamation point', () => {
