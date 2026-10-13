@@ -4,6 +4,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { start as startCloud } from '../public/game/cloud-page.js';
+import { start as startBeach } from '../public/game/beach-page.js';
 import { start as startFrosty } from '../public/game/frosty-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
 import { start as startPond } from '../public/game/pond-page.js';
@@ -24,6 +25,7 @@ const KINGDOMS = [
   { page: 'whispering-woods.html', name: 'in the Whispering Woods', start: startWoods, roots: ['[data-quest="hazel"]', '[data-quest="olive"]', '[data-quest="nutmeg"]'] },
   { page: 'moon-cave.html', name: 'in the Moon Cave', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
   { page: 'frosty-peak.html', name: 'on Frosty Peak', start: startFrosty, roots: ['[data-quest="pom"]', '[data-quest="bo"]', '[data-quest="mitten"]'] },
+  { page: 'seashell-beach.html', name: 'at Seashell Beach', start: startBeach, roots: ['[data-quest="tilly"]', '[data-quest="splash"]', '[data-quest="shelly"]'] },
 ];
 
 beforeEach(() => vi.useFakeTimers());
@@ -59,7 +61,7 @@ describe.each(KINGDOMS)('$page', ({ page, name, start, roots }) => {
     expect($('.finale').getAttribute('role')).toBe('dialog');
     expect($('#finale-title').textContent).toBe('You did it!');
     expect($('.finale-card p').textContent).toContain(`${name} is happy again.`);
-    expect($('.finale-card p').textContent).toMatch(/^Everyone (in|on) /);
+    expect($('.finale-card p').textContent).toMatch(/^Everyone (in|on|at) /);
     expect($('.finale-next').getAttribute('href')).toBe('./next.html');
     expect(document.activeElement).toBe($('.finale-next'));
   });
