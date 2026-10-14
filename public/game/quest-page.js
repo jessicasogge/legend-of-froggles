@@ -15,6 +15,72 @@ function point(text) {
   return Number.isFinite(x) && Number.isFinite(y) ? { x, y } : null;
 }
 
+// What Mr. Froggles says when he's tapped, one after another.
+export const HELLOS = ['Ribbit!', 'Hello, friend!', 'Wheee!', 'Ribbit ribbit!'];
+
+function svgElement(doc, name, attributes) {
+  const element = doc.createElementNS(SVG, name);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+  return element;
+}
+
+// Restarts a CSS animation, even if it's still playing from the last tap.
+function replay(scene, element, name) {
+  element.classList.remove(name);
+  void scene.getBoundingClientRect();
+  element.classList.add(name);
+}
+
+// Tap Mr. Froggles and he does a flip and says hello in a speech bubble.
+// Only his head and body can be tapped, not the empty space around him, so
+// he doesn't get in the way of the friends' exclamation points.
+function sayHello(doc, scene, swoop, froggles) {
+  const [x, y, width] = ['x', 'y', 'width'].map((name) => Number(froggles.getAttribute(name)));
+  // His picture is drawn 200 wide; this scales its points to where he is.
+  const s = width / 200;
+  const at = (px, py) => [x + px * s, y + py * s];
+
+  const flip = svgElement(doc, 'g', { class: 'froggles-flip' });
+  froggles.replaceWith(flip);
+  const button = svgElement(doc, 'g', { class: 'froggles-hello', role: 'button', tabindex: '0', 'aria-label': 'Mr. Froggles. Tap to say hello.' });
+  const [headX, headY] = at(100, 72);
+  const [bodyX, bodyY] = at(100, 168);
+  button.append(
+    svgElement(doc, 'circle', { class: 'froggles-ring', cx: headX, cy: headY, r: 56 * s, fill: 'none', stroke: 'none', 'stroke-width': 4 }),
+    svgElement(doc, 'circle', { cx: headX, cy: headY, r: 44 * s, fill: 'transparent' }),
+    svgElement(doc, 'ellipse', { cx: bodyX, cy: bodyY, rx: 60 * s, ry: 62 * s, fill: 'transparent' }),
+  );
+  flip.append(froggles, button);
+
+  // The bubble doesn't flip with him; it pops up beside his head.
+  const [bubbleX, bubbleY] = at(144, -16);
+  const says = svgElement(doc, 'g', { class: 'froggles-says', 'aria-hidden': 'true' });
+  const words = svgElement(doc, 'text', { x: bubbleX + 125, y: bubbleY + 42, 'text-anchor': 'middle' });
+  says.append(
+    svgElement(doc, 'path', { d: `M${bubbleX + 22} ${bubbleY + 56} L${bubbleX - 4} ${bubbleY + 92} L${bubbleX + 50} ${bubbleY + 60} Z` }),
+    svgElement(doc, 'rect', { x: bubbleX, y: bubbleY, width: 250, height: 64, rx: 32 }),
+    words,
+  );
+  swoop.append(says);
+
+  let said = 0;
+  function hello() {
+    // Not once he's flying off at the end.
+    if ('finale' in scene.dataset) return;
+    words.textContent = HELLOS[said % HELLOS.length];
+    said += 1;
+    replay(scene, flip, 'flipping');
+    replay(scene, says, 'saying');
+  }
+  button.addEventListener('click', hello);
+  button.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      hello();
+    }
+  });
+}
+
 export function startQuests(doc, quests) {
   const scene = doc.querySelector('svg.scene');
   const speaker = doc.querySelector('.story-speaker');
@@ -61,6 +127,8 @@ export function startQuests(doc, quests) {
       sparkles.append(sparkle);
     }
   }
+
+  if (froggles) sayHello(doc, scene, swoop, froggles);
 
   // Once everyone is helped, Mr. Froggles twirls and flies off (CSS, keyed off
   // data-finale), then the closing card covers the picture.
