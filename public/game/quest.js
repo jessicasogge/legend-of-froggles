@@ -1,7 +1,3 @@
-// The steps every quest follows:
-//   waiting -> (talk) -> asked -> (enchant) -> done
-// Once someone has been helped, they stay helped.
-
 export const START = 'waiting';
 
 const NEXT = {
