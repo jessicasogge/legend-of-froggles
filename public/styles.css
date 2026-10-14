@@ -641,8 +641,9 @@ body.beach {
   background: var(--page);
 }
 
-/* Mr. Froggles is never tapped, so taps go through him (and his sparkles)
-   to whoever is behind, even when he flies over them. */
+/* Taps go through Mr. Froggles' picture (and his sparkles) to whoever is
+   behind, even when he flies over them. Only his head and body can be
+   tapped (.froggles-hello, below). */
 .scene .froggles-flying,
 .scene .sparkles {
   pointer-events: none;
@@ -656,6 +657,104 @@ body.beach {
 @media (prefers-reduced-motion: reduce) {
   .froggles-flying {
     animation: none;
+  }
+}
+
+/* Tap Mr. Froggles (just his head and body) and he does a flip and says
+   hello in a speech bubble (game/quest-page.js). */
+.froggles-hello {
+  cursor: pointer;
+  outline: none;
+}
+
+.froggles-hello:focus-visible .froggles-ring {
+  stroke: var(--ink);
+  stroke-dasharray: 8 6;
+}
+
+.scene[data-finale] .froggles-hello {
+  pointer-events: none;
+}
+
+.froggles-flip {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.froggles-flip.flipping {
+  animation: froggles-flip 0.9s ease-in-out;
+}
+
+@keyframes froggles-flip {
+  50% {
+    transform: translateY(-60px) rotate(180deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.froggles-says {
+  opacity: 0;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+}
+
+.froggles-says.saying {
+  animation: froggles-says 1.8s ease-out;
+}
+
+@keyframes froggles-says {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  15%,
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.froggles-says path,
+.froggles-says rect {
+  fill: #fff;
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+
+.froggles-says text {
+  fill: var(--ink);
+  font-family: Fredoka, system-ui, sans-serif;
+  font-size: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .froggles-flip.flipping {
+    animation: none;
+  }
+
+  .froggles-says.saying {
+    animation: froggles-says-still 1.8s;
+  }
+}
+
+@keyframes froggles-says-still {
+  0%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
