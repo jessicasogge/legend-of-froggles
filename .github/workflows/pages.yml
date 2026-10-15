@@ -15,7 +15,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # The same tests a pull request runs (test.yml). If they fail, the site
+  # isn't updated.
+  test:
+    uses: ./.github/workflows/test.yml
+
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     environment:
       name: github-pages
