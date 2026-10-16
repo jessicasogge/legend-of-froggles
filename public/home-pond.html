@@ -88,11 +88,15 @@
 
             <path class="enchant-swirl fades" d="M600 540 C760 540 770 700 600 700 C440 700 430 560 580 560" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
 
-            <!-- The lily pad and Pebble float to shore together at the end. -->
+            <!-- The lily pad and Pebble float to shore together at the end,
+                 then she steps off onto the grass. The pad is right under
+                 her, so she rides on top of it. -->
             <g class="snail-raft">
               <g class="new-pad" stroke="#1F1A24" stroke-width="8" stroke-linejoin="round">
-                <path d="M600 654 a100 36 0 1 0 32 -35 L600 654 Z" fill="#2E9E5B" />
+                <path d="M610 632 L682 606 A112 34 0 1 1 629 598 Z" fill="#2E9E5B" />
               </g>
+
+              <g class="snail-ashore">
 
               <!-- Pebble the snail, who needs help. Works like a button
                    (quest-page.js). -->
@@ -114,6 +118,7 @@
                   <circle cy="-72" r="2.8" fill="#1F1A24" />
                 </g>
                 <circle r="58" fill="transparent" />
+              </g>
               </g>
             </g>
           </g>
@@ -204,7 +209,7 @@
           <g class="froggles-exit">
             <!-- The outer group swoops him over to cast each enchantment. -->
             <g class="froggles-swoop">
-              <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="60" width="250" height="325" />
+              <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="36" width="250" height="325" />
             </g>
           </g>
         </svg>
