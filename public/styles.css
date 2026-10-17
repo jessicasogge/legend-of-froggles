@@ -1564,7 +1564,7 @@ body.beach {
 }
 
 /* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
-   enchanted, the tadpole fades and a little frog hops up onto the pad. */
+   enchanted, the tadpole fades and a little frog hops onto the pad. */
 .tadpole-tail {
   transform-box: fill-box;
   transform-origin: 100% 50%;
@@ -1595,18 +1595,20 @@ body.beach {
   animation: froglet-hop 1.4s ease-out 0.9s both;
 }
 
+/* He's drawn in the middle of the pad, so he starts back where the tadpole
+   was and hops over onto it. */
 @keyframes froglet-hop {
   from {
     opacity: 0;
-    transform: scale(0.3);
+    transform: translate(-30px, 4px) scale(0.3);
   }
   30% {
     opacity: 1;
-    transform: none;
+    transform: translate(-30px, 4px);
   }
   55% {
     opacity: 1;
-    transform: translateY(-34px);
+    transform: translate(-15px, -30px);
   }
   80%,
   to {
