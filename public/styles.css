@@ -1192,12 +1192,34 @@ body.beach {
   opacity: 0;
 }
 
-.hazel-walk {
-  transition: transform 1.6s ease-in-out 1.4s;
-}
-
+/* Hazel steps up onto the leaf, walks across on top of it, and steps down
+   on the far side. She ends where the last step puts her, even with reduced
+   motion (no animation). */
 [data-step='done'] .hazel-walk {
   transform: translate(330px, 10px);
+  animation: hazel-cross 2s linear 1.4s backwards;
+}
+
+@keyframes hazel-cross {
+  from {
+    transform: none;
+  }
+
+  18% {
+    transform: translate(60px, -50px);
+  }
+
+  50% {
+    transform: translate(165px, -62px);
+  }
+
+  80% {
+    transform: translate(270px, -50px);
+  }
+
+  to {
+    transform: translate(330px, 10px);
+  }
 }
 
 /* Cloud Kingdom: a breeze swirls up, the kite soars into the sky, and its
@@ -1746,6 +1768,7 @@ body.beach {
   [data-step='waiting'] .shiver,
   [data-step='asked'] .shiver,
   [data-step='done'] .hare-hop,
+  [data-step='done'] .hazel-walk,
   [data-step='done'] .big-wave,
   [data-step='done'] .palm-toss,
   [data-step='done'] .splash-jump,
@@ -1778,7 +1801,6 @@ body.beach {
   .firefly-glow,
   .leaf-bridge,
   .fallen-leaf,
-  .hazel-walk,
   .mushroom-lift,
   .acorn,
   .acorn-drop,
