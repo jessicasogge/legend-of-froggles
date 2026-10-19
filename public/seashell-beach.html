@@ -43,6 +43,17 @@
               <stop offset="0" stop-color="#9FDBFF" />
               <stop offset="1" stop-color="#FFF1D6" />
             </linearGradient>
+            <!-- Little shells lying on the sand: a fan-shaped scallop and a
+                 spiral. Each one gets its own color where it's used. -->
+            <g id="scallop" stroke="#1F1A24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M-4 6 h8 l-2 5 h-4 Z" />
+              <path d="M-14 4 Q-16 -10 0 -14 Q16 -10 14 4 Q7 8 0 6 Q-7 8 -14 4 Z" />
+              <path d="M0 5 V-11 M-6 5 L-9 -8 M6 5 L9 -8" fill="none" stroke-width="2" />
+            </g>
+            <g id="spiral" stroke="#1F1A24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M-14 6 Q-14 -6 0 -12 Q10 -10 15 4 Q2 11 -14 6 Z" />
+              <path d="M-5 3 q1 -8 8 -7 q5 3 0 7" fill="none" stroke-width="2" />
+            </g>
           </defs>
           <rect width="1200" height="700" fill="url(#beach-sky)" />
 
@@ -65,6 +76,11 @@
               <circle cx="1080" cy="620" r="9" fill="#C9B7A0" stroke-width="4" />
               <circle cx="1105" cy="634" r="6" fill="#C9B7A0" stroke-width="4" />
             </g>
+            <!-- Little shells all over the beach, all too small for Shelly -->
+            <use href="#scallop" fill="#FFC9A3" transform="translate(190 540) rotate(-12)" />
+            <use href="#spiral" fill="#D9C7F2" transform="translate(280 672)" />
+            <use href="#spiral" fill="#FFC9A3" transform="translate(800 610) rotate(-8)" />
+            <use href="#scallop" fill="#FFF4E0" transform="translate(1000 520) rotate(-6)" />
 
             <!-- The wave Mr. Froggles enchants. It rolls up the sand to Tilly,
                  then back out to sea. -->
