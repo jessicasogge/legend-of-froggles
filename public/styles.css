@@ -268,6 +268,11 @@ body {
     text-align: left;
   }
 
+  /* Room for the "Read to me" button in the corner. */
+  .story-pages:has(.read-aloud) .story-page h2 {
+    padding-right: 3.5rem;
+  }
+
   .story-end {
     justify-content: flex-start;
   }
@@ -1859,6 +1864,80 @@ body.beach {
 
 .story p {
   margin: 0;
+}
+
+/* "Read to me" (game/read-aloud.js): a round speaker button in the corner of
+   the story box and of the storybook page. It turns purple while it's
+   reading; tap it again to stop. */
+.story,
+.story-pages {
+  position: relative;
+}
+
+.story:has(.read-aloud) {
+  padding-right: 4.5rem;
+}
+
+.read-aloud {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--ink);
+}
+
+.read-aloud svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.read-aloud .read-aloud-speaker {
+  fill: currentColor;
+}
+
+.read-aloud[aria-pressed='true'] {
+  background: var(--enchantment);
+  color: #fff;
+}
+
+.read-aloud[aria-pressed='true'] .read-aloud-waves {
+  animation: read-aloud-waves 1s ease-in-out infinite alternate;
+}
+
+@keyframes read-aloud-waves {
+  to {
+    opacity: 0.3;
+  }
+}
+
+.read-aloud:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.read-aloud:focus-visible {
+  outline: 4px solid var(--enchantment);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-aloud[aria-pressed='true'] .read-aloud-waves {
+    animation: none;
+  }
 }
 
 .story-speaker {

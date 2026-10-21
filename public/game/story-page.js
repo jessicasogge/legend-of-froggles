@@ -1,5 +1,7 @@
 // The legend as a storybook: shows one page at a time, with buttons (and the
-// arrow keys) to turn the pages.
+// arrow keys) to turn the pages, and a button that reads the page out loud.
+import { addReadAloud } from './read-aloud.js';
+
 export function start(doc) {
   const pages = [...doc.querySelectorAll('.story-page')];
   const nav = doc.querySelector('.story-nav');
@@ -8,7 +10,15 @@ export function start(doc) {
   const count = doc.querySelector('.story-count');
   let page = 0;
 
+  // Reads the page that's showing: its title, then its words.
+  const readAloud = addReadAloud(doc, doc.querySelector('.story-pages'), () => {
+    const title = pages[page].querySelector('h2').textContent;
+    const words = [...pages[page].querySelectorAll('p')].map((p) => p.textContent);
+    return [`${title}.`, ...words].join(' ');
+  });
+
   function show(focus) {
+    readAloud?.stop();
     pages.forEach((section, i) => {
       section.hidden = i !== page;
     });

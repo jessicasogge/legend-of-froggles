@@ -2,6 +2,7 @@
 // its quests (who needs help and what they say).
 
 import { START, next } from './quest.js';
+import { addReadAloud } from './read-aloud.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 // How long after the last enchantment the closing card shows: his last cast
@@ -130,6 +131,11 @@ export function startQuests(doc, quests) {
 
   if (froggles) sayHello(doc, scene, swoop, froggles);
 
+  // A button in the story box reads out whoever's talking and what they say.
+  const readAloud = addReadAloud(doc, doc.querySelector('.story'), () =>
+    [speaker.hidden ? '' : `${speaker.textContent}.`, text.textContent].filter(Boolean).join(' '),
+  );
+
   // Once everyone is helped, Mr. Froggles twirls and flies off (CSS, keyed off
   // data-finale), then the closing card covers the picture.
   const finale = doc.querySelector('.finale');
@@ -145,6 +151,8 @@ export function startQuests(doc, quests) {
   }
 
   function show() {
+    // New words in the story box, so stop reading the old ones.
+    readAloud?.stop();
     quests.forEach((quest, i) => {
       // The picture changes through CSS, keyed off this one attribute.
       roots[i].dataset.step = steps[i];
