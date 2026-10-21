@@ -42,6 +42,7 @@ npm test
 - `public/game/<kingdom>-quest.js`: one quest's words: who needs help, what they say, and the button. `moon-cave-quest.js`, `moon-cave-star-quest.js`, `moon-cave-bat-quest.js`, `woods-quest.js`, `woods-owl-quest.js`, `woods-squirrel-quest.js`, `pond-quest.js`, `pond-tadpole-quest.js`, `pond-bee-quest.js`, `cloud-quest.js`, `cloud-fox-quest.js`, `cloud-unicorn-quest.js`, `frosty-quest.js`, `frosty-bear-quest.js`, `frosty-hare-quest.js`, `beach-quest.js`, `beach-dolphin-quest.js` and `beach-crab-quest.js`.
 - `public/game/<kingdom>-page.js`: starts that kingdom's quest on its page.
 - `public/mr-froggles.svg`: Mr. Froggles, drawn from the original marker picture.
+- `public/apple-touch-icon.png`: the icon when the game is saved to an iPhone or iPad home screen (Add to Home Screen): Mr. Froggles with purple sparkles on a sky-blue background, named "Mr. Froggles". Every page links to it.
 - `public/kingdoms/`: a picture of each kingdom, in the same marker-drawing style.
 - `public/styles.css`: one stylesheet.
 - `public/social-preview.png`: the picture shown when a link to the game is shared (in a message or on social media). Every page points to it.
