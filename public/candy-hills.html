@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Candy Hills: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles flies to Candy Hills, pink frosted hills with a lollipop tree, to help a gingerbread kid, a bunny and a marshmallow snowman." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/candy-hills.html" />
+    <!-- How the link looks when it's shared (iMessage, Slack, Discord, social media) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Legend of Mr. Froggles" />
+    <meta property="og:title" content="Candy Hills: The Legend of Mr. Froggles" />
+    <meta property="og:description" content="Mr. Froggles flies to Candy Hills, pink frosted hills with a lollipop tree, to help a gingerbread kid, a bunny and a marshmallow snowman." />
+    <meta property="og:url" content="https://jessicasogge.github.io/legend-of-froggles/candy-hills.html" />
+    <meta property="og:image" content="https://jessicasogge.github.io/legend-of-froggles/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mr. Froggles, a smiling green frog with bowtie wings, beside the words The Legend of Mr. Froggles and a picture of each of the four kingdoms." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <!-- The picture and name when the game is saved to an iPhone or iPad home screen -->
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Mr. Froggles" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="candy">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        <span class="back-label">Back</span>
+      </a>
+
+      <h1>Candy Hills</h1>
+
+      <!-- The picture, and the card that covers it once everyone in the
+           kingdom has been helped (game/quest-page.js). -->
+      <div class="scene-box">
+        <!-- Candy Hills, drawn big: pink and mint hills with icing on top,
+             candy canes and gumdrops, a gingerbread house, a lollipop tree and
+             a cotton candy cloud, with Mr. Froggles flying over. Same marker
+             style as the other kingdoms. It's a group, not one image, so
+             screen readers can reach Crumb, Taffy and Puff. Each of their
+             quests has its own group (data-quest). -->
+        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles flying over Candy Hills, pink hills with icing on top, candy canes and gumdrops, a gingerbread kid by a plain gingerbread house, a bunny under a lollipop tree whose lollipops are all gray, and a marshmallow snowman melted into a puddle in the hot sun">
+          <defs>
+            <linearGradient id="candy-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFCFE6" />
+              <stop offset="1" stop-color="#FFF3F8" />
+            </linearGradient>
+            <!-- A gumdrop; each one gets its own color where it's used. -->
+            <path id="gumdrop" d="M-14 8 Q-16 -14 0 -16 Q16 -14 14 8 Q0 12 -14 8 Z" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round" />
+            <!-- A candy cane: white, with red stripes painted over it. -->
+            <g id="candy-cane" fill="none" stroke-linecap="round">
+              <path d="M0 0 V-80 a18 18 0 0 1 36 0 v8" stroke="#1F1A24" stroke-width="18" />
+              <path d="M0 0 V-80 a18 18 0 0 1 36 0 v8" stroke="#FFFFFF" stroke-width="11" />
+              <path d="M0 0 V-80 a18 18 0 0 1 36 0 v8" stroke="#E5383B" stroke-width="11" stroke-dasharray="9 9" stroke-linecap="butt" />
+            </g>
+            <!-- A lollipop: the stick is drawn by whoever uses it. -->
+            <g id="lolly-gray">
+              <circle r="30" fill="#CFC9D6" stroke="#1F1A24" stroke-width="5" />
+              <path d="M0 0 m0 -4 a4 4 0 1 1 -4 4 a10 10 0 1 1 10 10 a16 16 0 1 1 -16 -16 a22 22 0 1 1 22 22" fill="none" stroke="#ECE8F0" stroke-width="4" stroke-linecap="round" />
+            </g>
+          </defs>
+          <rect width="1200" height="700" fill="url(#candy-sky)" />
+
+          <!-- Crumb's quest. It holds the picture behind everyone too. -->
+          <g data-quest="crumb" data-froggles-to="640 230" data-enchant-at="500 640">
+            <g stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+              <!-- The hot sun -->
+              <circle cx="880" cy="110" r="48" fill="#FFD23F" />
+              <path d="M880 42 V28 M880 178 V192 M812 110 H798 M948 110 H962 M832 62 l-10 -10 M928 62 l10 -10 M832 158 l-10 10 M928 158 l10 10" fill="none" stroke-width="7" />
+              <!-- Pink and mint hills, with white icing on top -->
+              <path d="M0 470 Q170 300 360 430 Q520 330 700 430 Q900 300 1200 440 V700 H0 Z" fill="#FFB3D1" />
+              <path d="M0 470 Q170 300 360 430 Q520 330 700 430 Q900 300 1200 440" fill="none" stroke="#FFFFFF" stroke-width="16" />
+              <path d="M0 700 V500 Q300 465 600 500 T1200 490 V700 Z" fill="#BFF0D6" />
+              <path d="M80 590 q14 -14 28 0 M1080 600 q14 -14 28 0 M220 680 q14 -14 28 0" fill="none" stroke="#7FD3A8" stroke-width="7" />
+            </g>
+            <!-- Candy canes and gumdrops -->
+            <use href="#candy-cane" transform="translate(170 560)" />
+            <use href="#candy-cane" transform="translate(1040 560) scale(-1 1)" />
+            <use href="#gumdrop" fill="#7FD3A8" transform="translate(250 655)" />
+            <use href="#gumdrop" fill="#B58CFF" transform="translate(1110 650)" />
+            <use href="#gumdrop" fill="#FFD23F" transform="translate(640 675) scale(0.8)" />
+
+            <!-- Crumb's gingerbread house, plain until it's enchanted -->
+            <g stroke="#1F1A24" stroke-width="7" stroke-linejoin="round">
+              <rect x="300" y="430" width="170" height="130" fill="#C68642" />
+              <path d="M282 440 L385 356 L488 440 Z" fill="#A0632B" />
+              <path d="M365 560 V520 a20 20 0 0 1 40 0 V560 Z" fill="#7A4A22" />
+              <rect x="318" y="462" width="34" height="34" rx="4" fill="#FFE9A8" />
+              <rect x="418" y="462" width="34" height="34" rx="4" fill="#FFE9A8" />
+            </g>
+            <!-- The icing and candy it gets once the gumdrop is enchanted -->
+            <g class="house-candy" stroke="#1F1A24" stroke-linejoin="round">
+              <path d="M290 446 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10 l12 10 l12 -10" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+              <path d="M300 440 L385 370 L470 440" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+              <use href="#gumdrop" fill="#E5383B" transform="translate(345 412) scale(0.7)" />
+              <use href="#gumdrop" fill="#7FD3A8" transform="translate(385 385) scale(0.7)" />
+              <use href="#gumdrop" fill="#B58CFF" transform="translate(425 412) scale(0.7)" />
+              <use href="#gumdrop" fill="#FFD23F" transform="translate(385 345) scale(0.7)" />
+              <g stroke-width="4">
+                <circle cx="335" cy="530" r="12" fill="#FFFFFF" />
+                <path d="M335 518 a12 12 0 0 1 0 24 M323 530 h24" fill="none" stroke="#E5383B" stroke-width="4" />
+                <circle cx="435" cy="530" r="12" fill="#FFFFFF" />
+                <path d="M435 518 a12 12 0 0 1 0 24 M423 530 h24" fill="none" stroke="#E5383B" stroke-width="4" />
+              </g>
+              <rect x="318" y="462" width="34" height="34" rx="4" fill="none" stroke="#FFFFFF" stroke-width="5" />
+              <rect x="418" y="462" width="34" height="34" rx="4" fill="none" stroke="#FFFFFF" stroke-width="5" />
+            </g>
+
+            <!-- The one little gumdrop Crumb has -->
+            <use class="lone-gumdrop" href="#gumdrop" fill="#E5383B" transform="translate(500 646)" />
+
+            <path class="enchant-swirl fades" d="M500 590 C580 590 590 700 500 700 C420 700 410 600 484 596" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Crumb hops for joy at the end. -->
+            <g class="crumb-hop">
+              <!-- Crumb the gingerbread kid, who needs help. Works like a
+                   button (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Crumb the gingerbread kid needs help. Tap to talk." transform="translate(560 600) scale(1.5)">
+                <circle class="helper-ring" cy="-8" r="54" fill="none" stroke="none" stroke-width="4" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+                  <path d="M-12 -18 H12 L30 -10 Q36 -2 28 2 L14 -4 V8 L24 34 Q24 42 16 40 L0 18 L-16 40 Q-24 42 -24 34 L-14 8 V-4 L-28 2 Q-36 -2 -30 -10 Z" fill="#C68642" />
+                  <circle cy="-34" r="18" fill="#C68642" />
+                  <path d="M-25 -8 l4 6 M25 -8 l-4 6 M-18 34 l6 -4 M18 34 l-6 -4" fill="none" stroke="#FFFFFF" stroke-width="3" />
+                </g>
+                <circle cx="-6" cy="-38" r="2.8" fill="#1F1A24" />
+                <circle cx="6" cy="-38" r="2.8" fill="#1F1A24" />
+                <path d="M-7 -28 q7 6 14 0" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+                <circle cy="-6" r="3.5" fill="#E5383B" stroke="#1F1A24" stroke-width="2" />
+                <circle cy="4" r="3.5" fill="#7FD3A8" stroke="#1F1A24" stroke-width="2" />
+                <g class="alert">
+                  <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cy="-72" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle cy="-8" r="50" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Taffy's quest: a bunny under a lollipop tree whose lollipops have
+               all gone gray. Once it's enchanted, the lollipops are bright and
+               swirly again, and one drops into Taffy's paws. -->
+          <g data-quest="taffy" data-froggles-to="520 230" data-enchant-at="705 370">
+            <g class="lolly-tree">
+              <g fill="none" stroke-linecap="round">
+                <path d="M705 565 C690 500 720 450 705 380 M705 470 C680 440 660 420 650 395 M705 440 C730 420 750 400 765 380" stroke="#1F1A24" stroke-width="20" />
+                <path d="M705 565 C690 500 720 450 705 380 M705 470 C680 440 660 420 650 395 M705 440 C730 420 750 400 765 380" stroke="#FFFFFF" stroke-width="12" />
+                <path d="M705 565 C690 500 720 450 705 380" stroke="#FF8FB1" stroke-width="12" stroke-dasharray="10 10" stroke-linecap="butt" />
+              </g>
+              <!-- Gray, until they're enchanted -->
+              <use href="#lolly-gray" transform="translate(650 390)" />
+              <use href="#lolly-gray" transform="translate(705 335) scale(1.15)" />
+              <use href="#lolly-gray" transform="translate(765 375)" />
+              <!-- Bright and swirly, fading in over the gray ones -->
+              <g class="lolly-color" stroke="#1F1A24" stroke-width="5">
+                <circle cx="650" cy="390" r="30" fill="#FF8FB1" />
+                <circle cx="705" cy="335" r="34.5" fill="#7FD3A8" />
+                <circle cx="765" cy="375" r="30" fill="#B58CFF" />
+                <path d="M650 390 m0 -4 a4 4 0 1 1 -4 4 a10 10 0 1 1 10 10 a16 16 0 1 1 -16 -16 a22 22 0 1 1 22 22 M705 335 m0 -4 a4 4 0 1 1 -4 4 a10 10 0 1 1 10 10 a16 16 0 1 1 -16 -16 a22 22 0 1 1 22 22 M765 375 m0 -4 a4 4 0 1 1 -4 4 a10 10 0 1 1 10 10 a16 16 0 1 1 -16 -16 a22 22 0 1 1 22 22" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+              </g>
+            </g>
+
+            <path class="enchant-swirl fades" d="M705 270 C820 270 830 470 705 470 C590 470 580 286 690 280" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Taffy hops for joy at the end. -->
+            <g class="taffy-hop">
+              <!-- Taffy the bunny, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Taffy the bunny needs help. Tap to talk." transform="translate(760 615) scale(1.4)">
+                <circle class="helper-ring" cy="-16" r="46" fill="none" stroke="none" stroke-width="4" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <path d="M-12 -40 Q-20 -76 -8 -78 Q2 -70 -2 -40 Z M4 -40 Q6 -76 18 -74 Q24 -64 12 -38 Z" fill="#FFF4FA" />
+                  <path d="M-8 -46 Q-12 -66 -8 -70 M8 -44 Q10 -62 15 -66" fill="none" stroke="#FF8FB1" stroke-width="3" />
+                  <circle cx="-26" cy="14" r="8" fill="#FFFFFF" />
+                  <ellipse cy="10" rx="25" ry="20" fill="#FFF4FA" />
+                  <circle cx="2" cy="-22" r="17" fill="#FFF4FA" />
+                </g>
+                <circle cx="8" cy="-25" r="2.8" fill="#1F1A24" />
+                <circle cx="16" cy="-18" r="2.6" fill="#FF8FB1" />
+                <path d="M4 -14 q4 3 8 0" fill="none" stroke="#1F1A24" stroke-width="2.5" stroke-linecap="round" />
+                <g class="alert">
+                  <circle cx="2" cy="-96" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M2 -106 V-94" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cx="2" cy="-86" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle cy="-16" r="42" fill="transparent" />
+              </g>
+            </g>
+            <!-- The little lollipop that drops into Taffy's paws, in
+                 front of her -->
+            <g class="lolly-drop">
+              <path d="M772 418 V448" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cx="772" cy="408" r="13" fill="#FFD23F" stroke="#1F1A24" stroke-width="4" />
+              <path d="M772 402 a6 6 0 1 1 -6 6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <!-- Puff's quest: a marshmallow snowman melted into a puddle in the
+               hot sun. Once it's enchanted, the cotton candy cloud floats over
+               the sun, and in the shade Puff puffs back up. -->
+          <g data-quest="puff" data-froggles-to="560 250" data-enchant-at="720 145">
+            <g class="candy-cloud" stroke="#1F1A24" stroke-width="7" stroke-linejoin="round">
+              <path d="M640 170 a30 30 0 0 1 40 -40 a40 40 0 0 1 74 4 a30 30 0 0 1 26 54 H654 a22 22 0 0 1 -14 -18 Z" fill="#FFC2E0" />
+              <path d="M676 152 a16 16 0 0 1 26 -14 M730 146 a14 14 0 0 1 24 -6" fill="none" stroke="#BDE3FF" stroke-width="8" stroke-linecap="round" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M720 80 C830 80 840 220 720 220 C610 220 600 96 704 90" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Puff the marshmallow snowman, who needs help. Works like a
+                 button (quest-page.js). He's drawn twice: melted into a
+                 puddle, and puffed back up. -->
+            <g class="helper" role="button" tabindex="0" aria-label="Puff the marshmallow snowman needs help. Tap to talk." transform="translate(870 640) scale(1.4)">
+              <circle class="helper-ring" cy="-30" r="48" fill="none" stroke="none" stroke-width="4" />
+              <g class="puff-melted" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                <path d="M-46 10 Q-50 -4 -30 -4 Q-20 -14 0 -10 Q20 -16 32 -4 Q50 -4 46 10 Q0 18 -46 10 Z" fill="#FFFFFF" />
+                <path d="M18 -10 L28 -26 L40 -10 Z" fill="#5A3A2A" />
+                <path d="M-6 0 l12 3 l-12 3 Z" fill="#F2A65A" stroke-width="2.5" />
+                <circle cx="-14" cy="-2" r="2.6" fill="#1F1A24" stroke="none" />
+                <circle cx="-26" cy="0" r="2.6" fill="#1F1A24" stroke="none" />
+              </g>
+              <g class="puff-whole" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M-30 -40 l-20 -14 M30 -40 l20 -14" fill="none" stroke="#5A3A2A" stroke-width="4" />
+                <rect x="-26" y="-26" width="52" height="34" rx="14" fill="#FFFFFF" />
+                <rect x="-22" y="-58" width="44" height="32" rx="13" fill="#FFFFFF" />
+                <rect x="-18" y="-86" width="36" height="28" rx="12" fill="#FFFFFF" />
+                <path d="M-14 -86 h28 v-14 h-28 Z M-20 -86 h40" fill="#5A3A2A" />
+                <circle cx="-6" cy="-74" r="2.6" fill="#1F1A24" stroke="none" />
+                <circle cx="6" cy="-74" r="2.6" fill="#1F1A24" stroke="none" />
+                <path d="M0 -70 l12 3 l-12 3 Z" fill="#F2A65A" stroke-width="2.5" />
+                <path d="M-6 -64 q6 4 12 0" fill="none" stroke-width="2.5" />
+                <circle cy="-44" r="3" fill="#E5383B" stroke-width="2" />
+                <circle cy="-12" r="3" fill="#7FD3A8" stroke-width="2" />
+              </g>
+              <g class="alert">
+                <circle cy="-54" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                <path d="M0 -64 V-52" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                <circle cy="-44" r="2.8" fill="#1F1A24" />
+              </g>
+              <circle cy="-30" r="44" fill="transparent" />
+            </g>
+          </g>
+
+          <!-- Mr. Froggles, flying -->
+          <!-- Once everyone is helped, he twirls and flies off. -->
+          <g class="froggles-exit">
+            <!-- The outer group swoops him over to cast each enchantment. -->
+            <g class="froggles-swoop">
+              <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="40" width="250" height="325" />
+            </g>
+          </g>
+        </svg>
+
+        <section class="finale" role="dialog" aria-labelledby="finale-title" hidden>
+          <div class="finale-card">
+            <h2 id="finale-title">You did it!</h2>
+            <p>Everyone in Candy Hills is happy again. Mr. Froggles has flown off to find more friends who need help.</p>
+            <div class="finale-buttons">
+              <a class="story-button finale-next" href="./next.html">Pick another kingdom</a>
+              <button type="button" class="story-button finale-stay">Stay and look</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+      </section>
+    </main>
+
+    <script type="module">
+      import { start } from './game/candy-page.js';
+      start(document);
+    </script>
+  </body>
+</html>

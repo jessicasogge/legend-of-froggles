@@ -5,6 +5,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { start as startCloud } from '../public/game/cloud-page.js';
 import { start as startBeach } from '../public/game/beach-page.js';
+import { start as startCandy } from '../public/game/candy-page.js';
 import { start as startFrosty } from '../public/game/frosty-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
 import { start as startPond } from '../public/game/pond-page.js';
@@ -26,6 +27,7 @@ const KINGDOMS = [
   { page: 'moon-cave.html', name: 'in the Moon Cave', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
   { page: 'frosty-peak.html', name: 'on Frosty Peak', start: startFrosty, roots: ['[data-quest="pom"]', '[data-quest="bo"]', '[data-quest="mitten"]'] },
   { page: 'seashell-beach.html', name: 'at Seashell Beach', start: startBeach, roots: ['[data-quest="tilly"]', '[data-quest="splash"]', '[data-quest="shelly"]'] },
+  { page: 'candy-hills.html', name: 'in Candy Hills', start: startCandy, roots: ['[data-quest="crumb"]', '[data-quest="taffy"]', '[data-quest="puff"]'] },
 ];
 
 beforeEach(() => vi.useFakeTimers());

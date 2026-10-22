@@ -8,6 +8,9 @@ import * as cloudUnicorn from '../public/game/cloud-unicorn-quest.js';
 import * as beachCrab from '../public/game/beach-crab-quest.js';
 import * as beachDolphin from '../public/game/beach-dolphin-quest.js';
 import * as beach from '../public/game/beach-quest.js';
+import * as candyBunny from '../public/game/candy-bunny-quest.js';
+import * as candy from '../public/game/candy-quest.js';
+import * as candySnowman from '../public/game/candy-snowman-quest.js';
 import * as frostyBear from '../public/game/frosty-bear-quest.js';
 import * as frostyHare from '../public/game/frosty-hare-quest.js';
 import * as frosty from '../public/game/frosty-quest.js';
@@ -23,7 +26,7 @@ import * as woods from '../public/game/woods-quest.js';
 import * as woodsSquirrel from '../public/game/woods-squirrel-quest.js';
 import { loadPage } from './load-page.js';
 
-const FRIENDS = [pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, moonCave, moonCaveStar, moonCaveBat].map((quest) => quest.HELPER);
+const FRIENDS = [pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyBunny, candySnowman, moonCave, moonCaveStar, moonCaveBat].map((quest) => quest.HELPER);
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
@@ -39,14 +42,14 @@ describe('The story', () => {
   it('opens on the first page, with the legend line', () => {
     expect(shown()).toHaveLength(1);
     expect(shown()[0].textContent).toContain('This is the legend of the flying frog that is magical and it can fly.');
-    expect($('.story-count').textContent).toBe('Page 1 of 8');
+    expect($('.story-count').textContent).toBe('Page 1 of 9');
     expect($('.story-prev').disabled).toBe(true);
     expect($('.story-next').disabled).toBe(false);
   });
 
   it('has a page for each kingdom, in order, and an ending', () => {
     expect($$('.story-page h2').map((h) => h.textContent)).toEqual([
-      'The Legend of Mr. Froggles', 'The Home Pond', 'The Whispering Woods', 'The Cloud Kingdom', 'Frosty Peak', 'Seashell Beach', 'The Moon Cave', 'The End',
+      'The Legend of Mr. Froggles', 'The Home Pond', 'The Whispering Woods', 'The Cloud Kingdom', 'Frosty Peak', 'Seashell Beach', 'Candy Hills', 'The Moon Cave', 'The End',
     ]);
   });
 
@@ -60,7 +63,7 @@ describe('The story', () => {
     expect(book.page).toBe(1);
     expect(shown()[0].querySelector('h2').textContent).toBe('The Home Pond');
     expect(document.activeElement).toBe(shown()[0].querySelector('h2'));
-    expect($('.story-count').textContent).toBe('Page 2 of 8');
+    expect($('.story-count').textContent).toBe('Page 2 of 9');
     $('.story-prev').click();
     expect(book.page).toBe(0);
   });
@@ -75,7 +78,7 @@ describe('The story', () => {
 
   it('ends with a way to play the game or read it again', () => {
     for (let i = 0; i < 10; i += 1) $('.story-next').click();
-    expect(book.page).toBe(7);
+    expect(book.page).toBe(8);
     expect($('.story-next').disabled).toBe(true);
     expect($('.story-play').getAttribute('href')).toBe('./next.html');
     $('.story-again').click();

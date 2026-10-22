@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { start as startCloud } from '../public/game/cloud-page.js';
 import { start as startBeach } from '../public/game/beach-page.js';
+import { start as startCandy } from '../public/game/candy-page.js';
 import { start as startFrosty } from '../public/game/frosty-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
 import { start as startPond } from '../public/game/pond-page.js';
@@ -24,6 +25,7 @@ const KINGDOMS = [
   { page: 'moon-cave.html', start: startMoonCave, roots: ['[data-quest="flicker"]', '[data-quest="twinkle"]', '[data-quest="dot"]'] },
   { page: 'frosty-peak.html', start: startFrosty, roots: ['[data-quest="pom"]', '[data-quest="bo"]', '[data-quest="mitten"]'] },
   { page: 'seashell-beach.html', start: startBeach, roots: ['[data-quest="tilly"]', '[data-quest="splash"]', '[data-quest="shelly"]'] },
+  { page: 'candy-hills.html', start: startCandy, roots: ['[data-quest="crumb"]', '[data-quest="taffy"]', '[data-quest="puff"]'] },
 ];
 
 const POINT = /^\d+ \d+$/;
