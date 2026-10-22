@@ -415,12 +415,15 @@ body.scrolls {
   text-wrap: balance;
 }
 
-/* The six kingdoms: two by two on a phone, three in a row on anything
-   wider. */
+/* The kingdoms: two in a row on a phone, three on a tablet, four on a
+   laptop. A row that isn't full sits in the middle. */
 .kingdoms {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  --across: 2;
+  --between: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--between);
   width: min(560px, 100%);
   margin: 0;
   padding: 0;
@@ -429,14 +432,42 @@ body.scrolls {
 
 @media (min-width: 700px) {
   .kingdoms {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    --across: 3;
     width: min(820px, 100%);
   }
 }
 
-/* Each kingdom fills its grid cell, so a row's cards match in height. */
+@media (min-width: 1000px) {
+  .kingdoms {
+    --across: 4;
+    width: min(1040px, 100%);
+  }
+}
+
+/* Each kingdom takes its share of the row, and fills it, so a row's cards
+   match in height. */
 .kingdoms li {
   display: flex;
+  flex: 0 0 calc((100% - (var(--across) - 1) * var(--between)) / var(--across));
+  min-width: 0;
+}
+
+/* On a phone, a little less space around everything, so all seven fit
+   without scrolling. */
+@media (max-width: 600px) {
+  .next-screen {
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  .kingdoms {
+    --between: 0.75rem;
+  }
+
+  .kingdom {
+    gap: 0.4rem;
+    padding: 0.6rem 0.6rem 0.75rem;
+  }
 }
 
 /* Each kingdom: its picture in a white frame, its name underneath. */
@@ -505,6 +536,7 @@ body.scrolls {
 .kingdom-moon { background: var(--enchantment); }
 .kingdom-snow { background: #1b5e80; }
 .kingdom-beach { background: #b8561b; }
+.kingdom-candy { background: #b0306a; }
 
 /* A kingdom that has its screen is a link; it looks the same as the rest. */
 a.kingdom {
@@ -551,12 +583,19 @@ body.beach {
   --back: #ffd23f;
 }
 
+body.candy {
+  --page: #ffe8f2;
+  --title: #a3245c;
+  --back: #bff0d6;
+}
+
 body.night,
 body.day,
 body.forest,
 body.pond,
 body.snow,
-body.beach {
+body.beach,
+body.candy {
   background: var(--page);
   overflow: auto;
 }
@@ -1590,6 +1629,89 @@ body.beach {
   }
 }
 
+/* Candy Hills: the gumdrop turns into icing and candy all over Crumb's
+   gingerbread house, and Crumb hops for joy. */
+.lone-gumdrop {
+  transition: opacity 0.4s 0.6s;
+}
+
+[data-step='done'] .lone-gumdrop {
+  opacity: 0;
+}
+
+.house-candy {
+  opacity: 0;
+  transform: scale(0.7);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.5s 0.9s, transform 0.7s 0.9s;
+}
+
+[data-step='done'] .house-candy {
+  opacity: 1;
+  transform: none;
+}
+
+[data-step='done'] .crumb-hop {
+  animation: hare-hop 0.9s ease-out 1.8s 2;
+}
+
+/* Candy Hills: the lollipops get their colors back, and one drops into
+   Taffy's paws. */
+.lolly-color {
+  opacity: 0;
+  transition: opacity 0.8s 0.8s;
+}
+
+[data-step='done'] .lolly-color {
+  opacity: 1;
+}
+
+.lolly-drop {
+  opacity: 0;
+  transition: opacity 0.3s 1.5s, transform 0.9s ease-in 1.7s;
+}
+
+[data-step='done'] .lolly-drop {
+  opacity: 1;
+  transform: translate(36px, 222px);
+}
+
+[data-step='done'] .taffy-hop {
+  animation: hare-hop 0.9s ease-out 2.7s 2;
+}
+
+/* Candy Hills: the cotton candy cloud floats over the hot sun, and in the
+   shade Puff puffs back up out of his puddle. */
+.candy-cloud {
+  transition: transform 1.6s ease-in-out 0.8s;
+}
+
+[data-step='done'] .candy-cloud {
+  transform: translate(165px, -32px);
+}
+
+.puff-melted {
+  transition: opacity 0.4s 2.2s;
+}
+
+[data-step='done'] .puff-melted {
+  opacity: 0;
+}
+
+.puff-whole {
+  opacity: 0;
+  transform: scale(0.15, 0.1);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: opacity 0.3s 2.2s, transform 0.8s ease-out 2.2s;
+}
+
+[data-step='done'] .puff-whole {
+  opacity: 1;
+  transform: none;
+}
+
 /* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
    enchanted, the tadpole fades and a little frog hops onto the pad. */
 .tadpole-tail {
@@ -1778,6 +1900,8 @@ body.beach {
   [data-step='done'] .palm-toss,
   [data-step='done'] .splash-jump,
   [data-step='done'] .shelly-dance,
+  [data-step='done'] .crumb-hop,
+  [data-step='done'] .taffy-hop,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1829,6 +1953,13 @@ body.beach {
   .little-shell,
   .tiny-shell,
   .big-shell,
+  .lone-gumdrop,
+  .house-candy,
+  .lolly-color,
+  .lolly-drop,
+  .candy-cloud,
+  .puff-melted,
+  .puff-whole,
   .tadpole,
   .lily-bud,
   .lily-bloom,

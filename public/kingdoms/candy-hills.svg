@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Candy Hills: pink frosted hills, a lollipop tree, a gingerbread house and a candy cane -->
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="#FFDCEC" stroke="none" />
+    <!-- Sun and a cotton candy cloud -->
+    <circle cx="168" cy="26" r="13" fill="#FFD23F" />
+    <path d="M110 40 a8 8 0 0 1 12 -10 a11 11 0 0 1 21 2 a8 8 0 0 1 6 15 H114 a6 6 0 0 1 -4 -7 Z" fill="#FFC2E0" stroke-width="3" />
+    <!-- Pink hills with icing, and the mint ground -->
+    <path d="M0 92 Q30 58 66 82 Q100 60 132 82 Q166 58 200 84 V140 H0 Z" fill="#FFB3D1" />
+    <path d="M0 92 Q30 58 66 82 Q100 60 132 82 Q166 58 200 84" fill="none" stroke="#FFFFFF" stroke-width="4" />
+    <path d="M0 140 V100 Q60 94 110 100 T200 98 V140 Z" fill="#BFF0D6" />
+    <!-- Gingerbread house -->
+    <rect x="24" y="92" width="40" height="30" fill="#C68642" stroke-width="3" />
+    <path d="M20 94 L44 74 L68 94 Z" fill="#A0632B" stroke-width="3" />
+    <path d="M24 94 l4 3 l4 -3 l4 3 l4 -3 l4 3 l4 -3 l4 3 l4 -3 l4 3 l4 -3" fill="none" stroke="#FFFFFF" stroke-width="2.5" />
+    <circle cx="44" cy="84" r="3" fill="#E5383B" stroke-width="2" />
+    <!-- Lollipop tree -->
+    <path d="M118 124 C114 108 122 98 118 80" fill="none" stroke-width="6" />
+    <path d="M118 124 C114 108 122 98 118 80" fill="none" stroke="#FFFFFF" stroke-width="3" />
+    <circle cx="104" cy="82" r="9" fill="#FF8FB1" stroke-width="3" />
+    <circle cx="118" cy="68" r="10" fill="#7FD3A8" stroke-width="3" />
+    <circle cx="132" cy="82" r="9" fill="#B58CFF" stroke-width="3" />
+    <!-- Candy cane -->
+    <path d="M168 124 V100 a7 7 0 0 1 14 0 v3" fill="none" stroke-width="7" />
+    <path d="M168 124 V100 a7 7 0 0 1 14 0 v3" fill="none" stroke="#FFFFFF" stroke-width="4" />
+    <path d="M168 124 V100 a7 7 0 0 1 14 0 v3" fill="none" stroke="#E5383B" stroke-width="4" stroke-dasharray="4 4" stroke-linecap="butt" />
+  </g>
+</svg>
