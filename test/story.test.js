@@ -8,7 +8,7 @@ import * as cloudUnicorn from '../public/game/cloud-unicorn-quest.js';
 import * as beachCrab from '../public/game/beach-crab-quest.js';
 import * as beachDolphin from '../public/game/beach-dolphin-quest.js';
 import * as beach from '../public/game/beach-quest.js';
-import * as candyBunny from '../public/game/candy-bunny-quest.js';
+import * as candyMouse from '../public/game/candy-mouse-quest.js';
 import * as candy from '../public/game/candy-quest.js';
 import * as candySnowman from '../public/game/candy-snowman-quest.js';
 import * as frostyBear from '../public/game/frosty-bear-quest.js';
@@ -26,7 +26,7 @@ import * as woods from '../public/game/woods-quest.js';
 import * as woodsSquirrel from '../public/game/woods-squirrel-quest.js';
 import { loadPage } from './load-page.js';
 
-const FRIENDS = [pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyBunny, candySnowman, moonCave, moonCaveStar, moonCaveBat].map((quest) => quest.HELPER);
+const FRIENDS = [pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyMouse, candySnowman, moonCave, moonCaveStar, moonCaveBat].map((quest) => quest.HELPER);
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];

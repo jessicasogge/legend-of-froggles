@@ -1,6 +1,6 @@
 export const ID = 'taffy';
 
-export const HELPER = 'Taffy the bunny';
+export const HELPER = 'Taffy the mouse';
 
 export const LINES = {
   waiting: 'Someone under the lollipop tree needs help. Tap the exclamation point to find out who.',

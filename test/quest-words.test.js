@@ -8,7 +8,7 @@ import * as cloudUnicorn from '../public/game/cloud-unicorn-quest.js';
 import * as beachCrab from '../public/game/beach-crab-quest.js';
 import * as beachDolphin from '../public/game/beach-dolphin-quest.js';
 import * as beach from '../public/game/beach-quest.js';
-import * as candyBunny from '../public/game/candy-bunny-quest.js';
+import * as candyMouse from '../public/game/candy-mouse-quest.js';
 import * as candy from '../public/game/candy-quest.js';
 import * as candySnowman from '../public/game/candy-snowman-quest.js';
 import * as frostyBear from '../public/game/frosty-bear-quest.js';
@@ -24,7 +24,7 @@ import * as woodsOwl from '../public/game/woods-owl-quest.js';
 import * as woods from '../public/game/woods-quest.js';
 import * as woodsSquirrel from '../public/game/woods-squirrel-quest.js';
 
-const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyBunny, candySnowman, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
+const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyMouse, candySnowman, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
 
 describe.each(Object.entries(QUESTS))('%s quest', (_, quest) => {
   it('says to tap the exclamation point', () => {

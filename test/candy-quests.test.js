@@ -1,10 +1,10 @@
 // Plays the three Candy Hills quests on the page: a gumdrop covers Crumb the
 // gingerbread kid's house in candy, the lollipop tree gets its colors back for
-// Taffy the bunny, and a cotton candy cloud shades Puff the marshmallow
+// Taffy the mouse, and a cotton candy cloud shades Puff the marshmallow
 // snowman so he puffs back up.
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
-import * as taffy from '../public/game/candy-bunny-quest.js';
+import * as taffy from '../public/game/candy-mouse-quest.js';
 import { start } from '../public/game/candy-page.js';
 import * as crumb from '../public/game/candy-quest.js';
 import * as puff from '../public/game/candy-snowman-quest.js';
