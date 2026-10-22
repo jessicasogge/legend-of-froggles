@@ -64,7 +64,7 @@
           <rect width="1200" height="700" fill="url(#candy-sky)" />
 
           <!-- Crumb's quest. It holds the picture behind everyone too. -->
-          <g data-quest="crumb" data-froggles-to="640 230" data-enchant-at="500 640">
+          <g data-quest="crumb" data-froggles-to="640 230" data-enchant-at="440 645">
             <g stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
               <!-- The hot sun -->
               <circle cx="880" cy="110" r="48" fill="#FFD23F" />
@@ -109,15 +109,15 @@
             </g>
 
             <!-- The one little gumdrop Crumb has -->
-            <use class="lone-gumdrop" href="#gumdrop" fill="#E5383B" transform="translate(500 646)" />
+            <use class="lone-gumdrop" href="#gumdrop" fill="#E5383B" transform="translate(440 652)" />
 
-            <path class="enchant-swirl fades" d="M500 590 C580 590 590 700 500 700 C420 700 410 600 484 596" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+            <path class="enchant-swirl fades" d="M440 596 C520 596 530 706 440 706 C360 706 350 606 424 602" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
 
             <!-- Crumb hops for joy at the end. -->
             <g class="crumb-hop">
               <!-- Crumb the gingerbread kid, who needs help. Works like a
                    button (quest-page.js). -->
-              <g class="helper" role="button" tabindex="0" aria-label="Crumb the gingerbread kid needs help. Tap to talk." transform="translate(560 600) scale(1.5)">
+              <g class="helper" role="button" tabindex="0" aria-label="Crumb the gingerbread kid needs help. Tap to talk." transform="translate(525 600) scale(1.5)">
                 <circle class="helper-ring" cy="-8" r="54" fill="none" stroke="none" stroke-width="4" />
                 <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
                   <path d="M-12 -18 H12 L30 -10 Q36 -2 28 2 L14 -4 V8 L24 34 Q24 42 16 40 L0 18 L-16 40 Q-24 42 -24 34 L-14 8 V-4 L-28 2 Q-36 -2 -30 -10 Z" fill="#C68642" />
@@ -142,7 +142,9 @@
           <!-- Taffy's quest: a mouse under a lollipop tree whose lollipops have
                all gone gray. Once it's enchanted, the lollipops are bright and
                swirly again, and one drops into Taffy's paws. -->
-          <g data-quest="taffy" data-froggles-to="520 230" data-enchant-at="705 370">
+          <g data-quest="taffy" data-froggles-to="500 230" data-enchant-at="665 370">
+            <!-- The tree, drawn 40 to the left of where its numbers say. -->
+            <g transform="translate(-40 0)">
             <g class="lolly-tree">
               <g fill="none" stroke-linecap="round">
                 <path d="M705 565 C690 500 720 450 705 380 M705 470 C680 440 660 420 650 395 M705 440 C730 420 750 400 765 380" stroke="#1F1A24" stroke-width="20" />
@@ -163,12 +165,13 @@
             </g>
 
             <path class="enchant-swirl fades" d="M705 270 C820 270 830 470 705 470 C590 470 580 286 690 280" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+            </g>
 
             <!-- Taffy hops for joy at the end. -->
             <g class="taffy-hop">
               <!-- Taffy the mouse, who needs help. Works like a button
                    (quest-page.js). -->
-              <g class="helper" role="button" tabindex="0" aria-label="Taffy the mouse needs help. Tap to talk." transform="translate(748 618) scale(1.4)">
+              <g class="helper" role="button" tabindex="0" aria-label="Taffy the mouse needs help. Tap to talk." transform="translate(700 618) scale(1.4)">
                 <circle class="helper-ring" cy="-4" r="44" fill="none" stroke="none" stroke-width="4" />
                 <path d="M-22 18 Q-44 22 -42 2 Q-40 -12 -52 -14" fill="none" stroke="#FF8FB1" stroke-width="4" stroke-linecap="round" />
                 <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
@@ -191,12 +194,12 @@
                 <circle cy="-4" r="40" fill="transparent" />
               </g>
             </g>
-            <!-- The little lollipop that drops into Taffy's paws, in
-                 front of her -->
+            <!-- The little lollipop that drops down beside Taffy, in front
+                 of her paws -->
             <g class="lolly-drop">
-              <path d="M772 418 V448" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
-              <circle cx="772" cy="408" r="13" fill="#FFD23F" stroke="#1F1A24" stroke-width="4" />
-              <path d="M772 402 a6 6 0 1 1 -6 6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+              <path d="M730 418 V448" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+              <circle cx="730" cy="408" r="13" fill="#FFD23F" stroke="#1F1A24" stroke-width="4" />
+              <path d="M730 402 a6 6 0 1 1 -6 6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
             </g>
           </g>
 
@@ -214,7 +217,7 @@
             <!-- Puff the marshmallow snowman, who needs help. Works like a
                  button (quest-page.js). He's drawn twice: melted into a
                  puddle, and puffed back up. -->
-            <g class="helper" role="button" tabindex="0" aria-label="Puff the marshmallow snowman needs help. Tap to talk." transform="translate(880 640) scale(1.4)">
+            <g class="helper" role="button" tabindex="0" aria-label="Puff the marshmallow snowman needs help. Tap to talk." transform="translate(875 640) scale(1.4)">
               <circle class="helper-ring" cy="-30" r="48" fill="none" stroke="none" stroke-width="4" />
               <g class="puff-melted" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
                 <path d="M-46 10 Q-50 -4 -30 -4 Q-20 -14 0 -10 Q20 -16 32 -4 Q50 -4 46 10 Q0 18 -46 10 Z" fill="#FFFFFF" />
