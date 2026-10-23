@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- The Coral Reef: under the sea, with coral, seaweed, a treasure chest and fish -->
+  <defs>
+    <linearGradient id="thumb-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7FD6F5" />
+      <stop offset="1" stop-color="#2B86C5" />
+    </linearGradient>
+  </defs>
+  <g stroke="#1F1A24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="200" height="140" fill="url(#thumb-water)" stroke="none" />
+    <!-- Sunbeams -->
+    <path d="M110 0 H128 L100 110 H82 Z M150 0 H162 L142 110 H130 Z" fill="#FFFFFF" opacity="0.18" stroke="none" />
+    <!-- Bubbles -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="2">
+      <circle cx="30" cy="60" r="4" /><circle cx="36" cy="44" r="2.5" /><circle cx="176" cy="66" r="3.5" />
+    </g>
+    <!-- Fish -->
+    <path d="M118 36 l-7 -6 v12 Z" fill="#FFB347" stroke-width="2.5" />
+    <ellipse cx="128" cy="36" rx="10" ry="7" fill="#FFB347" stroke-width="2.5" />
+    <path d="M150 52 l-6 -5 v10 Z" fill="#FF8FB1" stroke-width="2.5" />
+    <ellipse cx="158" cy="52" rx="8" ry="6" fill="#FF8FB1" stroke-width="2.5" />
+    <!-- Sandy floor -->
+    <path d="M0 140 V112 Q60 104 110 110 T200 108 V140 Z" fill="#F2D7A0" />
+    <!-- Coral and seaweed -->
+    <path d="M26 112 C26 98 20 90 14 84 M26 106 C30 96 36 92 40 84" fill="none" stroke-width="9" />
+    <path d="M26 112 C26 98 20 90 14 84 M26 106 C30 96 36 92 40 84" fill="none" stroke="#FF8FB1" stroke-width="5" />
+    <path d="M180 112 C186 96 174 86 182 70" fill="none" stroke-width="8" />
+    <path d="M180 112 C186 96 174 86 182 70" fill="none" stroke="#3FA34D" stroke-width="4" />
+    <!-- Treasure chest -->
+    <rect x="66" y="108" width="40" height="22" rx="3" fill="#A9733F" stroke-width="3" />
+    <path d="M66 108 V102 Q86 92 106 102 V108 Z" fill="#8A5A3B" stroke-width="3" />
+    <rect x="82" y="110" width="8" height="8" rx="2" fill="#FFD23F" stroke-width="2" />
+    <!-- An octopus head peeking up -->
+    <path d="M126 124 a14 15 0 0 1 28 0 Z" fill="#FF9E80" stroke-width="3" />
+    <circle cx="136" cy="118" r="1.8" fill="#1F1A24" stroke="none" />
+    <circle cx="144" cy="118" r="1.8" fill="#1F1A24" stroke="none" />
+  </g>
+</svg>

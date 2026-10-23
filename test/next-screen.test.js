@@ -27,8 +27,8 @@ describe('pick a kingdom', () => {
     expect(document.querySelector('main.next-screen h1').textContent).toBe('Where will Mr. Froggles fly?');
   });
 
-  it('offers the seven kingdoms, in order', () => {
-    expect(kingdoms().map((b) => b.textContent.trim())).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave', 'Frosty Peak', 'Seashell Beach', 'Candy Hills']);
+  it('offers the eight kingdoms, in order', () => {
+    expect(kingdoms().map((b) => b.textContent.trim())).toEqual(['Home Pond', 'Whispering Woods', 'Cloud Kingdom', 'Moon Cave', 'Frosty Peak', 'Seashell Beach', 'Candy Hills', 'Coral Reef']);
   });
 
   it('shows a picture of each kingdom, left out for screen readers since the name says it', () => {
@@ -41,6 +41,7 @@ describe('pick a kingdom', () => {
       './kingdoms/frosty-peak.svg',
       './kingdoms/seashell-beach.svg',
       './kingdoms/candy-hills.svg',
+      './kingdoms/coral-reef.svg',
     ]);
     for (const img of pictures) {
       expect(img.getAttribute('alt')).toBe('');
@@ -113,13 +114,20 @@ describe('pick a kingdom', () => {
     expect(existsSync(join(process.cwd(), 'public', 'candy-hills.html'))).toBe(true);
   });
 
+  it('takes the Coral Reef to its own screen', () => {
+    const reef = kingdoms()[7];
+    expect(reef.tagName).toBe('A');
+    expect(reef.getAttribute('href')).toBe('./coral-reef.html');
+    expect(existsSync(join(process.cwd(), 'public', 'coral-reef.html'))).toBe(true);
+  });
+
   it('gives each kingdom its own color, dark enough for white text', () => {
     const colorOf = (cls) => {
       const hex = css.match(new RegExp(`\\.${cls} \\{ background: (#[0-9a-f]{6}|var\\(--enchantment\\)); \\}`))?.[1];
       return hex === 'var(--enchantment)' ? css.match(/--enchantment: (#[0-9a-f]{6})/)[1] : hex;
     };
     const colors = kingdoms().map((b) => colorOf([...b.classList].find((c) => c !== 'kingdom')));
-    expect(new Set(colors).size).toBe(7);
+    expect(new Set(colors).size).toBe(8);
     for (const c of colors) expect(contrastWithWhite(c)).toBeGreaterThanOrEqual(4.5);
   });
 });
