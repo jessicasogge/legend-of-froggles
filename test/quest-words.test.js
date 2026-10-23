@@ -23,8 +23,11 @@ import * as pondTadpole from '../public/game/pond-tadpole-quest.js';
 import * as woodsOwl from '../public/game/woods-owl-quest.js';
 import * as woods from '../public/game/woods-quest.js';
 import * as woodsSquirrel from '../public/game/woods-squirrel-quest.js';
+import * as reefFish from '../public/game/reef-fish-quest.js';
+import * as reefOctopus from '../public/game/reef-octopus-quest.js';
+import * as reef from '../public/game/reef-quest.js';
 
-const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyMouse, candySnowman, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
+const QUESTS = { cloud, cloudFox, cloudUnicorn, frosty, frostyBear, frostyHare, beach, beachDolphin, beachCrab, candy, candyMouse, candySnowman, reef, reefOctopus, reefFish, pond, pondTadpole, pondBee, woods, woodsOwl, woodsSquirrel, moonCave, moonCaveStar, moonCaveBat };
 
 describe.each(Object.entries(QUESTS))('%s quest', (_, quest) => {
   it('says to tap the exclamation point', () => {

@@ -4,6 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import { start as startBeach } from '../public/game/beach-page.js';
 import { start as startCandy } from '../public/game/candy-page.js';
+import { start as startReef } from '../public/game/reef-page.js';
 import { start as startCloud } from '../public/game/cloud-page.js';
 import { start as startFrosty } from '../public/game/frosty-page.js';
 import { start as startMoonCave } from '../public/game/moon-cave-page.js';
@@ -23,6 +24,7 @@ const KINGDOMS = [
   { page: 'frosty-peak.html', start: startFrosty },
   { page: 'seashell-beach.html', start: startBeach },
   { page: 'candy-hills.html', start: startCandy },
+  { page: 'coral-reef.html', start: startReef },
 ];
 
 describe.each(KINGDOMS)('Mr. Froggles in $page', ({ page, start }) => {

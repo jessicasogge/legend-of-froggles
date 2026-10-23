@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coral Reef: The Legend of Mr. Froggles</title>
+    <meta name="description" content="Mr. Froggles dives down to the Coral Reef, under the sea, to help a seahorse, an octopus and a little fish." />
+    <link rel="canonical" href="https://jessicasogge.github.io/legend-of-froggles/coral-reef.html" />
+    <!-- How the link looks when it's shared (iMessage, Slack, Discord, social media) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Legend of Mr. Froggles" />
+    <meta property="og:title" content="Coral Reef: The Legend of Mr. Froggles" />
+    <meta property="og:description" content="Mr. Froggles dives down to the Coral Reef, under the sea, to help a seahorse, an octopus and a little fish." />
+    <meta property="og:url" content="https://jessicasogge.github.io/legend-of-froggles/coral-reef.html" />
+    <meta property="og:image" content="https://jessicasogge.github.io/legend-of-froggles/social-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mr. Froggles, a smiling green frog with bowtie wings, beside the words The Legend of Mr. Froggles and a picture of each of the four kingdoms." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <!-- The picture and name when the game is saved to an iPhone or iPad home screen -->
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Mr. Froggles" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="reef">
+    <main class="kingdom-screen">
+      <a class="back" href="./next.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        <span class="back-label">Back</span>
+      </a>
+
+      <h1>Coral Reef</h1>
+
+      <!-- The picture, and the card that covers it once everyone in the
+           kingdom has been helped (game/quest-page.js). -->
+      <div class="scene-box">
+        <!-- The Coral Reef, drawn big: deep under the sea, with sunbeams
+             shining down, coral and seaweed on the sandy floor and bubbles
+             rising, and Mr. Froggles swimming by in a magic bubble. Same
+             marker style as the other kingdoms. It's a group, not one image,
+             so screen readers can reach Pearl, Inky and Bubbles. Each of their
+             quests has its own group (data-quest). -->
+        <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Mr. Froggles swimming through the Coral Reef in a magic bubble, deep under the sea with coral and seaweed, a seahorse by a treasure chest that's stuck shut, an octopus with all eight arms tangled in seaweed, and a little fish far below his school of fish">
+          <defs>
+            <linearGradient id="reef-water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7FD6F5" />
+              <stop offset="1" stop-color="#2B86C5" />
+            </linearGradient>
+            <!-- A fish in the school; each one gets its own color where it's
+                 used. -->
+            <g id="school-fish" stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+              <path d="M-18 0 L-30 -10 V10 Z" />
+              <ellipse rx="18" ry="12" />
+              <circle cx="9" cy="-3" r="2.6" fill="#1F1A24" stroke="none" />
+            </g>
+          </defs>
+          <rect width="1200" height="700" fill="url(#reef-water)" />
+
+          <!-- Pearl's quest. It holds the picture behind everyone too. -->
+          <g data-quest="pearl" data-froggles-to="560 250" data-enchant-at="323 595">
+            <!-- Sunbeams shining down through the water -->
+            <g fill="#FFFFFF" opacity="0.16">
+              <path d="M620 0 H700 L560 560 H480 Z" />
+              <path d="M820 0 H870 L780 560 H720 Z" />
+              <path d="M980 0 H1060 L1000 560 H930 Z" />
+            </g>
+            <!-- Bubbles rising -->
+            <g fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.8">
+              <circle cx="150" cy="420" r="9" /><circle cx="168" cy="360" r="6" /><circle cx="150" cy="310" r="4" />
+              <circle cx="1070" cy="430" r="8" /><circle cx="1088" cy="372" r="5" /><circle cx="740" cy="330" r="6" /><circle cx="760" cy="282" r="4" />
+            </g>
+            <g stroke="#1F1A24" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+              <!-- The sandy sea floor -->
+              <path d="M0 700 V570 Q300 540 600 568 T1200 560 V700 Z" fill="#F2D7A0" />
+              <path d="M120 640 q20 -8 40 0 M700 670 q20 -8 40 0 M1000 640 q20 -8 40 0" fill="none" stroke="#D8B77A" stroke-width="6" />
+              <!-- Seaweed -->
+              <path d="M215 600 C195 540 235 500 210 440 C190 400 215 370 205 340" fill="none" stroke="#1F1A24" stroke-width="16" />
+              <path d="M215 600 C195 540 235 500 210 440 C190 400 215 370 205 340" fill="none" stroke="#3FA34D" stroke-width="9" />
+              <path d="M985 600 C1005 540 965 500 990 440 C1010 400 985 370 995 330" fill="none" stroke="#1F1A24" stroke-width="16" />
+              <path d="M985 600 C1005 540 965 500 990 440 C1010 400 985 370 995 330" fill="none" stroke="#3FA34D" stroke-width="9" />
+              <!-- Coral -->
+              <path d="M150 600 C150 560 140 540 120 520 M150 580 C160 550 180 540 190 510 M150 560 C150 530 160 510 155 480" fill="none" stroke="#1F1A24" stroke-width="20" />
+              <path d="M150 600 C150 560 140 540 120 520 M150 580 C160 550 180 540 190 510 M150 560 C150 530 160 510 155 480" fill="none" stroke="#FF8FB1" stroke-width="12" />
+              <path d="M1060 600 C1060 560 1050 540 1030 520 M1060 580 C1070 550 1090 540 1100 510 M1060 560 C1060 530 1070 510 1065 480" fill="none" stroke="#1F1A24" stroke-width="20" />
+              <path d="M1060 600 C1060 560 1050 540 1030 520 M1060 580 C1070 550 1090 540 1100 510 M1060 560 C1060 530 1070 510 1065 480" fill="none" stroke="#FFA552" stroke-width="12" />
+              <path d="M795 660 a26 22 0 0 1 52 0 Z" fill="#B58CFF" stroke-width="6" />
+              <path d="M802 650 h38 M810 640 h22" fill="none" stroke="#8A63D2" stroke-width="4" />
+            </g>
+
+            <!-- The treasure chest, stuck shut until it's enchanted. Then its
+                 lid pops open and shiny pearls glow inside. -->
+            <g class="chest-pearls">
+              <ellipse cx="323" cy="592" rx="50" ry="24" fill="#FFF1A8" opacity="0.7" />
+              <g stroke="#1F1A24" stroke-width="3">
+                <circle cx="300" cy="596" r="8" fill="#FFFFFF" /><circle cx="318" cy="590" r="9" fill="#FFE3EC" />
+                <circle cx="337" cy="594" r="8" fill="#FFFFFF" /><circle cx="352" cy="598" r="7" fill="#FFE3EC" />
+              </g>
+            </g>
+            <g stroke="#1F1A24" stroke-width="6" stroke-linejoin="round">
+              <rect x="275" y="600" width="96" height="54" rx="6" fill="#A9733F" />
+              <path d="M275 620 H371 M299 600 V654 M347 600 V654" fill="none" stroke="#7A4A22" stroke-width="5" />
+              <rect x="315" y="606" width="16" height="18" rx="3" fill="#FFD23F" stroke-width="4" />
+            </g>
+            <path class="chest-lid" d="M275 600 V588 Q323 562 371 588 V600 Z" fill="#8A5A3B" stroke="#1F1A24" stroke-width="6" stroke-linejoin="round" />
+
+            <path class="enchant-swirl fades" d="M323 540 C420 540 430 690 323 690 C230 690 220 552 306 546" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Pearl bobs happily at the end. -->
+            <g class="pearl-bob">
+              <!-- Pearl the seahorse, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Pearl the seahorse needs help. Tap to talk." transform="translate(434 556) scale(1.7)">
+                <circle class="helper-ring" cy="-4" r="50" fill="none" stroke="none" stroke-width="4" />
+                <path d="M6 10 C18 28 4 44 -6 40 C-14 36 -10 26 -2 30" fill="none" stroke="#1F1A24" stroke-width="16" stroke-linecap="round" />
+                <path d="M6 10 C18 28 4 44 -6 40 C-14 36 -10 26 -2 30" fill="none" stroke="#E7C8F5" stroke-width="9" stroke-linecap="round" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <path d="M12 -20 Q28 -14 22 0 Q30 4 20 8 Z" fill="#FFB3D1" stroke-width="3" />
+                  <ellipse cx="4" cy="-4" rx="14" ry="22" fill="#E7C8F5" />
+                  <path d="M-6 -36 h-20 a5 5 0 0 0 0 10 h18" fill="#E7C8F5" />
+                  <circle cy="-32" r="14" fill="#E7C8F5" />
+                  <path d="M-4 -46 l4 -8 l4 8 M6 -44 l6 -6 l1 9" fill="#E7C8F5" stroke-width="3" />
+                </g>
+                <path d="M-2 -6 q6 2 10 -2 M-2 4 q6 2 10 -2" fill="none" stroke="#C9A6E0" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="-4" cy="-34" r="2.8" fill="#1F1A24" />
+                <circle cx="2" cy="-26" r="2.6" fill="#FF8FB1" />
+                <g class="alert">
+                  <circle cy="-82" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M0 -92 V-80" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cy="-72" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle cy="-4" r="46" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Inky's quest: an octopus with all eight arms tangled in seaweed.
+               Once it's enchanted, the seaweed lets go and stands up straight,
+               and Inky wiggles all eight arms. -->
+          <g data-quest="inky" data-froggles-to="380 240" data-enchant-at="658 590">
+            <path class="enchant-swirl fades" d="M658 500 C783 500 793 690 658 690 C533 690 523 514 641 508" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- Inky dances at the end. -->
+            <g class="inky-wiggle">
+              <!-- Inky the octopus, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Inky the octopus needs help. Tap to talk." transform="translate(658 598) scale(1.6)">
+                <circle class="helper-ring" cy="-14" r="56" fill="none" stroke="none" stroke-width="4" />
+                <!-- The seaweed once it lets go, standing up beside him -->
+                <g class="weed-free" fill="none" stroke-linecap="round">
+                  <path d="M-66 40 C-74 20 -58 0 -66 -24 C-72 -40 -62 -52 -66 -64" stroke="#1F1A24" stroke-width="12" />
+                  <path d="M-66 40 C-74 20 -58 0 -66 -24 C-72 -40 -62 -52 -66 -64" stroke="#3FA34D" stroke-width="6" />
+                  <path d="M66 40 C74 20 58 0 66 -24 C72 -40 62 -52 66 -64" stroke="#1F1A24" stroke-width="12" />
+                  <path d="M66 40 C74 20 58 0 66 -24 C72 -40 62 -52 66 -64" stroke="#3FA34D" stroke-width="6" />
+                </g>
+                <!-- His arms: all tangled up, then spread out free -->
+                <g class="arms-tangled" fill="none" stroke-linecap="round">
+                  <path d="M-24 -8 C-10 10 20 10 14 24" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-24 -8 C-10 10 20 10 14 24" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M24 -8 C10 10 -20 10 -14 24" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M24 -8 C10 10 -20 10 -14 24" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-16 -4 C0 24 24 18 20 34" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-16 -4 C0 24 24 18 20 34" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M16 -4 C0 24 -24 18 -20 34" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M16 -4 C0 24 -24 18 -20 34" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-8 -2 C14 14 10 30 -4 36" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-8 -2 C14 14 10 30 -4 36" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M8 -2 C-14 14 -10 30 4 36" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M8 -2 C-14 14 -10 30 4 36" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-20 -6 C-30 14 0 20 8 12" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-20 -6 C-30 14 0 20 8 12" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M20 -6 C30 14 0 20 -8 12" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M20 -6 C30 14 0 20 -8 12" stroke="#FF9E80" stroke-width="7" />
+                </g>
+                <g class="arms-free" fill="none" stroke-linecap="round">
+                  <path d="M-24 -10 Q-48 -4 -52 -22 Q-54 -32 -44 -30" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-24 -10 Q-48 -4 -52 -22 Q-54 -32 -44 -30" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-20 -6 Q-40 14 -54 8 Q-62 4 -56 -4" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-20 -6 Q-40 14 -54 8 Q-62 4 -56 -4" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-12 -4 Q-24 22 -40 26 Q-48 26 -46 18" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-12 -4 Q-24 22 -40 26 Q-48 26 -46 18" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M-4 -4 Q-8 24 -18 34 Q-24 38 -26 30" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M-4 -4 Q-8 24 -18 34 Q-24 38 -26 30" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M4 -4 Q8 24 18 34 Q24 38 26 30" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M4 -4 Q8 24 18 34 Q24 38 26 30" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M12 -4 Q24 22 40 26 Q48 26 46 18" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M12 -4 Q24 22 40 26 Q48 26 46 18" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M20 -6 Q40 14 54 8 Q62 4 56 -4" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M20 -6 Q40 14 54 8 Q62 4 56 -4" stroke="#FF9E80" stroke-width="7" />
+                  <path d="M24 -10 Q48 -4 52 -22 Q54 -32 44 -30" stroke="#1F1A24" stroke-width="13" />
+                  <path d="M24 -10 Q48 -4 52 -22 Q54 -32 44 -30" stroke="#FF9E80" stroke-width="7" />
+                </g>
+                <!-- The seaweed tangled around his arms -->
+                <g class="weed-tangle" fill="none" stroke-linecap="round">
+                  <path d="M-38 6 C-12 22 12 -2 38 14 M-34 28 C-8 12 14 36 34 24" stroke="#1F1A24" stroke-width="11" />
+                  <path d="M-38 6 C-12 22 12 -2 38 14 M-34 28 C-8 12 14 36 34 24" stroke="#3FA34D" stroke-width="5" />
+                </g>
+                <ellipse cy="-34" rx="30" ry="32" fill="#FF9E80" stroke="#1F1A24" stroke-width="4" />
+                <circle cx="-16" cy="-48" r="4" fill="#FFC7B6" />
+                <circle cx="-10" cy="-32" r="3" fill="#1F1A24" />
+                <circle cx="10" cy="-32" r="3" fill="#1F1A24" />
+                <path d="M-7 -21 q7 6 14 0" fill="none" stroke="#1F1A24" stroke-width="2.5" stroke-linecap="round" />
+                <g class="alert">
+                  <circle cy="-90" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M0 -100 V-88" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cy="-80" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle cy="-14" r="52" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Bubbles' quest: a little fish who lost his school, swimming way
+               up near the top. Once it's enchanted, a big bubble grows around
+               him and floats him up to join them. -->
+          <g data-quest="bubbles" data-froggles-to="620 250" data-enchant-at="860 575">
+            <g class="school">
+              <use href="#school-fish" fill="#FFD23F" transform="translate(790 205) scale(1.6)" />
+              <use href="#school-fish" fill="#FF8FB1" transform="translate(860 150) scale(1.6)" />
+              <use href="#school-fish" fill="#7FD3A8" transform="translate(915 205) scale(1.6)" />
+            </g>
+
+            <path class="enchant-swirl fades" d="M860 500 C970 500 980 670 860 670 C750 670 740 514 844 508" fill="none" stroke="#5B2A9E" stroke-width="12" stroke-linecap="round" />
+
+            <!-- The bubble carries him up to his school at the end. -->
+            <g class="bubbles-rise">
+              <!-- Bubbles the little fish, who needs help. Works like a button
+                   (quest-page.js). -->
+              <g class="helper" role="button" tabindex="0" aria-label="Bubbles the little fish needs help. Tap to talk." transform="translate(860 578) scale(1.5)">
+                <circle class="helper-ring" r="44" fill="none" stroke="none" stroke-width="4" />
+                <g stroke="#1F1A24" stroke-width="4" stroke-linejoin="round">
+                  <path d="M-20 0 L-34 -12 V12 Z" fill="#FFA552" />
+                  <path d="M-4 -12 L4 -22 L10 -10 Z" fill="#FFA552" stroke-width="3" />
+                  <ellipse rx="22" ry="15" fill="#FFB347" />
+                  <path d="M-6 -12 Q-10 0 -6 12" fill="none" stroke="#FFFFFF" stroke-width="4" />
+                </g>
+                <circle cx="10" cy="-4" r="3" fill="#1F1A24" />
+                <path d="M12 5 q4 2 7 -1" fill="none" stroke="#1F1A24" stroke-width="2.5" stroke-linecap="round" />
+                <!-- The magic bubble that floats him up -->
+                <g class="big-bubble" fill="none" stroke="#FFFFFF">
+                  <circle r="38" fill="#FFFFFF" fill-opacity="0.18" stroke-width="5" />
+                  <path d="M-22 -18 a28 28 0 0 1 16 -12" stroke-width="5" stroke-linecap="round" />
+                </g>
+                <g class="alert">
+                  <circle cy="-48" r="17" fill="#FFFFFF" stroke="#1F1A24" stroke-width="4" />
+                  <path d="M0 -58 V-46" stroke="#1F1A24" stroke-width="5" stroke-linecap="round" />
+                  <circle cy="-38" r="2.8" fill="#1F1A24" />
+                </g>
+                <circle r="40" fill="transparent" />
+              </g>
+            </g>
+          </g>
+
+          <!-- Mr. Froggles, swimming in his magic bubble -->
+          <!-- Once everyone is helped, he twirls and flies off. -->
+          <g class="froggles-exit">
+            <!-- The outer group swoops him over to cast each enchantment. -->
+            <g class="froggles-swoop">
+              <image class="froggles-flying" href="./mr-froggles.svg" x="330" y="40" width="250" height="325" />
+              <g class="froggles-bubble" fill="none" stroke="#FFFFFF">
+                <circle cx="455" cy="205" r="168" fill="#FFFFFF" fill-opacity="0.1" stroke-width="6" stroke-opacity="0.75" />
+                <path d="M340 120 a140 140 0 0 1 70 -66" stroke-width="7" stroke-linecap="round" stroke-opacity="0.8" />
+              </g>
+            </g>
+          </g>
+        </svg>
+
+        <section class="finale" role="dialog" aria-labelledby="finale-title" hidden>
+          <div class="finale-card">
+            <h2 id="finale-title">You did it!</h2>
+            <p>Everyone in the Coral Reef is happy again. Mr. Froggles has flown off to find more friends who need help.</p>
+            <div class="finale-buttons">
+              <a class="story-button finale-next" href="./next.html">Pick another kingdom</a>
+              <button type="button" class="story-button finale-stay">Stay and look</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="story" aria-live="polite">
+        <p class="story-speaker" hidden></p>
+        <p class="story-text"></p>
+        <button type="button" class="story-button enchant" hidden></button>
+      </section>
+    </main>
+
+    <script type="module">
+      import { start } from './game/reef-page.js';
+      start(document);
+    </script>
+  </body>
+</html>

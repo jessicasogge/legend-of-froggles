@@ -537,6 +537,7 @@ body.scrolls {
 .kingdom-snow { background: #1b5e80; }
 .kingdom-beach { background: #b8561b; }
 .kingdom-candy { background: #b0306a; }
+.kingdom-reef { background: #08757f; }
 
 /* A kingdom that has its screen is a link; it looks the same as the rest. */
 a.kingdom {
@@ -589,13 +590,20 @@ body.candy {
   --back: #bff0d6;
 }
 
+body.reef {
+  --page: #d4f1ff;
+  --title: #0b4f7a;
+  --back: #ffb3a1;
+}
+
 body.night,
 body.day,
 body.forest,
 body.pond,
 body.snow,
 body.beach,
-body.candy {
+body.candy,
+body.reef {
   background: var(--page);
   overflow: auto;
 }
@@ -1712,6 +1720,127 @@ body.candy {
   transform: none;
 }
 
+/* Coral Reef: the treasure chest's lid pops open, shiny pearls glow
+   inside, and Pearl bobs happily. */
+.chest-lid {
+  transform-box: fill-box;
+  transform-origin: 100% 100%;
+  transition: transform 0.6s cubic-bezier(0.3, 1.6, 0.6, 1) 0.9s;
+}
+
+[data-step='done'] .chest-lid {
+  transform: translate(4px, -6px) rotate(28deg);
+}
+
+.chest-pearls {
+  opacity: 0;
+  transition: opacity 0.5s 1.2s;
+}
+
+[data-step='done'] .chest-pearls {
+  opacity: 1;
+}
+
+[data-step='done'] .pearl-bob {
+  animation: hare-hop 1.1s ease-in-out 1.8s 2;
+}
+
+/* Coral Reef: the seaweed lets go of Inky's arms and stands up straight,
+   his arms spread out free, and he dances. */
+.weed-tangle,
+.arms-tangled {
+  transition: opacity 0.5s 0.8s;
+}
+
+[data-step='done'] .weed-tangle,
+[data-step='done'] .arms-tangled {
+  opacity: 0;
+}
+
+.weed-free,
+.arms-free {
+  opacity: 0;
+  transition: opacity 0.5s 0.8s;
+}
+
+[data-step='done'] .weed-free,
+[data-step='done'] .arms-free {
+  opacity: 1;
+}
+
+.inky-wiggle {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+[data-step='done'] .inky-wiggle {
+  animation: inky-wiggle 0.45s ease-in-out 1.6s 6 alternate;
+}
+
+@keyframes inky-wiggle {
+  from {
+    transform: rotate(-6deg);
+  }
+
+  to {
+    transform: rotate(6deg);
+  }
+}
+
+/* Coral Reef: a big bubble grows around Bubbles, floats him up to his
+   school, and pops. His school swims gently back and forth. */
+.big-bubble {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+[data-step='done'] .big-bubble {
+  animation: big-bubble 3.4s ease-in-out 0.7s;
+}
+
+@keyframes big-bubble {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+
+  20%,
+  85% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+.bubbles-rise {
+  transition: transform 1.8s ease-in-out 1.5s;
+}
+
+[data-step='done'] .bubbles-rise {
+  transform: translate(-5px, -320px);
+}
+
+.school {
+  animation: school-swim 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes school-swim {
+  to {
+    transform: translate(-14px, 6px);
+  }
+}
+
+/* Mr. Froggles' magic bubble, so he can swim under the sea. Taps go
+   through it. */
+.scene .froggles-bubble {
+  pointer-events: none;
+}
+
 /* Home Pond: Wiggles the tadpole wiggles his tail, then once he's
    enchanted, the tadpole fades and a little frog hops onto the pad. */
 .tadpole-tail {
@@ -1902,6 +2031,10 @@ body.candy {
   [data-step='done'] .shelly-dance,
   [data-step='done'] .crumb-hop,
   [data-step='done'] .taffy-hop,
+  [data-step='done'] .pearl-bob,
+  [data-step='done'] .inky-wiggle,
+  [data-step='done'] .big-bubble,
+  .school,
   .finale,
   .finale-card,
   .froggles-swoop.casting,
@@ -1960,6 +2093,13 @@ body.candy {
   .candy-cloud,
   .puff-melted,
   .puff-whole,
+  .chest-lid,
+  .chest-pearls,
+  .weed-tangle,
+  .arms-tangled,
+  .weed-free,
+  .arms-free,
+  .bubbles-rise,
   .tadpole,
   .lily-bud,
   .lily-bloom,
