@@ -406,6 +406,49 @@ body.scrolls {
   text-align: center;
 }
 
+/* Back to the title screen in one corner, and Read the legend in the
+   other, so there's always a way to the storybook from the game. On a
+   phone they're round buttons with just their pictures. */
+.next-screen {
+  --back: #fff;
+  position: relative;
+}
+
+.next-screen > .back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.next-screen > .to-legend {
+  left: auto;
+  right: 1rem;
+}
+
+@media (max-width: 600px) {
+  .next-screen > .back {
+    top: 0.5rem;
+    left: 0.75rem;
+    width: 48px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .next-screen > .to-legend {
+    left: auto;
+    right: 0.75rem;
+  }
+
+  .next-screen .back-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .next-screen h1 {
   margin: 0;
   font-family: Fredoka, system-ui, sans-serif;
