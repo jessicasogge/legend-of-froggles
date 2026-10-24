@@ -23,6 +23,12 @@ beforeEach(() => {
 });
 
 describe('pick a kingdom', () => {
+  it('has a Back button to the title screen', () => {
+    const back = document.querySelector('main.next-screen > a.back');
+    expect(back.textContent.trim()).toBe('Back');
+    expect(back.getAttribute('href')).toBe('./');
+  });
+
   it('asks where Mr. Froggles will fly', () => {
     expect(document.querySelector('main.next-screen h1').textContent).toBe('Where will Mr. Froggles fly?');
   });
