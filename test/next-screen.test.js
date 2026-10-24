@@ -24,15 +24,9 @@ beforeEach(() => {
 
 describe('pick a kingdom', () => {
   it('has a Back button to the title screen', () => {
-    const back = document.querySelector('main.next-screen > a.back:not(.to-legend)');
+    const back = document.querySelector('main.next-screen > a.back');
     expect(back.textContent.trim()).toBe('Back');
     expect(back.getAttribute('href')).toBe('./');
-  });
-
-  it('has a way to the storybook', () => {
-    const legend = document.querySelector('main.next-screen > a.to-legend');
-    expect(legend.textContent.trim()).toBe('Read the legend');
-    expect(legend.getAttribute('href')).toBe('./story.html');
   });
 
   it('asks where Mr. Froggles will fly', () => {

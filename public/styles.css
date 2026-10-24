@@ -406,9 +406,9 @@ body.scrolls {
   text-align: center;
 }
 
-/* Back to the title screen in one corner, and Read the legend in the
-   other, so there's always a way to the storybook from the game. On a
-   phone they're round buttons with just their pictures. */
+/* Back to the title screen, in the corner, so there's always a way from
+   the game to the storybook. On a phone it's a round button with just its
+   arrow. */
 .next-screen {
   --back: #fff;
   position: relative;
@@ -420,11 +420,6 @@ body.scrolls {
   left: 1rem;
 }
 
-.next-screen > .to-legend {
-  left: auto;
-  right: 1rem;
-}
-
 @media (max-width: 600px) {
   .next-screen > .back {
     top: 0.5rem;
@@ -432,11 +427,6 @@ body.scrolls {
     width: 48px;
     padding: 0;
     justify-content: center;
-  }
-
-  .next-screen > .to-legend {
-    left: auto;
-    right: 0.75rem;
   }
 
   .next-screen .back-label {
